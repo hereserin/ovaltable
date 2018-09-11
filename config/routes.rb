@@ -7,7 +7,7 @@ Rails.application.routes.draw do
      resource :session, only: [:create, :destroy]
    end
 
-   root 'static_pages#root'
+   root to: 'static_pages#root'
 
 
 
