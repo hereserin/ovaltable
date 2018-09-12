@@ -2,9 +2,9 @@ import { merge } from 'lodash';
 import {
   RECEIVE_CURRENT_USER,
   LOGOUT_CURRENT_USER
-} from './../actions/sessions_actions';
+} from './../actions/session_actions';
 
-const sessionsReducer = (state={id: null}, action) => {
+const sessionReducer = (state={id: null}, action) => {
   Object.freeze(state);
   switch (action.type) {
     case RECEIVE_CURRENT_USER:
@@ -16,4 +16,4 @@ const sessionsReducer = (state={id: null}, action) => {
   }
 };
 
-export default sessionsReducer;
+export default sessionReducer;
