@@ -6,6 +6,7 @@ class Api::SessionsController < ApplicationController
       params[:user][:username],
       params[:user][:password]
     )
+
     if @user
       login_user(@user)
       render 'api/users/show'
@@ -22,6 +23,7 @@ class Api::SessionsController < ApplicationController
     else
       render json: ['No one is signed in'], status: 404
     end
+
   end
 
 
