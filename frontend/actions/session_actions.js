@@ -46,6 +46,6 @@ const logoutCurrentUser = () => {
 const receiveSessionsErrors = () => {
   return ({
     type: RECEIVE_SESSION_ERRORS,
-    error: error.responseJSON
+    errors: error.responseJSON
   });
 }
