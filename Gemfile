@@ -42,7 +42,6 @@ group :development, :test do
   gem 'annotate'
   gem 'better_errors'
   gem 'binding_of_caller'
-  gem 'chrome_logger'
 end
 
 group :development do

@@ -7,27 +7,45 @@ export const RECEIVE_SESSION_ERRORS = 'RECEIVE_SESSION_ERRORS';
 
 export const signup = (user) => {
   return (dispatch) => {
-    return SessionAPIUtil.signup(user).then((user) => {
-      return dispatch(receiveCurrentUser(user));
-    }, receiveSessionsErrors(user));
+    return SessionAPIUtil.signup(user).then(
+      (user) => {
+        return dispatch(receiveCurrentUser(user));
+      },
+      (errors) => {
+        return dispatch(receiveSessionsErrors(errors));
+      }
+  );
   };
 };
 
 export const logout = () => {
   return (dispatch) => {
-    return SessionAPIUtil.logout().then((response) => {
-      return dispatch(logoutCurrentUser());
-    }, receiveSessionsErrors(response));
+    return SessionAPIUtil.logout().then(
+      (response) => {
+        return dispatch(logoutCurrentUser());
+      },
+      (errors) => {
+        return dispatch(receiveSessionsErrors(errors));
+      }
+  );
   };
 };
 
 export const login = (user) => {
+  // debugger
   return (dispatch) => {
-    return SessionAPIUtil.login(user).then((user) => {
-      return dispatch(receiveCurrentUser(user));
-    }, receiveSessionsErrors(user));
+    return SessionAPIUtil.login(user).then(
+      (user) => {
+        // debugger
+        return dispatch(receiveCurrentUser(user));
+      },
+      (errors) => {
+        // debugger
+        return dispatch(receiveSessionsErrors(errors));
+      });
   };
 };
+
 
 
 const receiveCurrentUser = (user) => {
@@ -43,9 +61,10 @@ const logoutCurrentUser = () => {
   });
 }
 
-const receiveSessionsErrors = () => {
+const receiveSessionsErrors = (errors) => {
+  // debugger
   return ({
     type: RECEIVE_SESSION_ERRORS,
-    errors: error.responseJSON
+    errors: errors.responseJSON
   });
 }

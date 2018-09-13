@@ -5,7 +5,10 @@ import configureStore from './store/store';
 
 // get rid of later: THIS IS FOR TESTING
 // import * as SessionAPIUtil from './util/session_api_util';
-// window.login = SessionAPIUtil.login;
+import { login, signup, logout } from './actions/session_actions';
+window.login = login;
+window.signup = signup;
+window.logout = logout;
 // window.logout = SessionAPIUtil.logout;
 // window.signup = SessionAPIUtil.signup;
 // get rid of later: THIS IS FOR TESTING

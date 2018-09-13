@@ -3,7 +3,7 @@ import { signup } from './../../actions/session_actions';
 import SessionForm from './session_form';
 
 const mapStateToProps = (state) => {
-  debugger 
+   
   return ({
     errors: state.errors.session,
     currentUserId: state.session.id,
