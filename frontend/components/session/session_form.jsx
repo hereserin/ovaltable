@@ -42,7 +42,7 @@ class SessionForm extends React.Component {
   }
 
   errorsList() {
-    // debugger 
+    // debugger
     const currentErrors = this.props.errors.map((error, idx) => {
       return (
         <li key={idx}>{error}</li>
