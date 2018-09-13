@@ -39,6 +39,7 @@ class SessionForm extends React.Component {
     }
     const user = Object.assign({}, this.state);
     this.props.processForm(user);
+    this.setState({password: ""});
   }
 
   errorsList() {
@@ -79,8 +80,8 @@ class SessionForm extends React.Component {
         <h2>{this.props.formType}</h2>
         <ul>{this.errorsList()}</ul>
         <form onSubmit={this.handleSubmit}>
-          <input type='text' value={this.state.username} onChange={this.handleChange('username')} />
-          <input type='password' value={this.state.password} onChange={this.handleChange('password')} />
+          <input type='text' placeholder="email" value={this.state.username} onChange={this.handleChange('username')} />
+          <input type='password' placeholder="password" value={this.state.password} onChange={this.handleChange('password')} />
           <button>{this.props.formType}</button>
         </form>
         {this.notThisFormLink()}
