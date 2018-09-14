@@ -8,7 +8,7 @@ const mapStateToProps = (state) => {
     errors: state.errors.session,
     currentUserId: state.session.id,
     formType: 'signup',
-    formTitle: 'Create an account'
+    formTitle: 'Welcome to OvalTable!'
   });
 };
 
