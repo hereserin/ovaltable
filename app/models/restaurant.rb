@@ -9,5 +9,7 @@ class Restaurant < ApplicationRecord
   belongs_to :dress_code,
   class_name: :DressCode
 
+  def average_ratings
+  end
 
 end
