@@ -10,10 +10,38 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_09_11_181628) do
+ActiveRecord::Schema.define(version: 2018_09_14_161018) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "dining_styles", force: :cascade do |t|
+    t.string "dining_style", null: false
+  end
+
+  create_table "dress_codes", force: :cascade do |t|
+    t.string "dress_code", null: false
+  end
+
+  create_table "region_keys", force: :cascade do |t|
+    t.string "region_key", null: false
+  end
+
+  create_table "restaurants", force: :cascade do |t|
+    t.string "restaurant_name", null: false
+    t.integer "max_capacity", null: false
+    t.text "restaurant_description"
+    t.integer "dining_style_id"
+    t.string "phone"
+    t.string "website_url"
+    t.integer "dress_code_id"
+    t.string "physical_address"
+    t.integer "region_key_id"
+    t.index ["dining_style_id"], name: "index_restaurants_on_dining_style_id"
+    t.index ["dress_code_id"], name: "index_restaurants_on_dress_code_id"
+    t.index ["region_key_id"], name: "index_restaurants_on_region_key_id"
+    t.index ["restaurant_name"], name: "index_restaurants_on_restaurant_name", unique: true
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "username"
