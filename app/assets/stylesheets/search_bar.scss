@@ -1,0 +1,54 @@
+.home-search-box {
+  border: 0px;
+  padding: 100px;
+  padding-left: 300px;
+  width: 100%;
+  background: beige;
+  background-image: url(rest_search_back_pic01.jpg);
+}
+
+.home-search-message {
+  color: white;
+  font-size: 25px;
+}
+
+.search-bar-text {
+  margin: 10px;
+  background: white;
+  width: 180px;
+  padding: 10px;
+  border-radius: 3px;
+  border-style: none;
+}
+
+.date-time-person-holder {
+  background: white;
+  width: 300px;
+  padding: 10px;
+  border-radius: 3px;
+  border-style: none;
+}
+
+.home-search-box select, button {
+  padding: 8px;
+  border-radius: 3px;
+  border-style: none;
+  font-family: 'Nunito Sans', sans-serif;
+
+}
+
+.time-search, .date-search {
+  border: none;
+  font-family: 'Nunito Sans', sans-serif;
+  color: #685e5e;
+}
+
+.search-submit-button {
+  padding: 10px;
+  margin: 3px;
+  border-style: none;
+  background: #cb1111;
+  color: white;
+  width: 100px;
+  font-family: 'Nunito Sans', sans-serif;
+}
