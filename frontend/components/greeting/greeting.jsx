@@ -8,15 +8,18 @@ const Greeting = (props) => {
   if ( props.currentUser ) {
     greetingMessage = (
       <div>
-        <h3>Welcome to OvalTable, {props.currentUser.username}</h3>
+        <ul>
+          <li>calendar</li>
+          <li>Hi, {props.currentUser.username}</li>
+        </ul>>
         <LogoutButton logout={props.logout} />
       </div>
     );
   } else {
     greetingMessage = (
       <div>
-        <Link to='/signup'>Sign Up</Link>
-        <Link to='/login'>Login</Link>
+        <Link to='/signup' className="sign-up-nav-link">Sign Up</Link>
+        <Link to='/login' className="login-nav-link">Sign In</Link>
       </div>
     );
   }

@@ -1,0 +1,22 @@
+li, ul {
+  font-family: 'Nunito Sans', sans-serif;
+  color: #685e5e;
+}
+
+.nav-bar {
+  display: flex;
+  justify-content: space-between;
+}
+
+.left-nav-links {
+  display: flex;
+}
+
+.left-nav-links li {
+  padding: 10px;
+  list-style: none;
+}
+
+.right-nav-links {
+  margin: 20px;
+}
