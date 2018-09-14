@@ -11,7 +11,7 @@ const Greeting = (props) => {
         <ul>
           <li>calendar</li>
           <li>Hi, {props.currentUser.username}</li>
-        </ul>>
+        </ul>
         <LogoutButton logout={props.logout} />
       </div>
     );

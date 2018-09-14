@@ -46,6 +46,19 @@ export const login = (user) => {
   };
 };
 
+export const loginDefault = () => {
+  // debugger 
+  return (dispatch) => {
+    return SessionAPIUtil.login({username: "Demo User", password: "password" }).then(
+      (user) => {
+        return dispatch(receiveCurrentUser(user));
+      },
+      (errors) => {
+        return dispatch(receiveSessionsErrors(errors));
+      });
+  };
+};
+
 
 
 const receiveCurrentUser = (user) => {

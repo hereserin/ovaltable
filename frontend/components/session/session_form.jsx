@@ -6,11 +6,9 @@ class SessionForm extends React.Component {
   constructor(props) {
     super(props);
     this.handleSubmit = this.handleSubmit.bind(this);
+
     this.notThisFormLink = this.notThisFormLink.bind(this);
-    // this.handleUsernameChange = this.handleUsernameChange.bind(this);
-    // this.handlePasswordChange = this.handlePasswordChange.bind(this);
     this.handleChange = this.handleChange.bind(this);
-    // this.notThisFormString = this.notThisFormString.bind(this);
 
     this.state = {
       username: "",
@@ -23,24 +21,27 @@ class SessionForm extends React.Component {
       this.setState({ [type]: e.target.value });
     };
   }
-  //
-  // handleUsernameChange(e) {
-  //   this.setState({ username: e.target.value });
-  // }
-  //
-  // handlePasswordChange(e) {
-  //   this.setState({ password: e.target.value });
-  // }
 
-  handleSubmit(e) {
-    e.preventDefault();
-    if ( this.props.currentUserId ) {
-      //redirect to
-    }
-    const user = Object.assign({}, this.state);
-    this.props.processForm(user);
-    this.setState({password: ""});
+
+  handleSubmit(inputType) {
+    return ((e) => {
+      // debugger 
+      e.preventDefault();
+      if ( this.props.currentUserId ) {
+        //redirect to
+      }
+      // debugger
+      const user = Object.assign({}, this.state);
+
+      if ( inputType === 'demo') {
+        this.props.processDemo();
+      } else {
+        this.props.processForm(user);
+      }
+      this.setState({password: ""});
+    });
   }
+
 
   errorsList() {
 
@@ -67,28 +68,28 @@ class SessionForm extends React.Component {
     );
   }
 
-  // notThisFormString() {
-  //   if ( this.props.formType === 'login') {
-  //     return '/signup';
-  //   }
-  //   return '/login';
-  // }
-
   render() {
     return (
       <div>
         <span className='session-form-modal'>
-          <span className='session-form-modal-screen'>
-            <span className='session-form-modal-box'>
+          <span className='session-form-modal-screen' onClick={() => {
+              this.props.history.push('/');
+            }} >
+            <span className='session-form-modal-box' onClick={e => {
+                e.stopPropagation();
+              }}>
               <span className='session-form'>
                 <h2>{this.props.formTitle}</h2>
                 <ul>{this.errorsList()}</ul>
-                <form onSubmit={this.handleSubmit} >
+                <form onSubmit={this.handleSubmit('user')} >
                   <input type='text' placeholder="email" className='session-form-modal-box-input' value={this.state.username} onChange={this.handleChange('username')} />
                   <br></br>
                   <input type='password' placeholder="password" className='session-form-modal-box-input' value={this.state.password} onChange={this.handleChange('password')} />
                   <br></br>
                   <button className='session-form-modal-box-button'>{this.props.formType}</button>
+                </form>
+                <form onSubmit={this.handleSubmit('demo')} >
+                  <button className='session-form-modal-box-button-demo'>demo user</button>
                 </form>
                 {this.notThisFormLink()}
               </span>

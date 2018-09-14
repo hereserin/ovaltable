@@ -2,6 +2,7 @@
 import { Link } from 'react-router-dom';
 import GreetingContainer from './../greeting/greeting_container';
 import React from 'react';
+import { withRouter } from 'react-router-dom';
 
 
 const NavBar = (props) => {
@@ -19,4 +20,4 @@ const NavBar = (props) => {
   );
 };
 
-export default NavBar;
+export default withRouter(NavBar);
