@@ -9,6 +9,9 @@ import { login, signup, logout } from './actions/session_actions';
 window.login = login;
 window.signup = signup;
 window.logout = logout;
+import { fetchRestaurant, fetchRestaurants } from './actions/restaurant_actions';
+window.fetchRestaurant = fetchRestaurant;
+window.fetchRestaurants = fetchRestaurants;
 // window.logout = SessionAPIUtil.logout;
 // window.signup = SessionAPIUtil.signup;
 // get rid of later: THIS IS FOR TESTING

@@ -7,45 +7,45 @@ export const RECEIVE_RESTAURANT_ERRORS = 'RECEIVE_RESTAURANT_ERRORS';
 
 export const fetchRestaurant = (id) => {
   return (dispatch) => {
-    return RestaurantAPIUtil.fetchRestaurant.then(
+    return RestaurantAPIUtil.fetchRestaurant().then(
       (restaurant) => {
-        dispatch(receiveRestaurant(restaurant))
+        return dispatch(receiveRestaurant(restaurant))
       },
       (error) => {
-        dispatch(receiveRestaurantErrors(error))
+        return dispatch(receiveRestaurantErrors(error))
       });
   };
 };
 
 export const fetchRestaurants = () => {
   return (dispatch) => {
-    return RestaurantAPIUtil.fetchRestaurants.then(
+    return RestaurantAPIUtil.fetchRestaurants().then(
       (restaurants) => {
-        dispatch(receiveRestaurant(restaurants))
+        return dispatch(receiveRestaurants(restaurants))
       },
       (error) => {
-        dispatch(receiveRestaurantErrors(error))
+        return dispatch(receiveRestaurantErrors(error))
       });
   };
 };
 
 const receiveRestaurant = (restaurant) => {
   return ({
-    action: RECEIVE_RESTAURANT,
+    type: RECEIVE_RESTAURANT,
     restaurant: restaurant
   });
 };
 
 const receiveRestaurants = (restaurants) => {
   return ({
-    action: RECEIVE_RESTAURANTS,
+    type: RECEIVE_RESTAURANTS,
     restaurants: restaurants
   });
 };
 
 const receiveRestaurantErrors = (error) => {
   return ({
-    action: RECEIVE_RESTAURANT_ERRORS,
+    type: RECEIVE_RESTAURANT_ERRORS,
     restaurantError: error
   });
 };
