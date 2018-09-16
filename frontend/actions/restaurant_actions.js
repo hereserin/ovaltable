@@ -6,8 +6,9 @@ export const RECEIVE_RESTAURANT_ERRORS = 'RECEIVE_RESTAURANT_ERRORS';
 
 
 export const fetchRestaurant = (id) => {
+  // debugger
   return (dispatch) => {
-    return RestaurantAPIUtil.fetchRestaurant().then(
+    return RestaurantAPIUtil.fetchRestaurant(id).then(
       (restaurant) => {
         return dispatch(receiveRestaurant(restaurant))
       },
