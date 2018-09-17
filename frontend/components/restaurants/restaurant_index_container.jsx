@@ -1,16 +1,24 @@
 import { connect } from 'react-redux';
 import RestaurantIndex from './restaurant_index';
+import { selectRestaurants } from './../../reducers/selectors';
+import { fetchRestaurants } from './../../actions/restaurant_actions';
 
 const mapStatetoProps = (state) => {
-  restaurants: state.entities.restaurants
+  // debugger
+
+  return ({
+  restaurants: selectRestaurants(state.entities),
+  state
+});
 };
 
 const mapDispatchToProps = (dispatch) => {
-  fetchRestaurants: () => {
-    return (
-      dispatch(fetchRestaurants())
-    );
-  }
+  return ({
+    fetchRestaurants: () => {
+      return dispatch(fetchRestaurants())
+    }
+  });
 };
+
 
 export default connect(mapStatetoProps, mapDispatchToProps)(RestaurantIndex);

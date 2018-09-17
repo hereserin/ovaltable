@@ -1,17 +1,26 @@
 import React from 'react';
-import RestaurantIndexItem from './restaurant_index_item'
+import RestaurantIndexItem from './restaurant_index_item';
+import { Route } from 'react-router-dom';
 
 class RestaurantIndex extends React.Component {
-  componentDidMount() {
-    this.props.fetchRestaurants();
+  constructor(props) {
+    super(props);
+    // debugger 
   }
 
-  componentWillMount() {
-    debugger 
-  }
+  // componentDidMount() {
+  //   // debugger
+  //   this.props.fetchRestaurants();
+  // }
+
+  // componentWillMount() {
+  //   debugger
+  // }
 
   render() {
-    debugger
+    // debugger
+    if(!this.props.restaurants) return null;
+
     const restaurants = this.props.restaurants.map((restaurant) => {
       <RestaurantIndexItem key={restaurant.id} restaurant={restaurant} />
     });
@@ -19,6 +28,7 @@ class RestaurantIndex extends React.Component {
     return (
         <section>
           <ul>
+            <li>Hi!</li>
             {restaurants}
           </ul>
         </section>
