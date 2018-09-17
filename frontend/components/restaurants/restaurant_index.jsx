@@ -5,13 +5,18 @@ import { Route } from 'react-router-dom';
 class RestaurantIndex extends React.Component {
   constructor(props) {
     super(props);
-    // debugger 
+    // debugger
   }
 
-  // componentDidMount() {
-  //   // debugger
-  //   this.props.fetchRestaurants();
-  // }
+  componentDidMount() {
+    // debugger
+    console.log(this.props.restaurants)
+    this.props.fetchRestaurants();
+    // this.setState()
+    console.log("testingtesting123")
+    console.log(this.props.restaurants)
+
+  }
 
   // componentWillMount() {
   //   debugger
@@ -19,10 +24,13 @@ class RestaurantIndex extends React.Component {
 
   render() {
     // debugger
-    if(!this.props.restaurants) return null;
-
-    const restaurants = this.props.restaurants.map((restaurant) => {
-      <RestaurantIndexItem key={restaurant.id} restaurant={restaurant} />
+    // if(!this.props.restaurants) return null;
+    console.log(this.props.restaurants)
+    const restaurants = this.props.restaurants.map((restaurant, idx) => {
+      console.log(restaurant);
+      return (
+        <RestaurantIndexItem key={idx} restaurant={restaurant} />
+        );
     });
 
     return (
