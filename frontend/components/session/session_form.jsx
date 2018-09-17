@@ -25,7 +25,7 @@ class SessionForm extends React.Component {
 
   handleSubmit(inputType) {
     return ((e) => {
-      // debugger 
+      // debugger
       e.preventDefault();
       if ( this.props.currentUserId ) {
         //redirect to

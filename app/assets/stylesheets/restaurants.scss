@@ -1,3 +1,24 @@
 // Place all the styles related to the Restaurants controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.restaurant_index_item_thumbnail {
+    width: 190px;
+    height: 190px;
+    border-radius: 8px;
+    margin: 10px;
+}
+
+.restaurant_index_item {
+  display: flex;
+  margin: 10px;
+  border-bottom-color: #e9e4e4;
+  border-bottom-style: solid;
+  padding: 20px;
+  border-bottom-width: 1px;
+}
+
+.restaurant_index_item h3 {
+  font-size: 20px;
+  color: #20849c;
+}

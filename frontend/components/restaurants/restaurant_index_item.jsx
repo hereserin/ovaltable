@@ -2,10 +2,17 @@ import React from 'react';
 // import defaultThumbnail from './../../../app/assets/images/default_images/default_rest_thumbnail.png';
 
 const RestaurantIndexItem = ({restaurant}) => {
+  // debugger
+
   return (
-    <li>
-      <img src={window.staticImages.defaultThumbnail} />
-      {restaurant.restaurant_name}: {restaurant.restaurant_description}
+    <li className='restaurant_index_item'>
+      <img className='restaurant_index_item_thumbnail' src={window.staticImages.defaultRestaurant} />
+      <div>
+        <h3>
+          {restaurant.restaurant_name}
+        </h3>
+          {restaurant.restaurant_description}
+      </div>
     </li>
   );
 }
