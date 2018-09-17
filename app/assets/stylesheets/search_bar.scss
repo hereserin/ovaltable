@@ -15,12 +15,22 @@
   background: black;
 }
 
-.just-search-box {
+.just-search-box-home {
   border: 0px;
+  border-style: none;
   padding: 5px;
   padding-left: 5px;
   width: 100%;
-  background: black;
+  background: transparent;
+}
+
+.just-search-box-rests {
+  border: 0px;
+  border-style: none;
+  padding: 5px;
+  padding-left: 5px;
+  width: 100%;
+  background: transparent;
 }
 
 .home-search-message {

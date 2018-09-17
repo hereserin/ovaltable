@@ -4,7 +4,7 @@ import React from 'react';
 const RestaurantIndexItem = ({restaurant}) => {
   return (
     <li>
-
+      <img src={window.staticImages.defaultThumbnail} />
       {restaurant.restaurant_name}: {restaurant.restaurant_description}
     </li>
   );
