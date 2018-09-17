@@ -7,11 +7,9 @@ class SearchBar extends React.Component {
 
   render() {
     // debugger
-      let classStyle = undefined;
+      let classStyle = 'results-search-box';
       if (this.props.location.pathname === '/') {
-        classStyle = 'just-search-box';
-      } else {
-        classStyle = 'results-search-box';
+        classStyle = 'just-search-box-home';
       }
 
 

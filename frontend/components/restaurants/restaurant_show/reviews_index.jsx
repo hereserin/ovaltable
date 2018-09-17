@@ -5,7 +5,7 @@ const ReviewsIndex = (props) => {
     <ul>
       <li>
         This is where the Restaurant Reviews will go...
-        All reveiw-items will be rendered in here. 
+        All review-items will be rendered in here. 
       </li>
     </ul>
   );

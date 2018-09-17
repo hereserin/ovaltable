@@ -5,6 +5,7 @@
   width: 100%;
   background: beige;
   background-image: url(rest_search_back_pic01.jpg);
+  box-sizing: border-box;
 }
 
 .results-search-box {
@@ -16,7 +17,7 @@
 }
 
 .just-search-box-home {
-  border: 0px;
+  border-width: 0;
   border-style: hidden;
   padding: 5px;
   padding-left: 5px;
@@ -24,8 +25,8 @@
   background: transparent;
 }
 
-.just-search-box-rests {
-  border: 0px;
+.just-search-box-rests fieldset {
+  border-width: 0;
   border-style: hidden;
   padding: 5px;
   padding-left: 5px;

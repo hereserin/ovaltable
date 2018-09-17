@@ -51,7 +51,7 @@ class SessionForm extends React.Component {
       );
     });
     return (
-      <ul>
+      <ul className='form-errors'>
         {currentErrors}
       </ul>
     );
@@ -69,6 +69,11 @@ class SessionForm extends React.Component {
   }
 
   render() {
+    let inputClass = 'session-form-modal-box-input';
+    if (Object.keys(this.props.errors).length > 0 ) {
+      inputClass = 'session-form-modal-box-input-with-errors'
+    };
+
     return (
       <div>
         <span className='session-form-modal'>
@@ -82,9 +87,9 @@ class SessionForm extends React.Component {
                 <h2>{this.props.formTitle}</h2>
                 <ul>{this.errorsList()}</ul>
                 <form onSubmit={this.handleSubmit('user')} >
-                  <input type='text' placeholder="email" className='session-form-modal-box-input' value={this.state.username} onChange={this.handleChange('username')} />
+                  <input type='text' placeholder="email" className={inputClass} value={this.state.username} onChange={this.handleChange('username')} />
                   <br></br>
-                  <input type='password' placeholder="password" className='session-form-modal-box-input' value={this.state.password} onChange={this.handleChange('password')} />
+                  <input type='password' placeholder="password" className={inputClass} value={this.state.password} onChange={this.handleChange('password')} />
                   <br></br>
                   <button className='session-form-modal-box-button'>{this.props.formType}</button>
                 </form>

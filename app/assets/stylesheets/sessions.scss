@@ -43,6 +43,18 @@ h1, h2, h3, link, p, a {
     font-family: 'Nunito Sans', sans-serif;
 }
 
+.session-form-modal-box-input-with-errors {
+    padding: 10px;
+    margin: 3px;
+    border-radius: 3px;
+    border-width: thin;
+    border-style: solid;
+    border-color: #ae3232;
+    width: 370px;
+    color: #ae3232;
+    font-family: 'Nunito Sans', sans-serif;
+}
+
 .session-form-modal-box-button {
     padding: 10px;
     margin: 3px;
@@ -67,4 +79,9 @@ h1, h2, h3, link, p, a {
 
 .session-form {
 
+}
+
+.form-errors li {
+  color: #ae3232;
+  list-style: none;
 }
