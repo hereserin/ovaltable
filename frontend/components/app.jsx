@@ -14,7 +14,8 @@ const App = () => {
     <div>
       <header>
         <NavBar />
-        <SearchBar />
+        // <SearchBar />
+      <Route exact path='/' component={SearchBar} />
       </header>
       <Route path="/restaurants" component={RestaurantIndexContainer} />
 

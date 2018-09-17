@@ -1,23 +1,18 @@
 // search bar
 import React from 'react';
 import { Link, withRouter } from 'react-router-dom';
+import
 
 
-const SearchBar = (props) => {
-  // debugger
-    let classStyle = undefined;
-    if (props.location.pathname === '/') {
-      classStyle = 'just-search-box';
-    } else {
-      classStyle = 'just-search-box';
-    }
+const HomepageSearchSection = (props) => {
 
-
-    // debugger
 
     return (
-        <fieldset className={classStyle}>
-
+      <div>
+        <fieldset className='home-search-box'>
+          <h2 className='home-search-message'>
+            Find your table for any occasion
+          </h2>
           <span className='date-time-person-holder'>
             <input type='date' className="date-search" />
 
@@ -40,10 +35,10 @@ const SearchBar = (props) => {
 
           <button className='search-submit-button'>Let's go</button>
         </fieldset>
-
+      </div>
     );
 
 };
 
 
-export default withRouter(SearchBar);
+export default HomepageSearchSection;
