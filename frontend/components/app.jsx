@@ -17,11 +17,11 @@ const App = () => {
       <header>
         <NavBar />
         <Switch>
-          <Route exact path='/' component={HomepageSearchSection} />
           <Route path='/login/' component={HomepageSearchSection} />
           <Route path='/signup/' component={HomepageSearchSection} />
           <Route exact path='/restaurants' component={RestaurantIndexSearchSection} />
         </Switch>
+        <Route exact path='/' component={HomepageSearchSection} />
       </header>
       <Route exact path="/restaurants" component={RestaurantIndexContainer} />
 
