@@ -23,13 +23,15 @@ const App = () => {
         </Switch>
         <Route exact path='/' component={HomepageSearchSection} />
       </header>
-      <Route exact path="/restaurants" component={RestaurantIndexContainer} />
+      <main className='main-component'>
+        <Route exact path="/restaurants" component={RestaurantIndexContainer} />
 
-      <Route path="/restaurants/:restaurantId" component={RestaurantShowPageContainer} />
+        <Route path="/restaurants/:restaurantId" component={RestaurantShowPageContainer} />
 
 
-      <AuthRoute path='/login' component={LoginFormContainer} />
-      <AuthRoute path='/signup' component={SignupFormContainer} />
+        <AuthRoute path='/login' component={LoginFormContainer} />
+        <AuthRoute path='/signup' component={SignupFormContainer} />
+      </main>
     </div>
   );
 };
