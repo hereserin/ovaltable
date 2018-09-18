@@ -15,9 +15,32 @@ ActiveRecord::Base.transaction do
   casual_dining = DiningStyle.create!(dining_style: "Casual Dining")
   fine_dining = DiningStyle.create!(dining_style: "Fine Dining")
 
-  Dres
+  DressCode.destroy_all
+  casual_dress = DressCode.create!(dress_code: "Casual Dress")
+  smart_casual = DressCode.create!(dress_code: "Smart Casual")
+  business_casual = DressCode.create!(dress_code: "Business Casual")
+
 
   Restaurant.destroy_all
-  Restaurant.create!(restaurant_name: 'Mintons Playhouse', max_capacity: 100, restaurant_description: 'The place to be for a great dining experience and a live show!')
-  Restaurant.create!(restaurant_name: 'Red Rooster Harlem', max_capacity: 200, restaurant_description: 'Located in the heart of Harlem, Red Rooster serves comfort food celebrating the roots of American cuisine and the diverse culinary traditions of the neighborhood. Named in honor of the legendary Harlem speakeasy, Chef Marcus Samuelsson brings his passion for food to the neighborhood he calls home')
+  Restaurant.create!(
+    restaurant_name: 'Mintons Playhouse',
+    max_capacity: 100,
+    restaurant_description: 'The place to be for a great dining experience and a live show!',
+    dining_style_id: casual_dining.id,
+    phone: "777-777-7779",
+    website_url: "www.mintons.com",
+    dress_code_id: smart_casual.id,
+    physical_address: "123 Some Street, New York, NY"
+  )
+
+  Restaurant.create!(
+    restaurant_name: 'Red Rooster Harlem',
+    max_capacity: 200,
+    restaurant_description: 'Located in the heart of Harlem, Red Rooster serves comfort food celebrating the roots of American cuisine and the diverse culinary traditions of the neighborhood. Named in honor of the legendary Harlem speakeasy, Chef Marcus Samuelsson brings his passion for food to the neighborhood he calls home',
+    dining_style_id: casual_dining.id,
+    phone: "888-888-8888",
+    website_url: "www.RedRooster.com",
+    dress_code_id: smart_casual.id,
+    physical_address: "555 Another Street, New York, NY"
+  )
 end

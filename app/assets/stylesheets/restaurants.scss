@@ -22,3 +22,29 @@
   font-size: 20px;
   color: #20849c;
 }
+
+.restaurant-info-list {
+  list-style: none;
+  display: flex;
+}
+
+.restuarant-description {
+  list-style: none;
+}
+
+.rest-details-list-1, .rest-details-list-2 {
+  font-size: 12px;
+  list-style: none;
+  line-height: .5;
+}
+
+.rest-details-list-1 h3, .rest-details-list-2 h3 {
+  font-size: 12px;
+  // color: blue;
+  font-weight: bold;
+  list-style: none;
+}
+
+.rest-details-list-1 li, .rest-details-list-2 li {
+  margin: 30px;
+}

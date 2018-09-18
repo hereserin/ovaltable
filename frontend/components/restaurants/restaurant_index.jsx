@@ -5,11 +5,9 @@ import { Route } from 'react-router-dom';
 class RestaurantIndex extends React.Component {
   constructor(props) {
     super(props);
-    debugger
   }
 
   componentDidMount() {
-    debugger
     console.log(this.props.restaurants)
     this.props.fetchRestaurants();
     // this.setState()
@@ -35,8 +33,8 @@ class RestaurantIndex extends React.Component {
 
     return (
         <section>
+          <p>Results:</p>
           <ul>
-            <li>Hi!</li>
             {restaurants}
           </ul>
         </section>
