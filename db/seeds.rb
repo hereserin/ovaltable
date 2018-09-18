@@ -7,8 +7,15 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 ActiveRecord::Base.transaction do
+
   User.destroy_all
   demo_user = User.create!(username: "Demo User", password: "password" )
+
+  DiningStyle.destroy_all
+  casual_dining = DiningStyle.create!(dining_style: "Casual Dining")
+  fine_dining = DiningStyle.create!(dining_style: "Fine Dining")
+
+  Dres
 
   Restaurant.destroy_all
   Restaurant.create!(restaurant_name: 'Mintons Playhouse', max_capacity: 100, restaurant_description: 'The place to be for a great dining experience and a live show!')

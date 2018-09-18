@@ -5,11 +5,11 @@ import { Route } from 'react-router-dom';
 class RestaurantIndex extends React.Component {
   constructor(props) {
     super(props);
-    // debugger
+    debugger
   }
 
   componentDidMount() {
-    // debugger
+    debugger
     console.log(this.props.restaurants)
     this.props.fetchRestaurants();
     // this.setState()

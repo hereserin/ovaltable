@@ -1,23 +1,35 @@
 import React from 'react';
-// import defaultThumbnail from './../../../app/assets/images/default_images/default_rest_thumbnail.png';
+import { withRouter } from 'react-router-dom';
 
-const RestaurantIndexItem = ({restaurant}) => {
+// class RestaurantIndexItem extends React.Component {
+// // does this need to be a class component?
+// // changed this to class component, but only to include withRouter, do i need to?
+//   constructor(props) {
+//     super(props);
+//     // debugger
+//   }
+//
+//   render() {
   // debugger
 
-  return (
-    <li className='restaurant_index_item'>
-      <img className='restaurant_index_item_thumbnail' src={window.staticImages.defaultRestaurant} />
-      <div>
-        <h3>
-          {restaurant.restaurant_name}
-        </h3>
-          {restaurant.restaurant_description}
-      </div>
-    </li>
-  );
-}
+const RestaurantIndexItem = (props) => {
+  // debugger
+    return (
+      <li className='restaurant_index_item'>
+        <img className='restaurant_index_item_thumbnail' src={window.staticImages.defaultRestaurant} />
+        <div>
+          <h3 onClick={()=>{props.history.push(`/restaurants/${props.restaurant.id}`)}}>
+            {props.restaurant.restaurant_name}
+          </h3>
+            {props.restaurant.restaurant_description}
+        </div>
+      </li>
+    );
+  }
+
+// }
 
 // trying to include image:
       // <img src={defaultThumbnail} />
 
-export default RestaurantIndexItem;
+export default withRouter(RestaurantIndexItem);
