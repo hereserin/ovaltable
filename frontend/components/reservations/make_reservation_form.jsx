@@ -29,8 +29,8 @@ class MakeReservationForm extends React.Component {
         </div>
 
       </fieldset>
-  );
-}
-}
+    );
+  }
+};
 
 export default MakeReservationForm;

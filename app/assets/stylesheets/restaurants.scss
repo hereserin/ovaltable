@@ -32,7 +32,7 @@
   display: flex;
 }
 
-.restuarant-description {
+.restaurant-description {
   list-style: none;
 }
 
@@ -51,4 +51,39 @@
 
 .rest-details-list-1 li, .rest-details-list-2 li {
   margin: 30px;
+}
+
+.main-restaurant-show-page {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 400px;
+}
+
+.main-restaurant-show-banner {
+  height: 350px;
+  width: 100%;
+  background-size: cover;
+  background-position: center;
+  position: absolute;
+  left: 0;
+  right: 0;
+}
+
+li, ul {
+  font-family: 'Nunito Sans', sans-serif;
+  color: #685e5e;
+}
+
+.restaurant-show-nav-bar {
+  display: flex;
+  justify-content: space-between;
+}
+//
+// .restaurant-show-nav-links {
+//   display: flex;
+// }
+//
+.restaurant-show-nav-bar li {
+  padding: 10px;
+  list-style: none;
 }

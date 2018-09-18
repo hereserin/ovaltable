@@ -13,6 +13,7 @@ const NavBar = (props) => {
         <li onClick={()=>{props.history.push(`/`)}}>OvalTable</li>
         <li>regions</li>
       </ul>
+      
       <div className='right-nav-links'>
         <GreetingContainer />
       </div>

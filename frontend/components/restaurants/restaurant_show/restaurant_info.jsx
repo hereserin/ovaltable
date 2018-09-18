@@ -7,7 +7,7 @@ const RestaurantInfo = (props) => {
 
   // debugger
   return (
-    <section >
+    <section>
       <ul className='restaurant-description'>
         <li>
           <h1>{props.restaurant.restaurant_name}</h1>
@@ -53,8 +53,8 @@ const RestaurantInfo = (props) => {
             </ul>
           </li>
         </ul>
-            <MakeReservationForm restaurant={props.restaurant}/>
       </section>
+
 
     </section>
   );
