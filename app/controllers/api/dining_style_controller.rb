@@ -11,4 +11,5 @@ class Api::DiningStyleController < ApplicationController
   def dining_style_params
     params.require(:dining_style).
   end
+  
 end

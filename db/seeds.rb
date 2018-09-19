@@ -23,7 +23,8 @@ ActiveRecord::Base.transaction do
   business_casual = DressCode.create!(dress_code: "Business Casual")
 
   HourOfOperation.destroy_all
-  1_00am = HoursOfOperation(day_of_week: Monday )
+  1_00am = HoursOfOperation(day_of_week: Monday, time_block: 1)
+  1_30am = HoursOfOperation(day_of_week: Monday, time_block: 2)
 
 
   # info that is not content ^^^(above)^^^
@@ -31,7 +32,8 @@ ActiveRecord::Base.transaction do
 
 # info that is content:
   Restaurant.destroy_all
-  Restaurant.create!(
+  RestaurantHourOfOperation.destroy_all
+  mintons = Restaurant.create!(
     restaurant_name: 'Mintons Playhouse',
     max_capacity: 100,
     restaurant_description: 'The place to be for a great dining experience and a live show!',
@@ -41,8 +43,10 @@ ActiveRecord::Base.transaction do
     dress_code_id: smart_casual.id,
     physical_address: "123 Some Street, New York, NY"
   )
+  RestaurantHourOfOperation.create!(restaurant_id: mintons.id, )
 
-  Restaurant.create!(
+
+  redrooster = Restaurant.create!(
     restaurant_name: 'Red Rooster Harlem',
     max_capacity: 200,
     restaurant_description: 'Located in the heart of Harlem, Red Rooster serves comfort food celebrating the roots of American cuisine and the diverse culinary traditions of the neighborhood. Named in honor of the legendary Harlem speakeasy, Chef Marcus Samuelsson brings his passion for food to the neighborhood he calls home',
