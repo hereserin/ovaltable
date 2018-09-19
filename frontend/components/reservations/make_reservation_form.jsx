@@ -1,9 +1,25 @@
 import React from 'react';
 
 class MakeReservationForm extends React.Component {
+  constructor(props) {
+    super(props)
+    this.handleSubmit = this.handleSubmit.bind(this);
+    this.state = {
+      party_size:
+    };
+  }
+
+  handleChange() {
+
+  }
+
+  handleSubmit(e) {
+    e.preventDefault();
+  }
+
   render() {
     return (
-      <fieldset className='make-res-form'>
+      <form className='make-res-form' onSubmit={this.handleSubmit}>
         <h2>Make a reservation </h2>
 
         <label>Party Size
@@ -29,7 +45,7 @@ class MakeReservationForm extends React.Component {
         </div>
 
         <button className='reservation-submit-button' onClick={()=>{this.props.history.push('/restaurants')}}>Find a Table</button>
-      </fieldset>
+      </form>
     );
   }
 };

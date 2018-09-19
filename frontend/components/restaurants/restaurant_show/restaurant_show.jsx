@@ -14,7 +14,7 @@ class RestaurantShowPage extends React.Component {
 
   render() {
     if (!this.props.restaurant) return <div></div>;
-
+      // debugger 
     return (
       <div>
         <RestaurantShowBanner restaurant={this.props.restaurant} />
@@ -22,7 +22,7 @@ class RestaurantShowPage extends React.Component {
         <main className='main-restaurant-show-page'>
           <section>
             <RestaurantShowBar />
-            <RestaurantInfo restaurant={this.props.restaurant} />
+            <RestaurantInfo restaurant={this.props.restaurant} hours={this.props.hoursOfOperation}/>
             <RestaurantPhotos restaurant={this.props.restaurant} />
             <ReviewIndex restaurant={this.props.restaurant} />
           </section>
