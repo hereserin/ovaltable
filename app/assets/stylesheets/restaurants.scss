@@ -36,6 +36,15 @@
   list-style: none;
 }
 
+.restaurant-description h1 {
+  color: #2f292ade;
+  font-size: 38px;
+  border-bottom-style: solid;
+  border-bottom-width: .5px;
+  border-bottom-color: #80808059;
+  margin-right: 50px;
+}
+
 
 .rest-details-list-1, .rest-details-list-2 {
   font-size: 12px;
@@ -93,8 +102,18 @@ li, ul {
 }
 
 .restaurant-show-nav-bar ul {
+  border-bottom-color: #e9e4e4;
+  border-bottom-width: .5px;
+  border-bottom-style: solid;
   display: flex;
-  justify-content: space-between;
+  justify-content: left;
+}
+
+.restaurant-show-nav-bar li:hover {
+  border-bottom-color: red;
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
+  color: red;
 }
 //
 // .restaurant-show-nav-links {
@@ -104,4 +123,8 @@ li, ul {
 .restaurant-show-nav-bar li {
   padding: 10px;
   list-style: none;
+  padding-right: 28px;
+  font-weight: bold;
+  font-size: 15px;
+  color: #3e3e40cf;
 }

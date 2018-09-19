@@ -22,7 +22,6 @@ class RestaurantShowPage extends React.Component {
         <main class='main-restaurant-show-page'>
           <section>
             <RestaurantShowBar />
-            <p>"This is the Rest Show page"</p>
             <RestaurantInfo restaurant={this.props.restaurant} />
             <RestaurantPhotos restaurant={this.props.restaurant} />
             <ReviewIndex restaurant={this.props.restaurant} />

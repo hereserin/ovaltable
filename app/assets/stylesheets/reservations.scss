@@ -7,4 +7,25 @@
     position: sticky;
     background: white;
     margin-left: 32px;
+    margin-top: 17px;
+    font-family: 'Nunito Sans', sans-serif;
+}
+
+.reservation-submit-button {
+  padding: 11px;
+  margin: 3px;
+  border-style: none;
+  background: #cb1111;
+  color: white;
+  width: 100%;
+  font-family: 'Nunito Sans', sans-serif;
+}
+
+
+.time-search-res, .date-search-res, .party-size-res {
+  border: none;
+  font-family: 'Nunito Sans', sans-serif;
+  color: #685e5e;
+  background-color: white;
+  font-size: 15px;
 }

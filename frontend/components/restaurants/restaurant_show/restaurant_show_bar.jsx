@@ -11,7 +11,7 @@ const RestaurantShowBar = (props) => {
   return (
     <nav className='restaurant-show-nav-bar'>
       <ul>
-        <li>Overviews, Photos, Reviews</li>
+        <li>Overview</li>
         <li>Photos</li>
         <li>Reviews</li>
       </ul>
