@@ -9,8 +9,8 @@ const RestaurantShowBar = (props) => {
   // how do anchor tags work within react? can we use link or routes?
 
   return (
-    <nav>
-      <ul className='restaurant-show-nav-bar'>
+    <nav className='restaurant-show-nav-bar'>
+      <ul>
         <li>Overviews, Photos, Reviews</li>
         <li>Photos</li>
         <li>Reviews</li>

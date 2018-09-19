@@ -47,7 +47,7 @@ const RestaurantInfo = (props) => {
           <li>
             <ul className='rest-details-list-2'>
               <li>
-                <h3>Locations</h3>
+                <h3>Location</h3>
                 {props.restaurant.physical_address}
               </li>
             </ul>
