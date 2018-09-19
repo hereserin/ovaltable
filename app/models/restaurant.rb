@@ -20,6 +20,8 @@ class Restaurant < ApplicationRecord
   class_name: :Reservation
 
   has_many :restaurant_hour_of_operations,
+  primary_key: :id,
+  foreign_key: :restaurant_id,
   class_name: :RestaurantHourOfOperation
 
   has_many :hours_of_operation,
@@ -34,6 +36,7 @@ class Restaurant < ApplicationRecord
 
   belongs_to :dress_code,
   class_name: :DressCode
+
 
   def average_ratings
   end

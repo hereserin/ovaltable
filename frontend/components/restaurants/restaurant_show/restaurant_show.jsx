@@ -19,7 +19,7 @@ class RestaurantShowPage extends React.Component {
       <div>
         <RestaurantShowBanner restaurant={this.props.restaurant} />
 
-        <main class='main-restaurant-show-page'>
+        <main className='main-restaurant-show-page'>
           <section>
             <RestaurantShowBar />
             <RestaurantInfo restaurant={this.props.restaurant} />

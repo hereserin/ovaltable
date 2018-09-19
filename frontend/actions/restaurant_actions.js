@@ -9,8 +9,8 @@ export const fetchRestaurant = (id) => {
   // debugger
   return (dispatch) => {
     return RestaurantAPIUtil.fetchRestaurant(id).then(
-      (restaurant) => {
-        return dispatch(receiveRestaurant(restaurant))
+      (payload) => {
+        return dispatch(receiveRestaurant(payload))
       },
       (error) => {
         return dispatch(receiveRestaurantErrors(error))
@@ -30,10 +30,11 @@ export const fetchRestaurants = () => {
   };
 };
 
-const receiveRestaurant = (restaurant) => {
+const receiveRestaurant = ({ restaurant, hours_of_operation }) => {
   return ({
     type: RECEIVE_RESTAURANT,
-    restaurant: restaurant
+    restaurant: restaurant,
+    hoursOfOperation: hours_of_operation
   });
 };
 

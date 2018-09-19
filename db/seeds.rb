@@ -23,9 +23,74 @@ ActiveRecord::Base.transaction do
   business_casual = DressCode.create!(dress_code: "Business Casual")
 
   HourOfOperation.destroy_all
-  1_00am = HoursOfOperation(day_of_week: Monday, time_block: 1)
-  1_30am = HoursOfOperation(day_of_week: Monday, time_block: 2)
-
+  # weekdays = [
+  #   "Sunday",
+  #   "Monday",
+  #   "Tuesday",
+  #   "Wednesday",
+  #   "Thurday",
+  #   "Friday",
+  #   "Saturday"
+  # ]
+  #
+  # weekdays.each do |day|
+  day = "Monday"
+    twelve_am = HourOfOperation.create!(day_of_week: day, time_block: 1)
+    twelve_thirty_am = HourOfOperation.create!(day_of_week: day, time_block: 2)
+    one_am = HourOfOperation.create!(day_of_week: day, time_block: 3)
+    one_thirty_am = HourOfOperation.create!(day_of_week: day, time_block: 4)
+    two_am = HourOfOperation.create!(day_of_week: day, time_block: 5)
+    two_thirty_am = HourOfOperation.create!(day_of_week: day, time_block: 6)
+#
+#     3_00am = HoursOfOperation(day_of_week: day, time_block: 7)
+#     3_30am = HoursOfOperation(day_of_week: day, time_block: 8)
+#     4_00am = HoursOfOperation(day_of_week: day, time_block: 9)
+#     4_30am = HoursOfOperation(day_of_week: day, time_block: 10)
+#     5_00am = HoursOfOperation(day_of_week: day, time_block: 11)
+#     5_30am = HoursOfOperation(day_of_week: day, time_block: 12)
+#
+#     6_00am = HoursOfOperation(day_of_week: day, time_block: 13)
+#     6_30am = HoursOfOperation(day_of_week: day, time_block: 14)
+#     7_00am = HoursOfOperation(day_of_week: day, time_block: 15)
+#     7_30am = HoursOfOperation(day_of_week: day, time_block: 16)
+#     8_00am = HoursOfOperation(day_of_week: day, time_block: 17)
+#     8_30am = HoursOfOperation(day_of_week: day, time_block: 18)
+#
+#     9_00am = HoursOfOperation(day_of_week: day, time_block: 19)
+#     9_30am = HoursOfOperation(day_of_week: day, time_block: 20)
+#     10_00am = HoursOfOperation(day_of_week: day, time_block: 21)
+#     10_30am = HoursOfOperation(day_of_week: day, time_block: 22)
+#     11_00am = HoursOfOperation(day_of_week: day, time_block: 23)
+#     11_30am = HoursOfOperation(day_of_week: day, time_block: 24)
+#
+#     12_00pm = HoursOfOperation(day_of_week: day, time_block: 25)
+#     12_30pm = HoursOfOperation(day_of_week: day, time_block: 26)
+#     1_00pm = HoursOfOperation(day_of_week: day, time_block: 27)
+#     1_30pm = HoursOfOperation(day_of_week: day, time_block: 28)
+#     2_00pm = HoursOfOperation(day_of_week: day, time_block: 29)
+#     2_30pm = HoursOfOperation(day_of_week: day, time_block: 30)
+#
+#     3_00pm = HoursOfOperation(day_of_week: day, time_block: 31)
+#     3_30pm = HoursOfOperation(day_of_week: day, time_block: 32)
+#     4_00pm = HoursOfOperation(day_of_week: day, time_block: 33)
+#     4_30pm = HoursOfOperation(day_of_week: day, time_block: 34)
+#     5_00pm = HoursOfOperation(day_of_week: day, time_block: 35)
+#     5_30pm = HoursOfOperation(day_of_week: day, time_block: 36)
+#
+#     6_00pm = HoursOfOperation(day_of_week: day, time_block: 37)
+#     6_30pm = HoursOfOperation(day_of_week: day, time_block: 38)
+#     7_00pm = HoursOfOperation(day_of_week: day, time_block: 39)
+#     7_30pm = HoursOfOperation(day_of_week: day, time_block: 40)
+#     8_00pm = HoursOfOperation(day_of_week: day, time_block: 41)
+#     8_30pm = HoursOfOperation(day_of_week: day, time_block: 42)
+#
+#     9_00pm = HoursOfOperation(day_of_week: day, time_block: 43)
+#     9_30pm = HoursOfOperation(day_of_week: day, time_block: 44)
+#     10_00pm = HoursOfOperation(day_of_week: day, time_block: 45)
+#     10_30pm = HoursOfOperation(day_of_week: day, time_block: 46)
+#     11_00pm = HoursOfOperation(day_of_week: day, time_block: 47)
+#     11_30pm = HoursOfOperation(day_of_week: day, time_block: 49)
+# end
 
   # info that is not content ^^^(above)^^^
 
@@ -33,6 +98,7 @@ ActiveRecord::Base.transaction do
 # info that is content:
   Restaurant.destroy_all
   RestaurantHourOfOperation.destroy_all
+
   mintons = Restaurant.create!(
     restaurant_name: 'Mintons Playhouse',
     max_capacity: 100,
@@ -43,7 +109,10 @@ ActiveRecord::Base.transaction do
     dress_code_id: smart_casual.id,
     physical_address: "123 Some Street, New York, NY"
   )
-  RestaurantHourOfOperation.create!(restaurant_id: mintons.id, )
+
+  RestaurantHourOfOperation.create!(restaurant_id: mintons.id, hour_of_operation_id: twelve_am.id)
+  RestaurantHourOfOperation.create!(restaurant_id: mintons.id, hour_of_operation_id: twelve_thirty_am.id )
+  RestaurantHourOfOperation.create!(restaurant_id: mintons.id, hour_of_operation_id: one_am.id )
 
 
   redrooster = Restaurant.create!(
@@ -56,4 +125,17 @@ ActiveRecord::Base.transaction do
     dress_code_id: smart_casual.id,
     physical_address: "555 Another Street, New York, NY"
   )
+  RestaurantHourOfOperation.create!(restaurant_id: mintons.id, hour_of_operation_id: one_am.id)
+  RestaurantHourOfOperation.create!(restaurant_id: mintons.id, hour_of_operation_id: one_thirty_am.id )
+  RestaurantHourOfOperation.create!(restaurant_id: mintons.id, hour_of_operation_id: two_thirty_am.id )
+
+
+  # twelve_am = HourOfOperation.create!(day_of_week: day, time_block: 1)
+  # twelve_thirty_am = HourOfOperation.create!(day_of_week: day, time_block: 2)
+  # one_am = HourOfOperation.create!(day_of_week: day, time_block: 3)
+  # one_thirty_am = HourOfOperation.create!(day_of_week: day, time_block: 4)
+  # two_am = HourOfOperation.create!(day_of_week: day, time_block: 5)
+  # two_thirty_am = HourOfOperation.create!(day_of_week: day, time_block: 6)
+
+
 end
