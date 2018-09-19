@@ -8,6 +8,8 @@
 
 ActiveRecord::Base.transaction do
 
+
+# info that is not content:
   User.destroy_all
   demo_user = User.create!(username: "Demo User", password: "password" )
 
@@ -20,7 +22,14 @@ ActiveRecord::Base.transaction do
   smart_casual = DressCode.create!(dress_code: "Smart Casual")
   business_casual = DressCode.create!(dress_code: "Business Casual")
 
+  HourOfOperation.destroy_all
+  1_00am = HoursOfOperation(day_of_week: Monday )
 
+
+  # info that is not content ^^^(above)^^^
+
+
+# info that is content:
   Restaurant.destroy_all
   Restaurant.create!(
     restaurant_name: 'Mintons Playhouse',

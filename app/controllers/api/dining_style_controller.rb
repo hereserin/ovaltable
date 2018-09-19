@@ -1,5 +1,7 @@
 class Api::DiningStyleController < ApplicationController
 
+
+
   def show
     @dining_style = DiningStyle.find(params[:id]).restaurants
 
@@ -8,4 +10,5 @@ class Api::DiningStyleController < ApplicationController
   private
   def dining_style_params
     params.require(:dining_style).
+  end
 end

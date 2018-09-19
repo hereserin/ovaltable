@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_09_14_161018) do
+ActiveRecord::Schema.define(version: 2018_09_19_154624) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,8 +23,29 @@ ActiveRecord::Schema.define(version: 2018_09_14_161018) do
     t.string "dress_code", null: false
   end
 
+  create_table "hours_of_operations", force: :cascade do |t|
+    t.string "day_of_week", null: false
+    t.integer "time_block", null: false
+  end
+
   create_table "region_keys", force: :cascade do |t|
     t.string "region_key", null: false
+  end
+
+  create_table "reservations", force: :cascade do |t|
+    t.integer "restaurant_id", null: false
+    t.integer "user_id", null: false
+    t.integer "party_size", null: false
+    t.datetime "date_and_time", null: false
+    t.integer "duration", null: false
+    t.index ["date_and_time"], name: "index_reservations_on_date_and_time"
+    t.index ["restaurant_id"], name: "index_reservations_on_restaurant_id"
+    t.index ["user_id"], name: "index_reservations_on_user_id"
+  end
+
+  create_table "reservations_hours_of_operations", force: :cascade do |t|
+    t.integer "hour_of_operation_id", null: false
+    t.integer "reservation_id", null: false
   end
 
   create_table "restaurants", force: :cascade do |t|
@@ -36,11 +57,14 @@ ActiveRecord::Schema.define(version: 2018_09_14_161018) do
     t.string "website_url"
     t.integer "dress_code_id"
     t.string "physical_address"
-    t.integer "region_key_id"
     t.index ["dining_style_id"], name: "index_restaurants_on_dining_style_id"
     t.index ["dress_code_id"], name: "index_restaurants_on_dress_code_id"
-    t.index ["region_key_id"], name: "index_restaurants_on_region_key_id"
     t.index ["restaurant_name"], name: "index_restaurants_on_restaurant_name", unique: true
+  end
+
+  create_table "restaurants_hours_of_operations", force: :cascade do |t|
+    t.integer "restaurant_id", null: false
+    t.integer "hour_of_operation_id", null: false
   end
 
   create_table "users", force: :cascade do |t|
