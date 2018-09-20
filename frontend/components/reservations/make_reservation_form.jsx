@@ -5,7 +5,9 @@ class MakeReservationForm extends React.Component {
     super(props)
     this.handleSubmit = this.handleSubmit.bind(this);
     this.state = {
-      party_size:
+      party_size: 2,
+      date_and_time: undefined
+
     };
   }
 
