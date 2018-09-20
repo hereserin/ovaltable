@@ -2,7 +2,7 @@ import React from 'react';
 import RestaurantInfo from './restaurant_info';
 import RestaurantPhotos from './../../photos/restaurant_photos';
 import ReviewIndex from './reviews_index';
-import MakeReservationForm from './../../reservations/make_reservation_form';
+import MakeReservationFormContainer from './../../reservations/make_reservation_form_container';
 import RestaurantShowBanner from './restaurant_show_banner';
 import RestaurantShowBar from './restaurant_show_bar';
 import { withRouter } from 'react-router-dom';
@@ -14,7 +14,7 @@ class RestaurantShowPage extends React.Component {
 
   render() {
     if (!this.props.restaurant) return <div></div>;
-      // debugger 
+      // debugger
     return (
       <div>
         <RestaurantShowBanner restaurant={this.props.restaurant} />
@@ -28,7 +28,7 @@ class RestaurantShowPage extends React.Component {
           </section>
 
           <aside>
-            <MakeReservationForm restaurant={this.props.restuarant} />
+            <MakeReservationFormContainer/>
           </aside>
       </main>
     </div>

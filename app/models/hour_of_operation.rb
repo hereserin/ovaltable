@@ -30,7 +30,13 @@ class HourOfOperation < ApplicationRecord
     "#{time_hash[:hours]}:#{time_hash[:minutes]}#{time_hash[:m]}"
   end
 
-
+  def drop_down_format
+    arr = HourOfOperation.time_block_to_time_string(self.time_block).split("")
+    ending = arr.pop
+    ending = arr.pop.upcase + ending.upcase 
+    arr += [" ", ending ]
+    arr.join("")
+  end
 
 
   def self.hours_of_operations_list(time_block_hash)

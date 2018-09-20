@@ -49,6 +49,14 @@ class Restaurant < ApplicationRecord
     opp_hours_hash
   end
 
+  def dining_style_string
+    self.dining_style.dining_style
+  end
+
+  def dress_code_string
+    self.dress_code.dress_code
+  end
+
   # def average_ratings
   # end
 

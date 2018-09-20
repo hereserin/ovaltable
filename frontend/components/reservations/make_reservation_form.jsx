@@ -6,8 +6,8 @@ class MakeReservationForm extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
     this.state = {
       party_size: 2,
-      date_and_time: undefined
-
+      date: undefined,
+      time: undefined,
     };
   }
 
@@ -17,9 +17,23 @@ class MakeReservationForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
+    this.props.processReservationRequest();
   }
 
   render() {
+    let party_size_arr = []
+    for (var i = 2; i < 21; i++) {
+      party_size_arr.push(i)
+    }
+    let party_size_options = party_size_arr.map((num)=>(
+      <option value={num}>{num} people</option>
+    ));
+
+    let dropDownTime = this.props.restaurant.hours_of_operation_ids.map((hour_id)=>(
+        <option value={this.props.hoursOfOperation[hour_id].drop_down_time}> {this.props.hoursOfOperation[hour_id].drop_down_time} </option>
+      )
+    );
+
     return (
       <form className='make-res-form' onSubmit={this.handleSubmit}>
         <h2>Make a reservation </h2>
@@ -27,8 +41,7 @@ class MakeReservationForm extends React.Component {
         <label>Party Size
           <select className='party-size-res'>
             <option value='1'>1 person</option>
-            <option value='2'>2 people</option>
-            <option value='3'>3 people</option>
+            {party_size_options}
           </select>
         </label>
 
@@ -39,9 +52,7 @@ class MakeReservationForm extends React.Component {
 
           <label>Time
             <select className='time-search-res'>
-              <option value='13:00'>1:00 PM </option>
-              <option value='14:00'>2:00 PM </option>
-              <option value='15:00'>3:00 PM </option>
+              {dropDownTime}
             </select>
           </label>
         </div>
