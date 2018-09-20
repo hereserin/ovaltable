@@ -29,7 +29,7 @@ export const fetchReservations = () => {
   });
 };
 
-export const fetchReservations = (id) => {
+export const fetchReservation = (id) => {
   return $.ajax({
     method: 'GET',
     url: `/api/reservations${id}`
