@@ -38,25 +38,7 @@ class Restaurant < ApplicationRecord
   class_name: :DressCode
 
   def hours_of_operations_list
-    all_hours = self.opp_hours_week_timeblock_hash
-    all_hours_list = ""
-
-    all_hours.each_ do |k,v|
-      time_ranges = []
-      i = 0
-
-      while i < all_hours[k].length
-        single_time_range = []
-        single_time_range << all_hours[k][i]
-        while 1 == (all_hours[k][i + 1] - all_hours[k][i])
-          i++
-        end
-        single_time_range << all_hours[k][i]
-        time_ranges << single_time_range
-
-      all_hours[k].
-    end
-
+    HourOfOperation.hours_of_operations_list(self.opp_hours_week_timeblock_hash)
   end
 
   def opp_hours_week_timeblock_hash
@@ -64,9 +46,10 @@ class Restaurant < ApplicationRecord
     self.hours_of_operation.each do |hour|
       opp_hours_hash[hour.day_of_week] << hour.time_block
     end
+    opp_hours_hash
   end
 
-  def average_ratings
-  end
+  # def average_ratings
+  # end
 
 end
