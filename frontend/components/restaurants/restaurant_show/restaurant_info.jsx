@@ -1,8 +1,7 @@
 import React from 'react';
-import RestaurantShowHoursOfOperation from './../../hours_of_operation/restaurant_show_hours_of_operation';
 import MakeReservationForm from './../../reservations/make_reservation_form';
 
-const RestaurantInfo = (props) => {
+const RestaurantInfo = ({restaurant, hours}) => {
 
 
   // debugger
@@ -10,10 +9,10 @@ const RestaurantInfo = (props) => {
     <section>
       <ul className='restaurant-description'>
         <li>
-          <h1>{props.restaurant.restaurant_name}</h1>
+          <h1>{restaurant.restaurant_name}</h1>
         </li>
         <li>
-          <p>{props.restaurant.restaurant_description}</p>
+          <p>{restaurant.restaurant_description}</p>
         </li>
       </ul>
 
@@ -23,23 +22,23 @@ const RestaurantInfo = (props) => {
             <ul className='rest-details-list-1'>
               <li>
                 <h3>Dining Style</h3>
-                {props.restaurant.dining_style_id}
+                {restaurant.dining_style}
               </li>
               <li>
                 <h3>Hours Of Operation</h3>
-                <RestaurantShowHoursOfOperation restaurant={props.restaurant} />
+                {restaurant.hours_of_operation_string}
               </li>
               <li>
                 <h3>Phone Number</h3>
-                {props.restaurant.phone}
+                {restaurant.phone}
               </li>
               <li>
                 <h3>Website</h3>
-                {props.restaurant.website_url}
+                {restaurant.website_url}
               </li>
               <li>
                 <h3>Dress Code</h3>
-                {props.restaurant.dress_code_id}
+                {restaurant.dress_code}
               </li>
             </ul>
           </li>
@@ -48,7 +47,7 @@ const RestaurantInfo = (props) => {
             <ul className='rest-details-list-2'>
               <li>
                 <h3>Location</h3>
-                {props.restaurant.physical_address}
+                {restaurant.physical_address}
               </li>
             </ul>
           </li>

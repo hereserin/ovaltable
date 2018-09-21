@@ -1,6 +1,7 @@
 import { connect } from 'react-redux';
-import RestaurantShowPage from './restaurant_show';
-import { fetchRestaurant } from './../../../actions/restaurant_actions';
+import MakeReservationForm from './make_reservation_form';
+import { submitReservation } from './../../actions/reservations_actions';
+import { withRouter } from 'react-router-dom';
 
 const mapStatetoProps = (state, ownProps) => {
   // debugger
@@ -12,10 +13,13 @@ const mapStatetoProps = (state, ownProps) => {
 
 const mapDispatchToProps = (dispatch) => {
   return ({
+    submitReservation: (reservation) => {
+      dispatch(submitReservation(reservation));
+    },
     fetchRestaurant: (id) => {
       return dispatch(fetchRestaurant(id))
     }
   });
 };
 
-export default connect(mapStatetoProps, mapDispatchToProps)(RestaurantShowPage);
+export default withRouter(connect(mapStatetoProps, mapDispatchToProps)(MakeReservationForm));
