@@ -61,6 +61,6 @@ const receiveRestaurants = (reservations) => {
 const receiveReservationErrors = (error) => {
   return ({
     type: RECEIVE_RESERVATION_ERRORS,
-    restaurantError: error
+    errors: error.responseJSON
   });
 };

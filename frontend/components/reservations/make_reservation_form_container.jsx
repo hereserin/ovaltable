@@ -13,9 +13,12 @@ const mapStatetoProps = (state, ownProps) => {
 
 const mapDispatchToProps = (dispatch) => {
   return ({
-    processReservationRequest: (reservation) => {
+    submitReservation: (reservation) => {
       dispatch(submitReservation(reservation));
-      }
+    },
+    fetchRestaurant: (id) => {
+      return dispatch(fetchRestaurant(id))
+    }
   });
 };
 

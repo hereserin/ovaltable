@@ -9,6 +9,8 @@ class HourOfOperation < ApplicationRecord
   through: :restaurant_hour_of_operations,
   source: :restaurant
 
+
+
   def self.time_block_to_time_string(time_block_integer)
     time_hash = { hours:0, minutes:0, m: "am"}
 
@@ -33,7 +35,7 @@ class HourOfOperation < ApplicationRecord
   def drop_down_format
     arr = HourOfOperation.time_block_to_time_string(self.time_block).split("")
     ending = arr.pop
-    ending = arr.pop.upcase + ending.upcase 
+    ending = arr.pop.upcase + ending.upcase
     arr += [" ", ending ]
     arr.join("")
   end
