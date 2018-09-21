@@ -16,11 +16,18 @@ class MakeReservationForm extends React.Component {
   }
 
   componentDidMount() {
+    // debugger
     this.props.fetchRestaurant(this.props.match.params.restaurantId);
-    const first_time_slot = this.props.restaurant.hours_of_operation_ids[0];
-    const default_time_slot = this.props.hoursOfOperation[first_time_slot].drop_down_time;
-    this.setState({restaurant_id: this.props.match.params.restaurantId });
-    this.setState({time: default_time_slot });
+    this.setFirstState();
+
+  }
+
+  setFirstState() {
+    if (this.props.restaurant.hours_of_operation_ids) {
+      const first_time_slot = this.props.restaurant.hours_of_operation_ids[0];
+      const default_time_slot = this.props.hoursOfOperation[first_time_slot].drop_down_time;
+      this.setState({time: default_time_slot });
+    }
   }
 
   handleChange(type) {
@@ -39,6 +46,8 @@ class MakeReservationForm extends React.Component {
     // debugger
     if (!this.props.restaurant.hours_of_operation_ids) return <div></div>;
 
+
+
     let party_size_arr = []
     for (var i = 2; i < 21; i++) {
       party_size_arr.push(i)
@@ -54,6 +63,8 @@ class MakeReservationForm extends React.Component {
         <option key={idx} value={this.props.hoursOfOperation[hour_id].drop_down_time}> {this.props.hoursOfOperation[hour_id].drop_down_time} </option>
       )
     );
+
+
 
     return (
 

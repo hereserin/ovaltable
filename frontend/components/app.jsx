@@ -28,6 +28,9 @@ const App = () => {
 
         <Route path="/restaurants/:restaurantId" component={RestaurantShowPageContainer} />
 
+        <Route path="/reservations/:reservationId" component={ReservationShowPage} />
+
+
 
         <AuthRoute path='/login' component={LoginFormContainer} />
         <AuthRoute path='/signup' component={SignupFormContainer} />

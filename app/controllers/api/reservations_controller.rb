@@ -9,6 +9,7 @@ class Api::ReservationsController < ApplicationController
         party_size: params[:reservation][:party_size],
         user_id: current_user.id,
         restaurant_id: params[:reservation][:restaurant_id],
+        duration: 30,
         date_and_time: res_time
     }
 
@@ -37,6 +38,7 @@ class Api::ReservationsController < ApplicationController
   end
 
   def params_to_datetime_object(date_string, time_string)
+    debugger
     datetime_string = date_string + "T" + time_to_military(time_string)
     DateTime.iso8601(datetime_string)
   end
