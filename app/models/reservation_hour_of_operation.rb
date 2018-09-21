@@ -5,6 +5,6 @@ class ReservationHourOfOperation < ApplicationRecord
   belongs_to :reservation,
   class_name: :Reservation
 
-  belongs_to :hour_of_operation
+  belongs_to :hour_of_operation,
   class_name: :HourOfOperation
 end
