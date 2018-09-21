@@ -3,9 +3,13 @@ import { Link, withRouter } from 'react-router-dom';
 
 
 const ReservationShowPage = (props) => {
+  // let listOfReservations = props.reservations.map((resrvatio))
+
     return (
       <div>
-        Reservation show page
+        <ul>
+
+        </ul>
       </div>
     );
 };

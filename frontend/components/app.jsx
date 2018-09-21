@@ -5,11 +5,13 @@ import LoginFormContainer from './session/login_form_container';
 import SignupFormContainer from './session/signup_form_container';
 import RestaurantIndexContainer from './restaurants/restaurant_index_container';
 import RestaurantShowPageContainer from './restaurants/restaurant_show/restaurant_show_container';
+import ReservationShowPage from './reservations/reservations_show';
 import NavBar from './nav_bar/nav_bar';
 import HomepageSearchSection from './search_bar/homepage_search_section';
 import RestaurantIndexSearchSection from './search_bar/restaurant_index_search_section';
 import { AuthRoute, ProtectedRoute } from './../util/route_util.jsx';
 import { Route, Switch } from 'react-router-dom';
+
 
 const App = () => {
   return (
@@ -28,7 +30,7 @@ const App = () => {
 
         <Route path="/restaurants/:restaurantId" component={RestaurantShowPageContainer} />
 
-        <Route path="/reservations/:reservationId" component={ReservationShowPage} />
+        <Route path="/reservations" component={ReservationShowPage} />
 
 
 

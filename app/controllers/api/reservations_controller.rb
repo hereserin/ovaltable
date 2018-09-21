@@ -15,7 +15,7 @@ class Api::ReservationsController < ApplicationController
 
     @reservation = Reservation.new(res_params)
     if @reservation.save
-      render 'api/reservation/show'
+      render 'api/reservations/show'
     else
       render json: @reservation.errors.full_messages, status: 422
     end
@@ -32,18 +32,17 @@ class Api::ReservationsController < ApplicationController
 
   private
   def reservation_params
-    debugger
-
     params.require(:reservation).permit(:restaurant_id, :user_id, :party_size, :date, :time)
   end
 
   def params_to_datetime_object(date_string, time_string)
-    debugger
+
     datetime_string = date_string + "T" + time_to_military(time_string)
     DateTime.iso8601(datetime_string)
   end
 
   def time_to_military(time)
+    
     t = time.split("")
     ampm = t.pop(2)
     t2 = t.join("").split(":")

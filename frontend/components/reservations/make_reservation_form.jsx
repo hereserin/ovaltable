@@ -40,6 +40,8 @@ class MakeReservationForm extends React.Component {
     e.preventDefault();
     const newReservation = Object.assign({}, this.state)
     this.props.submitReservation(newReservation);
+
+    this.props.history.push(`/reservations`)
   }
 
   render() {
