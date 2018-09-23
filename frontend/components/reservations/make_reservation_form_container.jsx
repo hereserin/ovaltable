@@ -10,7 +10,7 @@ const mapStatetoProps = (state, ownProps) => {
     errors: state.errors.reservation,
     restaurant: state.entities.restaurants[ownProps.match.params.restaurantId],
     hoursOfOperation: state.entities.hoursOfOperation,
-    currentUSer: state.session.currentUser,
+    currentUserId: state.session.currentUserId,
   });
 };
 

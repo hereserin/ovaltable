@@ -33,7 +33,7 @@ const App = () => {
 
         <Route path="/reservations" component={ReservationShowPage} />
 
-        <Route path="/user/:userId/reservations/" component={ReservationIndexContainer} />
+        <Route path="/user/:userId/reservations" component={ReservationIndexContainer} />
 
 
 
