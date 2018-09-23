@@ -44,6 +44,8 @@ class MakeReservationForm extends React.Component {
     this.props.submitReservation(newReservation);
 
     // this.props.history.push(`/reservations/${}`)
+    // this.props.history.push(`/user/${}/reservations/`)
+
   }
 
   errorsList() {

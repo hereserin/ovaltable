@@ -1,6 +1,6 @@
 class Api::ReservationsController < ApplicationController
   before_action :require_logged_in
-  
+
   def create
     res_time = params_to_datetime_object(
       params[:reservation][:date],
@@ -27,11 +27,12 @@ class Api::ReservationsController < ApplicationController
 
   def show
     @reservation = Reservation.find(params[:id])
-    render 'api/reservations/show'
-
+    render 'api/reservations/index'
   end
 
   def index
+    @reservations = Reservation.find_by(user_id: current_user.id)
+
   end
 
   private
