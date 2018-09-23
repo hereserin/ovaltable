@@ -1,5 +1,6 @@
 class Api::ReservationsController < ApplicationController
-
+  before_action :require_logged_in
+  
   def create
     res_time = params_to_datetime_object(
       params[:reservation][:date],
@@ -25,6 +26,9 @@ class Api::ReservationsController < ApplicationController
   end
 
   def show
+    @reservation = Reservation.find(params[:id])
+    render 'api/reservations/show'
+
   end
 
   def index
@@ -42,7 +46,7 @@ class Api::ReservationsController < ApplicationController
   end
 
   def time_to_military(time)
-    
+
     t = time.split("")
     ampm = t.pop(2)
     t2 = t.join("").split(":")

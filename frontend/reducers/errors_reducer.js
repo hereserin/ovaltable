@@ -4,7 +4,7 @@ import reservationsErrorsReducer from './reservations_errors_reducer'
 
 const errorsReducer = combineReducers({
   session: sessionErrorsReducer,
-  reservations: reservationsErrorsReducer,
+  reservation: reservationsErrorsReducer,
 });
 
 export default errorsReducer;

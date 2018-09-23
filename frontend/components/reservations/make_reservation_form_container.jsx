@@ -1,11 +1,13 @@
 import { connect } from 'react-redux';
 import MakeReservationForm from './make_reservation_form';
-import { submitReservation } from './../../actions/reservations_actions';
+import { submitReservation, receiveReservationErrors } from './../../actions/reservations_actions';
+import { fetchRestaurant } from './../../actions/restaurant_actions';
 import { withRouter } from 'react-router-dom';
 
 const mapStatetoProps = (state, ownProps) => {
   // debugger
   return ({
+    errors: state.errors.reservation,
     restaurant: state.entities.restaurants[ownProps.match.params.restaurantId],
     hoursOfOperation: state.entities.hoursOfOperation
   });
@@ -14,10 +16,13 @@ const mapStatetoProps = (state, ownProps) => {
 const mapDispatchToProps = (dispatch) => {
   return ({
     submitReservation: (reservation) => {
-      dispatch(submitReservation(reservation));
+      return dispatch(submitReservation(reservation));
     },
     fetchRestaurant: (id) => {
       return dispatch(fetchRestaurant(id))
+    },
+    clearErrors: () => {
+      return dispatch(receiveReservationErrors([]))
     }
   });
 };

@@ -39,9 +39,25 @@ class MakeReservationForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     const newReservation = Object.assign({}, this.state)
+    // this.props.clearErrors();
+    // debugger
     this.props.submitReservation(newReservation);
 
-    this.props.history.push(`/reservations`)
+    // this.props.history.push(`/reservations/${}`)
+  }
+
+  errorsList() {
+
+    const currentErrors = this.props.errors.map((error, idx) => {
+      return (
+        <li key={idx}>{error}</li>
+      );
+    });
+    return (
+      <ul className='form-errors'>
+        {currentErrors}
+      </ul>
+    );
   }
 
   render() {
@@ -72,6 +88,7 @@ class MakeReservationForm extends React.Component {
 
       <form className='make-res-form' onSubmit={this.handleSubmit}>
         <h2>Make a reservation </h2>
+        <ul>{this.errorsList()}</ul>
 
         <label>Party Size
           <select className='party-size-res' onChange={this.handleChange('party_size')}>

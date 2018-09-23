@@ -7,8 +7,8 @@ const ReservationShowPage = (props) => {
 
     return (
       <div>
+        <h3>Your reservation at {props.reservation.restaurant.restaurant_name}</h3>
         <ul>
-
         </ul>
       </div>
     );
