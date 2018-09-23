@@ -5,7 +5,9 @@ const RestaurantIndexItem = (props) => {
 
     return (
       <li className='reservation_index_item'>
-        <img className='restaurant_index_item_thumbnail' src={window.staticImages.defaultRestaurant} />
+        <div>
+        <img className='reservation_index_item_thumbnail' src={window.staticImages.defaultRestaurant} />
+        </div>
         <div>
           <h3>
             GUESTS

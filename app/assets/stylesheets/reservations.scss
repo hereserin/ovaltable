@@ -30,3 +30,31 @@
   background-color: white;
   font-size: 15px;
 }
+
+.reservation_index_item {
+  box-shadow: 1px 1px 0.8px 0.8px #77777724;
+  border-style: none;
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+  margin: 20px;
+}
+
+.reservation_index_item div {
+  margin: 10px;
+  padding: 5px;
+  font-family: 'Nunito Sans', sans-serif;
+  color: #685e5e;
+}
+
+.reservation_index_item h3 {
+  font-family: 'Nunito Sans', sans-serif;
+  color: #685e5e;
+  font-size: 12px;
+}
+
+.reservation_index_item_thumbnail {
+  height: 50px;
+  width: 50px;
+  border-radius: 7px;
+}
