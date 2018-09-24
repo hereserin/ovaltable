@@ -3,10 +3,10 @@ import {
   RECEIVE_RESERVATIONS,
   RECEIVE_RESERVATION_ERRORS
 } from './../actions/reservations_actions';
-import {
-  RECEIVE_RESTAURANT,
-  RECEIVE_RESTAURANTS
-} from './../actions/restaurant_actions';
+// import {
+//   RECEIVE_RESTAURANT,
+//   RECEIVE_RESTAURANTS
+// } from './../actions/restaurant_actions';
 
 const reservationsErrorsReducer = (state=[], action) => {
   Object.freeze(state);
@@ -18,10 +18,10 @@ const reservationsErrorsReducer = (state=[], action) => {
       return [];
     case RECEIVE_RESERVATIONS:
       return [];
-    case RECEIVE_RESTAURANT:
-      return [];
-    case RECEIVE_RESTAURANTS:
-      return [];
+    // case RECEIVE_RESTAURANT:
+    //   return [];
+    // case RECEIVE_RESTAURANTS:
+    //   return [];
     default:
       return state;
   }

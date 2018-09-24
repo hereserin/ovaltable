@@ -9,7 +9,7 @@ class MakeReservationForm extends React.Component {
     this.state = {
 
       party_size: 2,
-      date: undefined,
+      date: '12:30 AM',
       time: undefined,
       restaurant_id: this.props.match.params.restaurantId
     };
@@ -47,7 +47,7 @@ class MakeReservationForm extends React.Component {
       }
     });
 
-    // this.props.history.push(`/reservations/${}`) 
+    // this.props.history.push(`/reservations/${}`)
 
   }
 
