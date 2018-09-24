@@ -1,7 +1,7 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
 
-const RestaurantIndexItem = (props) => {
+const ReservationIndexItem = (props) => {
 
     return (
       <li className='reservation_index_item'>
@@ -30,10 +30,12 @@ const RestaurantIndexItem = (props) => {
           <h3>
             RESTAURANT
           </h3>
+            <div className='reservation_index_item_rest_link' onClick={()=>{props.history.push(`/restaurants/${props.reservation.restaurant_id}`)}}>
             {props.reservation.restaurant_name}
+            </div>
         </div>
       </li>
     );
   }
 
-export default withRouter(RestaurantIndexItem);
+export default withRouter(ReservationIndexItem);

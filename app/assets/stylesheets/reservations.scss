@@ -1,7 +1,7 @@
 .make-res-form {
     box-shadow: 0 0 10px 1px #77777724;
     border-style: none;
-    height: 200px;
+    height: 265px;
     width: 270px;
     top: 0;
     position: sticky;
@@ -11,6 +11,57 @@
     font-family: 'Nunito Sans', sans-serif;
     padding: 15px;
 }
+
+.make-res-form h2 {
+  font-size: 19px;
+  border-bottom-style: solid;
+  border-bottom-width: thin;
+  border-bottom-color: #80808047;
+  text-align: center;
+  padding: 7px;
+}
+
+.make-res-form-field-a {
+  display: inline-block;
+  border-bottom-style: solid;
+  border-bottom-width: thin;
+  border-bottom-color: #80808047;
+  width: 100%;
+  margin: 3px;
+}
+
+.make-res-form-field-b {
+  display: inline-block;
+  border-bottom-style: solid;
+  border-bottom-width: thin;
+  border-bottom-color: #80808047;
+  width: 100%;
+  margin: 3px;
+}
+
+// .make-res-form-field-c {
+//   display: inline-block;
+//   border-bottom-style: solid;
+//   border-bottom-width: thin;
+//   border-bottom-color: #80808047;
+//   width: 25px;
+//   margin: 3px;
+// }
+
+.make-res-form-field-b:hover, .make-res-form-field-a:hover  {
+  border-bottom-color: red;
+  border-bottom-width: 2px;
+  border-bottom-style: solid;
+}
+
+
+
+h5 {
+  margin-block-start: 2px;
+  font-size: 13px;
+  margin-block-end: 1px;
+}
+
 
 .reservation-submit-button {
   padding: 11px;
@@ -57,4 +108,8 @@
   height: 50px;
   width: 50px;
   border-radius: 7px;
+}
+
+.reservation_index_item_rest_link {
+  color: #20849c;
 }

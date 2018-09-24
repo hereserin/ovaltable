@@ -27,12 +27,12 @@ class Api::ReservationsController < ApplicationController
 
   def show
     @reservation = Reservation.find(params[:id])
-    render 'api/reservations/index'
+    render 'api/reservations/show'
   end
 
   def index
     @reservations = Reservation.find_by(user_id: current_user.id)
-
+    render 'api/reservations/index'
   end
 
   private
