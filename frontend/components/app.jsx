@@ -4,6 +4,7 @@ import GreetingContainer from './greeting/greeting_container';
 import LoginFormContainer from './session/login_form_container';
 import SignupFormContainer from './session/signup_form_container';
 import RestaurantIndexContainer from './restaurants/restaurant_index_container';
+import ReservationIndexContainer from './reservations/reservation_index_container';
 import RestaurantShowPageContainer from './restaurants/restaurant_show/restaurant_show_container';
 import ReservationShowPage from './reservations/reservations_show';
 import NavBar from './nav_bar/nav_bar';
@@ -31,6 +32,8 @@ const App = () => {
         <Route path="/restaurants/:restaurantId" component={RestaurantShowPageContainer} />
 
         <Route path="/reservations" component={ReservationShowPage} />
+
+        <Route path="/user/:userId/reservations" component={ReservationIndexContainer} />
 
 
 

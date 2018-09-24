@@ -9,7 +9,7 @@ class MakeReservationForm extends React.Component {
     this.state = {
 
       party_size: 2,
-      date: undefined,
+      date: '12:30 AM',
       time: undefined,
       restaurant_id: this.props.match.params.restaurantId
     };
@@ -39,9 +39,30 @@ class MakeReservationForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     const newReservation = Object.assign({}, this.state)
-    this.props.submitReservation(newReservation);
+    // this.props.clearErrors();
+    // debugger
+    this.props.submitReservation(newReservation).then(() => {
+      if ( this.props.errors.length === 0) {
+      this.props.history.push(`/user/${[this.props.currentUserId]}/reservations`)
+      }
+    });
 
-    this.props.history.push(`/reservations`)
+    // this.props.history.push(`/reservations/${}`)
+
+  }
+
+  errorsList() {
+
+    const currentErrors = this.props.errors.map((error, idx) => {
+      return (
+        <li key={idx}>{error}</li>
+      );
+    });
+    return (
+      <ul className='form-errors'>
+        {currentErrors}
+      </ul>
+    );
   }
 
   render() {
@@ -66,31 +87,41 @@ class MakeReservationForm extends React.Component {
       )
     );
 
+    let todaysDate = new Date().toISOString().split('T')[0];
 
 
     return (
 
       <form className='make-res-form' onSubmit={this.handleSubmit}>
         <h2>Make a reservation </h2>
-
-        <label>Party Size
-          <select className='party-size-res' onChange={this.handleChange('party_size')}>
-            <option value='1'>1 person</option>
-            {party_size_options}
-          </select>
-        </label>
-
-        <div>
-          <label>Date
-            <input type='date' className='date-search-res' onChange={this.handleChange('date')} />
-          </label>
-
-          <label>Time
-            <select className='time-search-res' onChange={this.handleChange('time')}>
-              {dropDownTime}
+        <ul>{this.errorsList()}</ul>
+        <div className='make-res-form-field-a'>
+          <h5>Party Size</h5>
+          <label>
+            <select className='party-size-res' onChange={this.handleChange('party_size')}>
+              <option value='1'>1 person</option>
+              {party_size_options}
             </select>
           </label>
         </div>
+
+          <div>
+            <div className='make-res-form-field-b'>
+              <h5>Date</h5>
+              <label>
+                <input type='date' className='date-search-res' min={todaysDate} onChange={this.handleChange('date')} />
+              </label>
+            </div>
+
+            <div className='make-res-form-field-b'>
+              <h5>Time</h5>
+              <label>
+                <select className='time-search-res' onChange={this.handleChange('time')}>
+                  {dropDownTime}
+                </select>
+              </label>
+            </div>
+          </div>
 
         <button className='reservation-submit-button'>Find a Table</button>
       </form>

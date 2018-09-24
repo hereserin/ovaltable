@@ -6,7 +6,7 @@ const mapStateToProps = (state) => {
 
   return ({
     errors: state.errors.session,
-    currentUserId: state.session.id,
+    currentUserId: state.session.currentUserId,
     formType: 'signup',
     formTitle: 'Welcome to OvalTable!'
   });

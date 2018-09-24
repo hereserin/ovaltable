@@ -58,9 +58,9 @@ const receiveRestaurants = (reservations) => {
   });
 };
 
-const receiveReservationErrors = (error) => {
+export const receiveReservationErrors = (errors) => {
   return ({
     type: RECEIVE_RESERVATION_ERRORS,
-    errors: error.responseJSON
+    errors: errors.responseJSON
   });
 };

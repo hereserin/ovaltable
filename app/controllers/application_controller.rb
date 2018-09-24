@@ -35,8 +35,9 @@ class ApplicationController < ActionController::Base
 
   def require_logged_in
     # how to redirect here? base?
+    # debugger
     unless logged_in?
-      render json: ['must login for access'], status: 401
+      render json: ['please login'] , status: 401
     end
   end
 
