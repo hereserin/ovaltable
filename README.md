@@ -1,24 +1,9 @@
-# README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# OvalTable
 
-Things you may want to cover:
+OvalTable is a single-page web application built on Ruby on Rails with React.js. It is inspired by the restaurant-booking website OpenTable. 
 
-* Ruby version
+Click here for the live version: 
+OvalTable
 
-* System dependencies
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
