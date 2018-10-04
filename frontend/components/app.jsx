@@ -7,6 +7,7 @@ import RestaurantIndexContainer from './restaurants/restaurant_index_container';
 import ReservationIndexContainer from './reservations/reservation_index_container';
 import RestaurantShowPageContainer from './restaurants/restaurant_show/restaurant_show_container';
 import ReservationShowPage from './reservations/reservations_show';
+import Modal from './modal/modal';
 import NavBar from './nav_bar/nav_bar';
 import HomepageSearchSection from './search_bar/homepage_search_section';
 import RestaurantIndexSearchSection from './search_bar/restaurant_index_search_section';
@@ -17,11 +18,11 @@ import { Route, Switch } from 'react-router-dom';
 const App = () => {
   return (
     <div>
+      <Modal />
       <header>
         <NavBar />
         <Switch>
-          <Route path='/login/' component={HomepageSearchSection} />
-          <Route path='/signup/' component={HomepageSearchSection} />
+
           <Route exact path='/restaurants' component={RestaurantIndexSearchSection} />
         </Switch>
         <Route exact path='/' component={HomepageSearchSection} />
@@ -35,14 +36,22 @@ const App = () => {
 
         <Route path="/user/:userId/reservations" component={ReservationIndexContainer} />
 
-
-
-        <AuthRoute path='/login' component={LoginFormContainer} />
-        <AuthRoute path='/signup' component={SignupFormContainer} />
       </main>
     </div>
   );
 };
+
+
+
+// commented out stuff:
+
+
+// <Route path='/login/' component={HomepageSearchSection} />
+// <Route path='/signup/' component={HomepageSearchSection} />
+
+// removing these routes & replacing with ui modal:
+// <AuthRoute path='/login' component={LoginFormContainer} />
+// <AuthRoute path='/signup' component={SignupFormContainer} />
 
 
 export default App;
