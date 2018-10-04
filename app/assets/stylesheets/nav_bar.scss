@@ -13,16 +13,18 @@ li, ul {
 }
 
 .left-nav-links li {
-  padding: 10px;
+  padding: 5px;
   list-style: none;
 }
 
 .right-nav-links {
   display: flex;
-  margin: 20px;
+  margin: 0px;
 }
 
 .right-nav-links li {
-  padding: 10px;
+  padding: 5px;
   list-style: none;
+  height: 15px;
+  margin: 10px;
 }

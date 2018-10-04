@@ -9,14 +9,15 @@ const NavBar = (props) => {
 
   return (
     <nav className="nav-bar">
+
       <ul className='left-nav-links'>
         <li onClick={()=>{props.history.push(`/`)}}>OvalTable</li>
         <li>regions</li>
       </ul>
-      
-      <div className='right-nav-links'>
+
+
         <GreetingContainer />
-      </div>
+
     </nav>
   );
 };

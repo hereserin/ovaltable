@@ -11,7 +11,7 @@ const Greeting = (props) => {
         <ul className='right-nav-links'>
           <li>calendar</li>
           <li>Hi, {props.currentUser.username}</li>
-          <li><LogoutButton logout={props.logout} /></li>
+          <LogoutButton logout={props.logout} />
         </ul>
       </div>
     );
