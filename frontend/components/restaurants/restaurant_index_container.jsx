@@ -8,6 +8,7 @@ const mapStatetoProps = (state) => {
 
   return ({
   restaurants: selectRestaurants(state.entities),
+  photos: state.entities.photos,
   state
 });
 };

@@ -13,3 +13,11 @@ export const selectReservations = ({ reservations }) => {
     })
   );
 };
+
+export const selectPhotos = ({ photos }) => {
+  return (
+    Object.keys(photos).map((id) => {
+      return photos[id];
+    })
+  );
+};

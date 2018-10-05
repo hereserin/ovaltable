@@ -4,7 +4,7 @@ import { selectReservations } from './../../reducers/selectors';
 import { fetchReservations } from './../../actions/reservations_actions';
 
 const mapStatetoProps = (state) => {
-  // debugger
+
 
   return ({
   reservations: selectReservations(state.entities),

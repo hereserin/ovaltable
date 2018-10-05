@@ -21,8 +21,8 @@ export const fetchRestaurant = (id) => {
 export const fetchRestaurants = () => {
   return (dispatch) => {
     return RestaurantAPIUtil.fetchRestaurants().then(
-      (restaurants) => {
-        return dispatch(receiveRestaurants(restaurants))
+      (payload) => {
+        return dispatch(receiveRestaurants(payload))
       },
       (error) => {
         return dispatch(receiveRestaurantErrors(error))
@@ -30,18 +30,20 @@ export const fetchRestaurants = () => {
   };
 };
 
-const receiveRestaurant = ({ restaurant, hours_of_operation }) => {
+const receiveRestaurant = ({ restaurant, hours_of_operation, photos }) => {
   return ({
     type: RECEIVE_RESTAURANT,
     restaurant: restaurant,
-    hoursOfOperation: hours_of_operation
+    hoursOfOperation: hours_of_operation,
+    photos: photos
   });
 };
 
-const receiveRestaurants = (restaurants) => {
+const receiveRestaurants = ({ restaurants, photos }) => {
   return ({
     type: RECEIVE_RESTAURANTS,
-    restaurants: restaurants
+    restaurants: restaurants,
+    photos: photos
   });
 };
 

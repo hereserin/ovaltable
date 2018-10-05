@@ -1,11 +1,20 @@
 import React from 'react'
 
 const RestaurantPhotos = (props) => {
+
+
+  const picItems = props.photos.map((photo, idx) => {
+    return (
+      <li >
+        <img key={idx} src={photo.photoUrl} />
+      </li>
+      );
+  });
+
   return (
     <ul className='photos-list'>
-      <li>
-        This is where the Restaurant Photos will go.
-      </li>
+      <h2>Photos</h2>
+        {picItems}
     </ul>
   );
 };

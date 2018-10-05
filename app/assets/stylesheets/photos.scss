@@ -1,5 +1,13 @@
 .photos-list {
   padding-bottom: 300px;
-  background-color: #685e5e33;
+  background-color: #white;
   margin-bottom: 10px;
+}
+
+.photos-list li {
+  list-style: none;
+}
+
+.photos-list img {
+  width: 150px;
 }

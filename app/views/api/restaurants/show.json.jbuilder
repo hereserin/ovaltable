@@ -10,7 +10,16 @@ json.hours_of_operation  do
   @restaurant.hours_of_operation.each do |hour|
     json.set! hour.id do
       json.extract! hour, :id, :day_of_week, :time_block
-      json.drop_down_time hour.drop_down_format 
+      json.drop_down_time hour.drop_down_format
+    end
+  end
+end
+
+json.photos do
+  @restaurant.photos.each do |photo|
+    json.set! photo.id do
+      json.extract! photo, :id
+      json.photoUrl url_for(photo.pic)
     end
   end
 end

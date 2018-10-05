@@ -28,6 +28,9 @@ class Restaurant < ApplicationRecord
   through: :restaurant_hour_of_operations,
   source: :hour_of_operation
 
+  has_many :photos,
+  class_name: :Photo
+
   belongs_to :dining_style,
   class_name: :DiningStyle
 

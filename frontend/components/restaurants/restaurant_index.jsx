@@ -3,29 +3,18 @@ import RestaurantIndexItem from './restaurant_index_item';
 import { Route } from 'react-router-dom';
 
 class RestaurantIndex extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-
-  componentDidMount() {
-    console.log(this.props.restaurants)
-    this.props.fetchRestaurants();
-    // this.setState()
-    console.log("testingtesting123")
-    console.log(this.props.restaurants)
-
-  }
-
-  // componentWillMount() {
-  //   debugger
+  // constructor(props) {
+  //   super(props);
   // }
 
+  componentDidMount() {
+    this.props.fetchRestaurants();
+  }
+
   render() {
-    // debugger
-    // if(!this.props.restaurants) return null;
-    console.log(this.props.restaurants)
+    if(this.props.restaurants.length == 0) return <div></div>;
+
     const restaurants = this.props.restaurants.map((restaurant, idx) => {
-      console.log(restaurant);
       return (
         <RestaurantIndexItem key={idx} restaurant={restaurant} />
         );

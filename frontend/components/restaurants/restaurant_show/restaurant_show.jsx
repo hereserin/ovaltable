@@ -9,12 +9,14 @@ import { withRouter } from 'react-router-dom';
 
 class RestaurantShowPage extends React.Component {
   componentDidMount(){
+    // debugger
     this.props.fetchRestaurant(this.props.match.params.restaurantId);
   }
 
   render() {
-    if (!this.props.restaurant) return <div></div>;
-      // debugger
+    if (this.props.restaurant == undefined) return <div></div>;
+    
+
     return (
       <div>
         <RestaurantShowBanner restaurant={this.props.restaurant} />
@@ -23,7 +25,7 @@ class RestaurantShowPage extends React.Component {
           <section>
             <RestaurantShowBar />
             <RestaurantInfo restaurant={this.props.restaurant} hours={this.props.hoursOfOperation}/>
-            <RestaurantPhotos restaurant={this.props.restaurant} />
+            <RestaurantPhotos photos={this.props.photos} />
             <ReviewIndex restaurant={this.props.restaurant} />
           </section>
 
