@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import  { closeModal } from '../../actions/modal_actions';
 import LoginFormContainer from '../session/signup_form_container';
 import SignupFormContainer from '../session/signup_form_container';
+import PhotoShow from '../photos/photo_show';
 // import { logout } from './../../actions/session_actions';
 // import Greeting from './greeting';
 
@@ -17,6 +18,9 @@ function Modal({modal, closeModal}) {
       break;
     case 'signup':
       component = <SignupFormContainer />;
+      break;
+    case 'photo':
+      component = <PhotoShow />;
       break;
     default:
       return null;

@@ -23,6 +23,7 @@ const Greeting = (props) => {
     const openSignInModal = () => {
       return props.openModal('login');
     };
+     
 
     greetingMessage = (
       <div>
