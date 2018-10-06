@@ -15,23 +15,34 @@ class RestaurantShowPage extends React.Component {
 
   render() {
     if (this.props.restaurant == undefined) return <div></div>;
-    
+
 
     return (
       <div>
         <RestaurantShowBanner restaurant={this.props.restaurant} />
 
         <main className='main-restaurant-show-page'>
+
           <section>
             <RestaurantShowBar />
-            <RestaurantInfo restaurant={this.props.restaurant} hours={this.props.hoursOfOperation}/>
-            <RestaurantPhotos photos={this.props.photos} />
-            <ReviewIndex restaurant={this.props.restaurant} />
+            <div id="Overview">
+              <RestaurantInfo restaurant={this.props.restaurant} hours={this.props.hoursOfOperation}/>
+            </div>
+
+            <div id="Photos">
+              <RestaurantPhotos photos={this.props.photos} />
+            </div>
+
+            <div id="Reviews">
+              <ReviewIndex restaurant={this.props.restaurant} />
+            </div>
+
           </section>
 
           <aside>
             <MakeReservationFormContainer/>
           </aside>
+
       </main>
     </div>
     );

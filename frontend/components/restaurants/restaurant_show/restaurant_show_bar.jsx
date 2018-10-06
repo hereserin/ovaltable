@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link, withRouter } from 'react-router-dom';
+import AnchorLink from 'react-anchor-link-smooth-scroll';
 
 
 const RestaurantShowBar = (props) => {
@@ -11,9 +12,23 @@ const RestaurantShowBar = (props) => {
   return (
     <nav className='restaurant-show-nav-bar'>
       <ul>
-        <li>Overview</li>
-        <li>Photos</li>
-        <li>Reviews</li>
+        <li>
+          <AnchorLink href="#Overview">
+            Overview
+          </AnchorLink>
+        </li>
+
+        <li>
+          <AnchorLink href="#Photos">
+            Photos
+          </AnchorLink>
+        </li>
+
+        <li>
+          <AnchorLink href="#Reviews">
+            Reviews
+          </AnchorLink>
+        </li>
       </ul>
     </nav>
   );

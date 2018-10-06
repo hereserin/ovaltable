@@ -109,6 +109,19 @@ li, ul {
   justify-content: left;
 }
 
+.restaurant-show-nav-bar a {
+  text-decoration: none;
+}
+
+.restaurant-show-nav-bar a:hover {
+  text-decoration: none;
+  color: red;
+}
+
+.restaurant-show-nav-bar li:hover > a {
+    color: red;
+}
+
 .restaurant-show-nav-bar li:hover {
   border-bottom-color: red;
   border-bottom-width: 1px;
