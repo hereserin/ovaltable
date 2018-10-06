@@ -1,6 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux';
 import { openModal } from './../../actions/modal_actions';
+import { showPhoto, clearPhoto } from './../../actions/photo_show_actions';
 
 const RestaurantPhotos = (props) => {
 
@@ -9,7 +10,10 @@ const RestaurantPhotos = (props) => {
     // debugger
     return (
       <li key={idx}>
-        <div className='photos-list-divs' onClick={props.openModal} style={{backgroundImage: `url(${photo.photoUrl})`}} />
+        <div className='photos-list-divs' onClick={() => {
+          props.showPhoto(photo)
+          props.openModal();
+        }} style={{backgroundImage: `url(${photo.photoUrl})`}} />
       </li>
       );
   });
@@ -26,7 +30,9 @@ const RestaurantPhotos = (props) => {
 
 const mapDispatchToProps = (dispatch) => {
   return ({
-    openModal: () => dispatch(openModal("photo"))
+    openModal: () => dispatch(openModal("photo")),
+    showPhoto: (clickedPhoto) => dispatch(showPhoto(clickedPhoto)),
+    clearPhoto: () => dispatch(clearPhoto())
   });
 };
 

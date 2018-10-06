@@ -23,3 +23,47 @@
   width: 125px;
   height: 125px;
 }
+
+.show-photo {
+  width: 700px;
+  // height: 400px;
+}
+
+.photo-show-modal {
+  border: 10px;
+}
+
+.photo-show-modal-screen {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;
+  background: rgba(0,0,0,0.80);
+}
+
+.photo-show-modal-box {
+  position: fixed;
+  background-color: #00000000;
+  // left: 15%;
+  // right: 15%;
+  top: 10%;
+  // width: 600px;
+  padding: 5px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.show-photo-span p {
+  color: white;
+  font-size: 20px;
+  color: white;
+  margin-left: 30px;
+  margin-right: 30px;
+  text-shadow: .05px .05px .05px #000000;
+}
+
+.show-photo-span {
+  background-color: #00000000;
+}

@@ -1,19 +1,22 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { clearPhoto } from './../../actions/photo_show_actions';
 
 const PhotoShow = (props) => {
   return (
 <div>
-    <span className='session-form-modal'>
-      <span className='session-form-modal-screen' onClick={() => {
-          this.props.history.push('/');
+    <span className='photo-show-modal'>
+      <span className='photo-show-modal-screen' onClick={() => {
+          props.clearPhoto();
+          props.history.push('/');
         }} >
-        <span className='session-form-modal-box' onClick={e => {
+        <span className='photo-show-modal-box' onClick={e => {
             e.stopPropagation();
           }}>
-          <span className='session-form'>
-            <h2>HELLOOOOOOO!!!!!</h2>
-            <p>how are you?</p>
-
+          <span className='show-photo-span'>
+            <img className='show-photo' src={props.showPhoto.photoUrl} />
+            <p>My very favorite picture.</p>
           </span>
         </span>
       </span>
@@ -22,6 +25,16 @@ const PhotoShow = (props) => {
 );
 };
 
+const mapStateToProps = ({ ui }) => {
+  return ({
+    showPhoto: ui.showPhoto
+  });
+};
 
+const mapDispatchToProps = (dispatch) => {
+  return ({
+    clearPhoto: () => dispatch(clearPhoto())
+  });
+};
 
-export default PhotoShow;
+export default connect(mapStateToProps, mapDispatchToProps)(PhotoShow);
