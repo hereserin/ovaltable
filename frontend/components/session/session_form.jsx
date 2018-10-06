@@ -39,6 +39,11 @@ class SessionForm extends React.Component {
         this.props.processForm(user);
       }
       this.setState({password: ""});
+      if (Object.keys(this.props.errors).length === 0 ) {
+        this.props.closeModal();
+      };
+
+
     });
   }
 

@@ -23,7 +23,7 @@ class RestaurantShowPage extends React.Component {
 
         <main className='main-restaurant-show-page'>
 
-          <section>
+          <section className='restaurant-show-section-holder'>
             <RestaurantShowBar />
             <div id="Overview">
               <RestaurantInfo restaurant={this.props.restaurant} hours={this.props.hoursOfOperation}/>

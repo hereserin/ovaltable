@@ -18,7 +18,8 @@ const mapDispatchToProps = (dispatch) => {
     },
     processDemo: (user) => {
       dispatch(loginDefault());
-    }
+    },
+    closeModal: modal => dispatch(closeModal())
   });
 };
 

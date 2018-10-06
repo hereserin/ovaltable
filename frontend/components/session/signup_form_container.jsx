@@ -1,5 +1,6 @@
 import { connect } from 'react-redux';
 import { signup, loginDefault } from './../../actions/session_actions';
+import { closeModal } from './../../actions/modal_actions';
 import SessionForm from './session_form';
 
 const mapStateToProps = (state) => {
@@ -19,7 +20,8 @@ const mapDispatchToProps = (dispatch) => {
     },
     processDemo: (user) => {
       dispatch(loginDefault());
-    }
+    },
+    closeModal: modal => dispatch(closeModal())
   });
 };
 

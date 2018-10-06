@@ -1,13 +1,25 @@
-.photos-list {
+.photos-list ul {
   padding-bottom: 300px;
   background-color: #white;
   margin-bottom: 10px;
+  flex-wrap: wrap;
+  max-width: 400px;
 }
 
 .photos-list li {
   list-style: none;
+  margin: 2px;
+  padding: 0;
+  width: 125px;
+  height: 125px;
+  float: left;
 }
 
-.photos-list img {
-  width: 150px;
+.photos-list-divs {
+  background-position: center center;
+  background-size: cover;
+  margin: 5px;
+  object-fit: fill;
+  width: 125px;
+  height: 125px;
 }

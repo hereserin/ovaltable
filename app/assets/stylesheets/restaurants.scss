@@ -32,6 +32,7 @@
   display: flex;
 }
 
+
 .restaurant-description {
   list-style: none;
 }
@@ -70,6 +71,11 @@
   padding-top: 293px;
   position: relative;
   z-index: 5;
+}
+
+.restaurant-show-section-holder {
+  display: flex;
+  flex-direction: column;
 }
 
 .main-restaurant-show-page li, h1, h2, h3, p, section {
