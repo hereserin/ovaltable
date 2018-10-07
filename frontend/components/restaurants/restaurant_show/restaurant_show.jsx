@@ -14,7 +14,8 @@ class RestaurantShowPage extends React.Component {
   }
 
   render() {
-    if (this.props.restaurant == undefined) return <div></div>;
+
+    if (this.props.restaurant.photos == undefined) return <div></div>;
 
 
     return (
@@ -30,7 +31,7 @@ class RestaurantShowPage extends React.Component {
             </div>
 
             <div id="Photos">
-              <RestaurantPhotos photos={this.props.photos} />
+              <RestaurantPhotos photos={this.props.photos} restaurantPicIds={this.props.restaurant.photos}/>
             </div>
 
             <div id="Reviews">

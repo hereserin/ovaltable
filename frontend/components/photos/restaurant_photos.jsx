@@ -5,17 +5,33 @@ import { showPhoto, clearPhoto } from './../../actions/photo_show_actions';
 
 const RestaurantPhotos = (props) => {
 
+// if i comment this back in---i need to delete 'props'
+//
+  // const picItems2 = props.photos.map((photo, idx) => {
+  //   // debugger
+  //   return (
+  //     <li key={idx}>
+  //       <div className='photos-list-divs' onClick={() => {
+  //         props.showPhoto(photo)
+  //         props.openModal();
+  //       }} style={{backgroundImage: `url(${photo.photoUrl})`}} />
+  //     </li>
+  //   );
+  // });
+  // debugger
+  // ******
+  console.log(props.restaurantPicIds);
+  const picItems = props.restaurantPicIds.map((photoId, idx) => {
+    const eachPhotoUrl = props.photos[photoId].photoUrl;
 
-  const picItems = props.photos.map((photo, idx) => {
-    // debugger
     return (
       <li key={idx}>
         <div className='photos-list-divs' onClick={() => {
           props.showPhoto(photo)
           props.openModal();
-        }} style={{backgroundImage: `url(${photo.photoUrl})`}} />
+        }} style={{backgroundImage: `url(${eachPhotoUrl})`}} />
       </li>
-      );
+    );
   });
 
   return (
