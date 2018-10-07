@@ -5,24 +5,24 @@ import { clearPhoto } from './../../actions/photo_show_actions';
 
 const PhotoShow = (props) => {
   return (
-<div>
-    <span className='photo-show-modal'>
-      <span className='photo-show-modal-screen' onClick={() => {
-          props.clearPhoto();
-          props.history.push('/');
-        }} >
-        <span className='photo-show-modal-box' onClick={e => {
-            e.stopPropagation();
-          }}>
-          <span className='show-photo-span'>
-            <img className='show-photo' src={props.showPhoto.photoUrl} />
-            <p>My very favorite picture.</p>
+      <div>
+          <span className='photo-show-modal'>
+            <span className='photo-show-modal-screen' onClick={() => {
+                props.clearPhoto();
+                props.history.push('/');
+            }}>
+            <span className='photo-show-modal-box' onClick={e => {
+                  e.stopPropagation();
+            }}>
+            <span className='show-photo-span'>
+              <img className='show-photo' src={props.showPhoto.photoUrl} />
+              <p>My very favorite picture.</p>
+            </span>
           </span>
         </span>
       </span>
-    </span>
-  </div>
-);
+    </div>
+  );
 };
 
 const mapStateToProps = ({ ui }) => {

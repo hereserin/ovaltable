@@ -14,9 +14,7 @@ class RestaurantShowPage extends React.Component {
   }
 
   render() {
-
     if (this.props.restaurant.photos == undefined) return <div></div>;
-
 
     return (
       <div>

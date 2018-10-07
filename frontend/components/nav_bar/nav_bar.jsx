@@ -11,8 +11,9 @@ const NavBar = (props) => {
     <nav className="nav-bar">
 
       <ul className='left-nav-links'>
-        <li onClick={()=>{props.history.push(`/`)}}>OvalTable</li>
-        <li>regions</li>
+        <li onClick={()=>{props.history.push(`/`)}}>
+          <img className='oval_table_logo' src={window.staticImages.OvalTableLogo} />
+        </li>
       </ul>
 
 

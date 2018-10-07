@@ -20,14 +20,14 @@ const RestaurantPhotos = (props) => {
   // });
   // debugger
   // ******
-  console.log(props.restaurantPicIds);
+
   const picItems = props.restaurantPicIds.map((photoId, idx) => {
     const eachPhotoUrl = props.photos[photoId].photoUrl;
 
     return (
       <li key={idx}>
         <div className='photos-list-divs' onClick={() => {
-          props.showPhoto(photo)
+          props.showPhoto(props.photos[photoId])
           props.openModal();
         }} style={{backgroundImage: `url(${eachPhotoUrl})`}} />
       </li>
