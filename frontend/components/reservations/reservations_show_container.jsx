@@ -3,7 +3,7 @@ import ReservationShowPage from './reservation_show_page';
 import { fetchReservation } from './../../actions/reservations_actions';
 import { withRouter } from 'react-router-dom';
 
-const mapStatetoProps = (state, ownProps) => {
+const mapStateToProps = (state, ownProps) => {
   // debugger
   return ({
     reservation: state.entities.reservations[ownProps.match.params.reservationId],
@@ -20,4 +20,4 @@ const mapDispatchToProps = (dispatch) => {
   });
 };
 
-export default withRouter(connect(mapStatetoProps, mapDispatchToProps)(ReservationShowPage));
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(ReservationShowPage));

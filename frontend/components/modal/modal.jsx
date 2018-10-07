@@ -4,6 +4,7 @@ import  { closeModal } from '../../actions/modal_actions';
 import LoginFormContainer from '../session/signup_form_container';
 import SignupFormContainer from '../session/signup_form_container';
 import PhotoShow from '../photos/photo_show';
+import PhotoForm from '../photos/photo_form';
 // import { logout } from './../../actions/session_actions';
 // import Greeting from './greeting';
 
@@ -21,6 +22,9 @@ function Modal({modal, closeModal}) {
       break;
     case 'photo':
       component = <PhotoShow />;
+      break;
+    case 'photo form':
+      component = <PhotoForm />;
       break;
     default:
       return null;

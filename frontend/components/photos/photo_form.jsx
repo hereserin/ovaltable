@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { clearPhoto } from './../../actions/photo_show_actions';
+import { submitPhoto } from './../../actions/photos_actions';
 import { withRouter } from 'react-router-dom';
 
 
@@ -10,12 +11,17 @@ class PhotoForm extends React.Component {
   constructor(props) {
     super(props);
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.handleChange = this.handleChange.bind(this);
+    // this.handleChange = this.handleChange.bind(this);
+    this.handleFile = this.handleFile.bind(this);
+    this.handleInput = this.handleInput.bind(this);
 
     this.state = {
+      restaurantId: this.props.restaurant,
       photoFile: null,
       photoUrl: null,
-      caption: ""
+      caption: "",
+      instructions: "Choose a file to upload",
+      // loadSuccess: false,
     };
   }
 
@@ -35,49 +41,82 @@ class PhotoForm extends React.Component {
     };
     if (file) {
       fileReader.readAsDataURL(file);
+    } else {
+      this.setState({ photoFile: null, photoUrl: "", caption: ""});
     }
   }
 
-  componentDidMount(){
-    // debugger
-    this.props.fetchRestaurant(this.props.match.params.restaurantId);
-  }
+  // componentDidMount(){
+  //   // debugger
+  //   this.props.fetchRestaurant(this.props.match.params.restaurantId);
+  // }
 
 
-  const preview = this.state.photoUrl ? <img src={this.state.photoUrl} /> : null;
-return (
+    handleSubmit(e) {
+      e.preventDefault();
+      const formData = new FormData();
+      formData.append('photo[photo_url]', this.state.photoUrl);
+      formData.append('photo[restaurant_id]', this.state.restaurantId);
+      formData.append('photo[caption]', this.state.caption);
+      if (this.state.photoFile) {
+        formData.append('photo[pic]', this.state.photoFile);
+      }
 
+      this.props.submitPhoto(formData).then(
+        (response) => {
+          this.setState({ instructions: response.message,  photoFile: null, photoUrl: "", caption: ""});
+        },
+        (response) => {
+           this.setState({ instructions: response.message  });
+        }
+      );
+    }
 
   render() {
-    if (this.props.restaurant.photos == undefined) return <div></div>;
+    let preview = null;
+    if (this.state.photoUrl) {
+      preview = (
+        <div>
+          <h4>Preview </h4>
+          <br></br>
+          <img className='photo-form-preview-image' src={this.state.photoUrl} />
+        </div>
+      );
+    }
 
     return (
         <div>
-            <span className='photo-show-modal'>
-              <span className='photo-show-modal-screen' onClick={() => {
-                  props.clearPhoto();
+            <span className='photo-form-modal'>
+              <span className='photo-form-modal-screen' onClick={() => {
                   props.history.push('/');
               }}>
-              <span className='photo-show-modal-box' onClick={e => {
+              <span className='photo-form-modal-box' onClick={e => {
                     e.stopPropagation();
               }}>
               <span className='photo-form-span'>
+                <h2>Add a Photo</h2>
+                <p>{this.state.instructions}</p>
+                <form onSubmit={this.handleSubmit}>
 
-                <form onSubmit={this.handleSubmit.bind(this)}>
-
-                  <label htmlFor="post-body">Body of Post</label>
-                  <input type="text"
-                    id="post-body"
-                    value={this.state.title}
-                    onChange={this.handleInput.bind(this)}/>
 
                   <input type="file"
-                    onChange={this.handleFile.bind(this)}/>
+                    className='photo-form-file-input'
+                    onChange={this.handleFile}/>
+                  <br></br>
 
-                  <h3>Image preview </h3>
+                  <label htmlFor="caption">
+                    <h4>Describe the Image: </h4>
+                  </label>
+                  <br></br>
+                  <textarea rows="2" cols="45"
+                    className='photo-form-textarea'
+                    id="caption"
+                    value={this.state.caption}
+                    onChange={this.handleInput}/>
+                  <br></br>
                     {preview}
 
-                  <button>Post Photo</button>
+                  <button className='photo-form-btn'> Post Photo</button>
                 </form>
 
               </span>
@@ -90,16 +129,26 @@ return (
 
 }
 
-const mapStateToProps = ({ ui }) => {
+const mapStateToProps = (state, ownProps) => {
+
   return ({
-    showPhoto: ui.showPhoto
+    showPhoto: state.ui.showPhoto,
+    restaurant: ownProps.history.location.pathname.split("/")[2],
   });
 };
 
 const mapDispatchToProps = (dispatch) => {
+
   return ({
-    clearPhoto: () => dispatch(clearPhoto())
+    // clearPhoto: () => dispatch(clearPhoto()),
+    submitPhoto: (photo) => dispatch(submitPhoto(photo))
   });
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(withRouter(PhotoShow));
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(PhotoForm));
+
+//
+// <input type="text"
+//   id="caption"
+//   value={this.state.caption}
+//   onChange={this.handleInput}/>

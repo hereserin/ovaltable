@@ -12,3 +12,13 @@ export const fetchPhotos = () => {
     url: `/api/photos`
   });
 };
+
+export const postPhoto = (photoFormData) => {
+  return $.ajax({
+    method: 'POST',
+    url: '/api/photos',
+    data: photoFormData,
+    contentType: false,
+    processData: false
+  });
+}

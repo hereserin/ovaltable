@@ -24,6 +24,8 @@
   height: 125px;
 }
 
+// ****** PHOTO SHOW MODAL PAGE: ****
+
 .show-photo {
   width: 700px;
 }
@@ -62,4 +64,73 @@
 
 .show-photo-span {
   background-color: #00000000;
+}
+
+// ****** PHOTO FORM MODAL PAGE: ****
+
+.photo-form-modal {
+  border: 10px;
+}
+
+.photo-form-modal-screen {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;
+  background: rgba(0,0,0,0.80);
+}
+
+.photo-form-modal-box {
+  position: fixed;
+  background-color: white;
+  top: 5%;
+  padding: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+h4 {
+  font-size: 16px;
+  padding: 3px;
+  color: #685e5e;
+  margin-left: 1px;
+  margin-right: 30px;
+  font-family: sans-serif;
+  margin-bottom: 1px;
+}
+
+.photo-form-file-input {
+  font-size: 16px;
+}
+
+.photo-form-textarea {
+  font-size: 16px;
+}
+
+.photo-form-form form {
+  display: flex;
+  flex-direction: column;
+}
+
+.photo-form-btn {
+  background: #318084;
+  padding: 12px;
+  color: white;
+  font-size: 14px;
+  margin: 5px;
+  border-radius: 3px;
+  text-decoration: none;
+  float: right;
+}
+
+.form-photo-span {
+  background-color: #00000000;
+}
+
+.photo-form-preview-image {
+  width: 350px;
+  margin: 10px;
+
 }

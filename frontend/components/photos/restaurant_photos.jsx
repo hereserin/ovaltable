@@ -28,25 +28,27 @@ const RestaurantPhotos = (props) => {
       <li key={idx}>
         <div className='photos-list-divs' onClick={() => {
           props.showPhoto(props.photos[photoId])
-          props.openModal();
+          props.openModalShowPic();
         }} style={{backgroundImage: `url(${eachPhotoUrl})`}} />
       </li>
     );
   });
 
   return (
-    <ul>
+    <div>
       <h2>Photos</h2>
       <ul className='photos-list'>
         {picItems}
       </ul>
-    </ul>
+      <p className='post-photo-link' onClick={props.openModalPhotoForm}>Add Photo</p>
+    </div>
   );
 };
 
 const mapDispatchToProps = (dispatch) => {
   return ({
-    openModal: () => dispatch(openModal("photo")),
+    openModalShowPic: () => dispatch(openModal("photo")),
+    openModalPhotoForm: () => dispatch(openModal("photo form")),
     showPhoto: (clickedPhoto) => dispatch(showPhoto(clickedPhoto)),
     clearPhoto: () => dispatch(clearPhoto())
   });

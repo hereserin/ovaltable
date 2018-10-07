@@ -5,18 +5,18 @@ export const RECEIVE_PHOTOS = 'RECEIVE_PHOTOS';
 
 
 
-// export const submitPhoto = (photo) => {
-//   return (dispatch) => {
-//     return PhotoAPIUtil.makeReservation(reservation).then(
-//       (reservation) => {
-//         return dispatch(receiveReservation(reservation))
-//       },
-//       (error) => {
-//         return dispatch(receiveReservationErrors(error))
-//       }
-//     );
-//   };
-// };
+export const submitPhoto = (photo) => {
+  return (dispatch) => {
+    return PhotoAPIUtil.postPhoto(photo).then(
+      (photo) => {
+        return dispatch(receivePhoto(photo))
+      },
+      // (error) => {
+      //   return dispatch(receiveReservationErrors(error))
+      // }
+    );
+  };
+};
 
 export const fetchPhoto = (id) => {
   return (dispatch) => {
