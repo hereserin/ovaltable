@@ -21,7 +21,7 @@ class PhotoForm extends React.Component {
       photoUrl: null,
       caption: "",
       instructions: "Choose a file to upload",
-      // loadSuccess: false,
+      loadSuccess: false,
     };
   }
 
@@ -46,30 +46,30 @@ class PhotoForm extends React.Component {
     }
   }
 
-  // componentDidMount(){
-  //   // debugger
-  //   this.props.fetchRestaurant(this.props.match.params.restaurantId);
-  // }
+  componentDidMount(){
+
+  }
 
 
-    handleSubmit(e) {
-      e.preventDefault();
-      const formData = new FormData();
-      formData.append('photo[photo_url]', this.state.photoUrl);
-      formData.append('photo[restaurant_id]', this.state.restaurantId);
-      formData.append('photo[caption]', this.state.caption);
-      if (this.state.photoFile) {
-        formData.append('photo[pic]', this.state.photoFile);
+  handleSubmit(e) {
+    e.preventDefault();
+    const formData = new FormData();
+    formData.append('photo[photo_url]', this.state.photoUrl);
+    formData.append('photo[restaurant_id]', this.state.restaurantId);
+    formData.append('photo[caption]', this.state.caption);
+    if (this.state.photoFile) {
+      formData.append('photo[pic]', this.state.photoFile);
+    }
+
+    this.props.submitPhoto(formData).then(
+      (response) => {
+        this.setState({ loadSuccess: true });
+        this.setState({ instructions: "Image has been posted! You may choose another file to upload",  photoFile: null, photoUrl: "", caption: ""});
+      },
+      (response) => {
+         this.setState({ instructions: "Couldn't Load Image File."  });
       }
-
-      this.props.submitPhoto(formData).then(
-        (response) => {
-          this.setState({ instructions: response.message,  photoFile: null, photoUrl: "", caption: ""});
-        },
-        (response) => {
-           this.setState({ instructions: response.message  });
-        }
-      );
+    );
     }
 
   render() {
