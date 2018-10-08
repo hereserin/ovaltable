@@ -125,9 +125,9 @@ ActiveRecord::Base.transaction do
     dress_code_id: smart_casual.id,
     physical_address: "555 Another Street, New York, NY"
   )
-  RestaurantHourOfOperation.create!(restaurant_id: mintons.id, hour_of_operation_id: one_am.id)
-  RestaurantHourOfOperation.create!(restaurant_id: mintons.id, hour_of_operation_id: one_thirty_am.id )
-  RestaurantHourOfOperation.create!(restaurant_id: mintons.id, hour_of_operation_id: two_thirty_am.id )
+  RestaurantHourOfOperation.create!(restaurant_id: redrooster.id, hour_of_operation_id: one_am.id)
+  RestaurantHourOfOperation.create!(restaurant_id: redrooster.id, hour_of_operation_id: one_thirty_am.id )
+  RestaurantHourOfOperation.create!(restaurant_id: redrooster.id, hour_of_operation_id: two_thirty_am.id )
 
 
   # twelve_am = HourOfOperation.create!(day_of_week: day, time_block: 1)
