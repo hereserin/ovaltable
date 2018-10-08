@@ -40,6 +40,16 @@ class Restaurant < ApplicationRecord
   belongs_to :dress_code,
   class_name: :DressCode
 
+  def thumbnail
+    @thumbnail ||= (self.photos.first || nil )
+    @thumbnail
+  end
+
+  def show_banner
+    @show_banner ||= (self.photos.first || nil )
+    @show_banner
+  end
+
   def hours_of_operations_list
     HourOfOperation.hours_of_operations_list(self.opp_hours_week_timeblock_hash)
   end

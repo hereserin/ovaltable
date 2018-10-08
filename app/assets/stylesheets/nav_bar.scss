@@ -3,13 +3,25 @@ li, ul {
   color: #685e5e;
 }
 
+.mini-top-nav {
+  height: 20px;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  background-color: #f0f0f0;
+}
+
+.mini-top-nav::after {
+  content: "";
+}
+
 .oval_table_logo {
   height: 45px;
   padding: 1px;
   margin: 0px;
 }
 
-.nav-bar {
+.nav-bar-main {
   display: flex;
   justify-content: space-between;
 }
