@@ -1,15 +1,20 @@
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 import LogoutButton from './logout_button.jsx';
 import React from 'react';
 
 
 const Greeting = (props) => {
   let greetingMessage;
+
+  const goToReservationsIndex = () => {
+    return (props.history.push(`/user/${[props.currentUser.id]}/reservations`));
+  };
+
   if ( props.currentUser ) {
     greetingMessage = (
       <div>
         <ul className='right-nav-links'>
-          <li>calendar</li>
+          <li><i className="far fa-calendar-alt cal-icon" onClick={goToReservationsIndex}></i></li>
           <li>Hi, {props.currentUser.username}</li>
           <LogoutButton logout={props.logout} />
         </ul>
@@ -23,7 +28,7 @@ const Greeting = (props) => {
     const openSignInModal = () => {
       return props.openModal('login');
     };
-     
+
 
     greetingMessage = (
       <div>
@@ -40,4 +45,4 @@ const Greeting = (props) => {
 // <Link to='/signup' className="sign-up-nav-link">Sign Up</Link>
 // <Link to='/login' className="login-nav-link">Sign In</Link>
 
-export default Greeting;
+export default withRouter(Greeting);

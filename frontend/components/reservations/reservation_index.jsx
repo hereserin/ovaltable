@@ -14,11 +14,11 @@ class ReservationIndex extends React.Component {
 
   render() {
     const reservations = this.props.reservations.map((reservation, idx) => {
-
       return (
         <ReservationIndexItem key={idx} reservation={reservation} />
         );
     });
+    const numOfReservations = reservations.length;
 
     return (
         <section>
@@ -26,6 +26,8 @@ class ReservationIndex extends React.Component {
           <ul>
             {reservations}
           </ul>
+          <p>{`You have ${numOfReservations} reservation(s)`}</p>
+
         </section>
     );
   }
