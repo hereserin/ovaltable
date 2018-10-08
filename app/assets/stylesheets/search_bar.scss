@@ -4,8 +4,17 @@
   padding-left: 300px;
   width: 100%;
   background: beige;
-  background-image: url(rest_search_back_pic01.jpg);
+  // background-image: url(rest_search_back_pic01.jpg);
   box-sizing: border-box;
+  background-position: center;
+  background-size: cover;
+  height: 425px;
+  opacity: .6;
+  transition: opacity 500ms ease-in;
+}
+
+.home-div-behind-slideshow {
+  background-color: #7881a7;
 }
 
 .results-search-box {
