@@ -27,6 +27,10 @@
   height: 125px;
 }
 
+.photos-list-divs:hover {
+  opacity: 0.5;
+}
+
 .post-photo-link {
   width: 400px;
   margin: 10px;
@@ -149,4 +153,8 @@ h4 {
   width: 350px;
   margin: 10px;
 
+}
+
+.photo-title {
+  margin-left: 35px;
 }

@@ -21,7 +21,7 @@ const RestaurantPhotos = (props) => {
 
   return (
     <div className='photo-section-div'>
-      <h2>Photos</h2>
+      <h2 className='photo-title'>Photos</h2>
       <ul className='photos-list'>
         {picItems}
       </ul>
