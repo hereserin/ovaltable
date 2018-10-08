@@ -3,7 +3,14 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { clearPhoto } from './../../actions/photo_show_actions';
 
+
 const PhotoShow = (props) => {
+
+  let caption = "My very favorite picture.";
+  if (props.showPhoto.caption) {
+    caption = props.showPhoto.caption;
+  }
+
   return (
       <div>
           <span className='photo-show-modal'>
@@ -16,7 +23,7 @@ const PhotoShow = (props) => {
             }}>
             <span className='show-photo-span'>
               <img className='show-photo' src={props.showPhoto.photoUrl} />
-              <p>My very favorite picture.</p>
+              <p>{caption}</p>
             </span>
           </span>
         </span>

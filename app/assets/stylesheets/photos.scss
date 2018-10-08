@@ -1,3 +1,4 @@
+
 .photos-list ul {
   padding-bottom: 300px;
   background-color: #white;
@@ -15,6 +16,8 @@
   float: left;
 }
 
+
+
 .photos-list-divs {
   background-position: center center;
   background-size: cover;
@@ -22,6 +25,19 @@
   object-fit: fill;
   width: 125px;
   height: 125px;
+}
+
+.post-photo-link {
+  width: 400px;
+  margin: 10px;
+  padding: 25px;
+  line-height: 58px;
+  color: #348084;
+  font-weight: bold;
+}
+
+.post-photo-link:hover {
+  color: #cc3b27;
 }
 
 // ****** PHOTO SHOW MODAL PAGE: ****

@@ -19,7 +19,7 @@ end
 json.photos do
   @restaurant.photos.each do |photo|
     json.set! photo.id do
-      json.extract! photo, :id
+      json.extract! photo, :id, :caption
       json.photoUrl url_for(photo.pic)
     end
   end
