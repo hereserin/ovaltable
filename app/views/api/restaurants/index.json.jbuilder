@@ -2,16 +2,16 @@ json.restaurants do
   @restaurants.each do |restaurant|
     json.set! restaurant.id do
       json.extract! restaurant, :id, :restaurant_name, :restaurant_description
+      json.photos [restaurant.thumbnail.select_id]
     end
   end
 end
 
 json.photos do
   @restaurants.each do |restaurant|
-    restaurant.photos.first do |photo|
-    # json.set! photo.id do
-      json.extract! :id, :photo_url, :restaurant_id
-      json.photoUrl url_for(photo.pic)
+    json.set! restaurant.thumbnail.id do
+      json.extract! restaurant.thumbnail, :id
+      json.photoUrl url_for(restaurant.thumbnail.pic)
     end
   end
 end

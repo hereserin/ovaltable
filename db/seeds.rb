@@ -130,6 +130,7 @@ ActiveRecord::Base.transaction do
   RestaurantHourOfOperation.create!(restaurant_id: redrooster.id, hour_of_operation_id: two_thirty_am.id )
 
 
+
   # twelve_am = HourOfOperation.create!(day_of_week: day, time_block: 1)
   # twelve_thirty_am = HourOfOperation.create!(day_of_week: day, time_block: 2)
   # one_am = HourOfOperation.create!(day_of_week: day, time_block: 3)

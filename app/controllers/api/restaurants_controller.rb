@@ -1,7 +1,7 @@
 class Api::RestaurantsController < ApplicationController
 
   def show
-    # debugger 
+
     @restaurant = Restaurant.find(params[:id])
     render 'api/restaurants/show'
   end
@@ -16,7 +16,9 @@ class Api::RestaurantsController < ApplicationController
   end
 
   def index
+    # debugger
     @restaurants = Restaurant.all
+
     render 'api/restaurants/index'
   end
 

@@ -3,20 +3,34 @@ import RestaurantIndexItem from './restaurant_index_item';
 import { Route } from 'react-router-dom';
 
 class RestaurantIndex extends React.Component {
-  // constructor(props) {
-  //   super(props);
-  // }
+  constructor(props) {
+    super(props);
+    this.state = {
+      restaurants: null,
+      photos: null
+    };
+  }
 
   componentDidMount() {
-    this.props.fetchRestaurants();
+    this.props.fetchRestaurants().then(({ restaurants, photos }) => {
+      this.setState({restaurants: restaurants, photos: photos})
+    });
   }
 
   render() {
-    if(this.props.restaurants.length == 0) return <div></div>;
+    if(!this.state.restaurants) return <div></div>;
 
     const restaurants = this.props.restaurants.map((restaurant, idx) => {
+    //
+    //   const thumbId = restaurant.photos[0];
+    //
+    //   let thumbnail = null;
+    //   if (thumbId) {
+    //     const thumbnail = this.props.photos[thumbId].photoUrl
+    //   }
+
       return (
-        <RestaurantIndexItem key={idx} restaurant={restaurant} />
+        <RestaurantIndexItem key={idx} restaurant={restaurant} photos={this.props.photos} />
         );
     });
 

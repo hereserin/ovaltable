@@ -9,7 +9,10 @@ const NavBar = (props) => {
 
   return (
     <nav className="nav-bar">
+      <div className='mini-top-nav'>
+      </div>
 
+      <div className="nav-bar-main">
       <ul className='left-nav-links'>
         <li onClick={()=>{props.history.push(`/`)}}>
           <img className='oval_table_logo' src={window.staticImages.OvalTableLogo} />
@@ -19,6 +22,7 @@ const NavBar = (props) => {
 
         <GreetingContainer />
 
+      </div>
     </nav>
   );
 };

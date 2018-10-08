@@ -8,5 +8,8 @@ class Photo < ApplicationRecord
   belongs_to :restaurant,
   class_name: :Restaurant
 
+  def select_id
+    self.id
+  end
 
 end
