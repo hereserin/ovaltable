@@ -6,7 +6,7 @@ export const CLEAR_PHOTO = 'CLEAR_PHOTO';
 export const showPhoto = (photo) => {
   return ({
     type: SHOW_PHOTO,
-    photo: photo,
+    photo: photo
   });
 };
 

@@ -3,7 +3,7 @@ json.restaurant do
   json.hours_of_operation_ids @restaurant.hours_of_operation.pluck(:id)
   json.hours_of_operation_string @restaurant.hours_of_operations_list
   json.photos @restaurant.photos.all.pluck(:id)
-  json.photos @restaurant.reviews.all.pluck(:id)
+  json.reviews @restaurant.reviews.all.pluck(:id)
   json.dining_style @restaurant.dining_style_string
   json.dress_code @restaurant.dress_code_string
 end

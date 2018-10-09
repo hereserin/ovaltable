@@ -34,14 +34,6 @@ const RestaurantPhotos = (props) => {
   );
 };
 
-const mapStatetoProps = (state) => {
-
-  return ({
-    photos: state.entities.photos,
-    restaurantPicIds: state.entities.restaurant.photos,
-  });
-}
-
 const mapDispatchToProps = (dispatch) => {
   return ({
     openModalShowPic: () => dispatch(openModal("photo")),
@@ -51,4 +43,4 @@ const mapDispatchToProps = (dispatch) => {
   });
 };
 
-export default connect(mapStatetoProps, mapDispatchToProps)(RestaurantPhotos);
+export default connect(null, mapDispatchToProps)(RestaurantPhotos);

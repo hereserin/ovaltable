@@ -1,7 +1,8 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { clearPhoto } from './../../actions/photo_show_actions';
+import { openModal, closeModal } from './../../actions/modal_actions';
 
 
 const PhotoShow = (props) => {
@@ -16,9 +17,11 @@ const PhotoShow = (props) => {
           <span className='photo-show-modal'>
             <span className='photo-show-modal-screen' onClick={() => {
                 props.clearPhoto();
-                props.history.push('/');
+                // debugger
+                props.closeModal();
+                // props.history.goBack();
             }}>
-            <span className='photo-show-modal-box' onClick={e => {
+            <span className='photo-show-modal-box' onClick={(e)=> {
                   e.stopPropagation();
             }}>
             <span className='show-photo-span'>
@@ -40,8 +43,9 @@ const mapStateToProps = ({ ui }) => {
 
 const mapDispatchToProps = (dispatch) => {
   return ({
-    clearPhoto: () => dispatch(clearPhoto())
+    clearPhoto: () => dispatch(clearPhoto()),
+    closeModal: () => dispatch(closeModal())
   });
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(PhotoShow);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(PhotoShow));

@@ -11,25 +11,27 @@ class RestaurantShowPage extends React.Component {
   constructor(props){
     super(props);
     this.state = {
-      restaurant: this.props.restaurant,
+      restaurant: null,
       // hoursOfOperation: this.props.hoursOfOperation,
-      photos: this.props.photos,
-      reviews: this.props.reviews
+      photos: null,
+      reviews: null
     }
   }
   componentDidMount(){
     let i = 1;
-    console.log(`mounted: mount number ${i}`);
+    // console.log(`mounted: mount number ${i}`);
     i = i + 1;
-    this.props.fetchRestaurant(this.props.match.params.restaurantId).then(() => {
-      console.log("data came back")
-      this.setState({photos: this.props.state.photos, reviews: this.props.state.reviews})
+    this.props.fetchRestaurant(this.props.match.params.restaurantId).then((payload) => {
+      // console.log("data came back")
+
+      this.setState({photos: payload.photos, reviews: payload.reviews, restaurant: payload.restaurant})
     });
   }
 
   render() {
-    if (this.state.restaurant == undefined) return <div></div>;
-// this.state.restaurant == undefined || this.props.restaurant.photos == undefined ||
+    // debugger
+    if (this.state.restaurant == undefined || this.state.restaurant.photos == undefined) return <div></div>;
+// this.state.restaurant == undefined || this.state.restaurant.photos == undefined ||
     // if (this.props.restaurant.reviews == undefined) return <div></div>;
 
     return (
@@ -45,7 +47,7 @@ class RestaurantShowPage extends React.Component {
             </div>
 
             <div id="Photos">
-              <RestaurantPhotos />
+              <RestaurantPhotos photos={this.state.photos} restaurantPicIds={this.state.restaurant.photos} />
             </div>
 
 
@@ -69,5 +71,3 @@ export default withRouter(RestaurantShowPage);
 // <div id="Reviews">
 //   <ReviewIndex reviews={this.props.reviews} restaurantReviewIds={this.props.restaurant.reviews} />
 // </div>
-
-// photos={this.props.photos} restaurantPicIds={this.props.restaurant.photos}

@@ -29,8 +29,7 @@ export const fetchRestaurants = () => {
   };
 };
 
-const receiveRestaurant = ({ restaurant, hours_of_operation, photos, reviews }) => {
-  debugger 
+const receiveRestaurant = ({ restaurant, hours_of_operation, photos, reviews }) => { 
   return ({
     type: RECEIVE_RESTAURANT,
     restaurant: restaurant,
