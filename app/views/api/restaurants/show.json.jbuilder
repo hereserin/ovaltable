@@ -3,6 +3,7 @@ json.restaurant do
   json.hours_of_operation_ids @restaurant.hours_of_operation.pluck(:id)
   json.hours_of_operation_string @restaurant.hours_of_operations_list
   json.photos @restaurant.photos.all.pluck(:id)
+  json.photos @restaurant.reviews.all.pluck(:id)
   json.dining_style @restaurant.dining_style_string
   json.dress_code @restaurant.dress_code_string
 end
@@ -25,18 +26,10 @@ json.photos do
   end
 end
 
-
-
-
-
-
-# json.extract! @restaurant, :id,
-# :restaurant_name,
-# # :max_capacity,
-# :restaurant_description,
-# :dining_style_id,
-# :dining_style_id
-# :website_url,
-# :dress_code_id,
-# :physical_address,
-# :regional_key_id
+json.reviews do
+  @restaurant.reviews.each do |review|
+    json.set! review.id do
+      json.extract! review, :id, :dine_date, :review_body, :rating_overall, :rating_food, :rating_service, :rating_ambience, :helpfulness_votes
+    end
+  end
+end

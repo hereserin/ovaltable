@@ -31,6 +31,9 @@ class Restaurant < ApplicationRecord
   has_many :photos,
   class_name: :Photo
 
+  has_many :reviews,
+  class_name: :Review
+
   belongs_to :dining_style,
   class_name: :DiningStyle
 
@@ -49,6 +52,13 @@ class Restaurant < ApplicationRecord
     @show_banner ||= (self.photos.first || nil )
     @show_banner
   end
+
+  def average_overall_rating
+    all_ratings = self.reviews.all.map {|review| review.rating_overall }
+    sum_ratings = all_ratings.reduce(:+)
+
+    sum_ratings / self.all_ratings.count
+  end 
 
   def hours_of_operations_list
     HourOfOperation.hours_of_operations_list(self.opp_hours_week_timeblock_hash)

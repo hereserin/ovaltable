@@ -22,7 +22,7 @@ class HomepageSearchSection extends React.Component {
   }
 
   componentDidMount() {
-    let setSlideShowTimeout = setInterval(() => {
+    this.state.setSlideShowTimeout = setInterval(() => {
       const newBannerIterator = (this.state.bannerImageIterator + 1) % 4;
       this.setState({bannerImage: this.state.imagesArray[newBannerIterator],
                 bannerImageIterator: newBannerIterator})
@@ -35,7 +35,9 @@ class HomepageSearchSection extends React.Component {
   //   }
   // }
 
-
+  componentWillUnmount() {
+    clearInterval(this.state.setSlideShowTimeout);
+  }
 
 
 

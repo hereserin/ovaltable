@@ -5,10 +5,13 @@ import { fetchPhoto, fetchPhotos } from './../../../actions/photos_actions';
 import { selectPhotos } from './../../../reducers/selectors';
 
 const mapStatetoProps = (state, ownProps) => {
+
   return ({
     restaurant: state.entities.restaurants[ownProps.match.params.restaurantId],
     hoursOfOperation: state.entities.hoursOfOperation,
     photos: state.entities.photos,
+    reviews: state.entities.reviews,
+    state: state,
     // photos: selectPhotos(state.entities)
   });
 };

@@ -6,7 +6,6 @@ export const RECEIVE_RESTAURANT_ERRORS = 'RECEIVE_RESTAURANT_ERRORS';
 
 
 export const fetchRestaurant = (id) => {
-  // debugger
   return (dispatch) => {
     return RestaurantAPIUtil.fetchRestaurant(id).then(
       (payload) => {
@@ -30,12 +29,14 @@ export const fetchRestaurants = () => {
   };
 };
 
-const receiveRestaurant = ({ restaurant, hours_of_operation, photos }) => {
+const receiveRestaurant = ({ restaurant, hours_of_operation, photos, reviews }) => {
+  debugger 
   return ({
     type: RECEIVE_RESTAURANT,
     restaurant: restaurant,
     hoursOfOperation: hours_of_operation,
-    photos: photos
+    photos: photos,
+    reviews: reviews
   });
 };
 

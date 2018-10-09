@@ -8,7 +8,6 @@ const RestaurantPhotos = (props) => {
 
   const picItems = props.restaurantPicIds.map((photoId, idx) => {
     const eachPhotoUrl = props.photos[photoId].photoUrl;
-
     return (
       <li key={idx}>
         <div className='photos-list-divs' onClick={() => {
@@ -35,6 +34,14 @@ const RestaurantPhotos = (props) => {
   );
 };
 
+const mapStatetoProps = (state) => {
+
+  return ({
+    photos: state.entities.photos,
+    restaurantPicIds: state.entities.restaurant.photos,
+  });
+}
+
 const mapDispatchToProps = (dispatch) => {
   return ({
     openModalShowPic: () => dispatch(openModal("photo")),
@@ -44,4 +51,4 @@ const mapDispatchToProps = (dispatch) => {
   });
 };
 
-export default connect(null, mapDispatchToProps)(RestaurantPhotos);
+export default connect(mapStatetoProps, mapDispatchToProps)(RestaurantPhotos);
