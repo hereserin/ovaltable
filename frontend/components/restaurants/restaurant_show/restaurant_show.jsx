@@ -1,7 +1,7 @@
 import React from 'react';
 import RestaurantInfo from './restaurant_info';
 import RestaurantPhotos from './../../photos/restaurant_photos';
-import ReviewIndex from './reviews_index';
+import ReviewsIndex from './../../reviews/reviews_index';
 import MakeReservationFormContainer from './../../reservations/make_reservation_form_container';
 import RestaurantShowBanner from './restaurant_show_banner';
 import RestaurantShowBar from './restaurant_show_bar';
@@ -48,6 +48,10 @@ class RestaurantShowPage extends React.Component {
 
             <div id="Photos">
               <RestaurantPhotos photos={this.state.photos} restaurantPicIds={this.state.restaurant.photos} />
+            </div>
+
+            <div id="Reviews">
+              <ReviewsIndex reviews={this.props.reviews} restaurantReviewIds={this.props.restaurant.reviews}  />
             </div>
 
 
