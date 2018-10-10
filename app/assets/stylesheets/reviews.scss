@@ -5,3 +5,20 @@
   background-color: white;
   margin-bottom: 10px;
 }
+
+.reviews-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.review-form-button {
+  padding: 11px;
+  margin: 3px;
+  border-style: none;
+  background: #cb1111;
+  color: white;
+  width: 100%;
+  font-family: 'Nunito Sans', sans-serif;
+  width: 100px;
+  align-self: flex-end;
+}
