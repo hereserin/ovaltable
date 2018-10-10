@@ -44,11 +44,14 @@ class Restaurant < ApplicationRecord
   class_name: :DressCode
 
   def thumbnail
-    @thumbnail ||= (self.photos.first || nil )
+    # default = Photo.new(user_id: 0, restaurant_id: 0, caption: "be kind", pic: "use default")
+    default = Photo.new
+    @thumbnail ||= (self.photos.first || default)
     @thumbnail
   end
 
   def show_banner
+    # <Photo id: 3, photo_url: nil, restaurant_id: 9, user_id: 5, caption: nil>
     @show_banner ||= (self.photos.first || nil )
     @show_banner
   end
@@ -58,7 +61,7 @@ class Restaurant < ApplicationRecord
     sum_ratings = all_ratings.reduce(:+)
 
     sum_ratings / self.all_ratings.count
-  end 
+  end
 
   def hours_of_operations_list
     HourOfOperation.hours_of_operations_list(self.opp_hours_week_timeblock_hash)
