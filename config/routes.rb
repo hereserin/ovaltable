@@ -10,6 +10,7 @@ Rails.application.routes.draw do
      resources :reservations, only: [:index, :show, :create, :edit, :destroy]
      resources :hours_of_operation, only: [:index]
      resources :photos, only: [:show, :create, :index]
+     resources :reviews, only: [:create, :index]
    end
 
    root to: 'static_pages#root'

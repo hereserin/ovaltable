@@ -16,7 +16,6 @@ class Api::RestaurantsController < ApplicationController
   end
 
   def index
-    # debugger
     @restaurants = Restaurant.all
 
     render 'api/restaurants/index'

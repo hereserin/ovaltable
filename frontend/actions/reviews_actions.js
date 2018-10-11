@@ -16,24 +16,24 @@ export const submitReview = (review) => {
   };
 };
 
-export const fetchReview = (id) => {
-  return (dispatch) => {
-    return ReviewAPIUtil.fetchReview(id).then(
-      (review) => {
-        return dispatch(receiveReview(review))
-      },
-      (error) => {
-        return dispatch(receiveReviewErrors(error))
-      }
-    );
-  };
-};
+// export const fetchReview = (id) => {
+//   return (dispatch) => {
+//     return ReviewAPIUtil.fetchReview(id).then(
+//       (review) => {
+//         return dispatch(receiveReview(review))
+//       },
+//       (error) => {
+//         return dispatch(receiveReviewErrors(error))
+//       }
+//     );
+//   };
+// };
 
 
 const receiveReview = (review) => {
   return ({
     type: RECEIVE_REVIEW,
-    review: reservation,
+    review: review,
   });
 };
 

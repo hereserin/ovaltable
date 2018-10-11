@@ -22,3 +22,22 @@
   width: 100px;
   align-self: flex-end;
 }
+
+.review-stars-on i {
+  color: #cb1111;
+}
+
+.review-stars-off i {
+  color: gray;
+}
+
+.review-stars-off {
+  display: inline;
+}
+
+.review-item {
+  border-bottom: solid;
+  border-bottom-width: .05px;
+  border-bottom-color: #eee7e7;
+  padding-bottom: 10px;
+}
