@@ -69,7 +69,7 @@ class ReviewForm extends React.Component {
           <h3>Add a review</h3>
           <form className="reviews-form" onSubmit={this.handleSubmit}>
 
-            <select onChange={this.handleNumericRatingInput}>
+            <select className="star-drop-down" onChange={this.handleNumericRatingInput}>
               <option>Select your rating</option>
               {this.ratingOptions()}
             </select>

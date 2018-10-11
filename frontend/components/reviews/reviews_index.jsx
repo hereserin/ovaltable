@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import ReviewForm from './review_form';
 import ReviewIndexItem from './review_index_item';
+import { ProtectedRoute } from './../../util/route_util.jsx';
 
 const ReviewsIndex = (props) => {
   console.log(props)
@@ -17,11 +18,16 @@ const ReviewsIndex = (props) => {
     <div className='reviews-list'>
       <h2>Reviews</h2>
       <div>
-        This is where the Restaurant Reviews will go...
-        All review-items will be rendered in here.
         {reviewsList}
       </div>
-      <ReviewForm />
+
+      <ProtectedRoute component={() => {
+          return (
+            <ReviewForm />
+          );
+      }} />
+
+
     </div>
   );
 };

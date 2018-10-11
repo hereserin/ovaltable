@@ -3,6 +3,13 @@ import { withRouter } from 'react-router-dom';
 
 const ReservationIndexItem = (props) => {
 
+    // let formatedDate = (string) => {
+    //   let res_time = props.reservation.date_and_time
+    //   debugger
+    // }
+
+
+
     return (
       <li className='reservation_index_item'>
         <div>
@@ -18,13 +25,13 @@ const ReservationIndexItem = (props) => {
           <h3>
             DATE
           </h3>
-            placeholder: we need to reformat DATE for this component.
+            placeholder: format DATE for this component.
         </div>
         <div>
           <h3>
             TIME
           </h3>
-            placeholder: we need to reformat TIME for this component.
+            placeholder: format TIME for this component.
         </div>
         <div>
           <h3>
