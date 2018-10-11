@@ -34,65 +34,75 @@ ActiveRecord::Base.transaction do
   # ]
   #
   # weekdays.each do |day|
-  day = "Monday"
-    twelve_am = HourOfOperation.create!(day_of_week: day, time_block: 0)
-    twelve_thirty_am = HourOfOperation.create!(day_of_week: day, time_block: 1)
-    one_am = HourOfOperation.create!(day_of_week: day, time_block: 2)
-    one_thirty_am = HourOfOperation.create!(day_of_week: day, time_block: 3)
-    two_am = HourOfOperation.create!(day_of_week: day, time_block: 4)
-    two_thirty_am = HourOfOperation.create!(day_of_week: day, time_block: 5)
-#
-#     3_00am = HoursOfOperation(day_of_week: day, time_block: 6)
-#     3_30am = HoursOfOperation(day_of_week: day, time_block: 7)
-#     4_00am = HoursOfOperation(day_of_week: day, time_block: 8)
-#     4_30am = HoursOfOperation(day_of_week: day, time_block: 9)
-#     5_00am = HoursOfOperation(day_of_week: day, time_block: 10)
-#     5_30am = HoursOfOperation(day_of_week: day, time_block: 11)
-#
-#     6_00am = HoursOfOperation(day_of_week: day, time_block: 12)
-#     6_30am = HoursOfOperation(day_of_week: day, time_block: 13)
-#     7_00am = HoursOfOperation(day_of_week: day, time_block: 14)
-#     7_30am = HoursOfOperation(day_of_week: day, time_block: 15)
-#     8_00am = HoursOfOperation(day_of_week: day, time_block: 16)
-#     8_30am = HoursOfOperation(day_of_week: day, time_block: 17)
-#
-#     9_00am = HoursOfOperation(day_of_week: day, time_block: 18)
-#     9_30am = HoursOfOperation(day_of_week: day, time_block: 19)
-#     10_00am = HoursOfOperation(day_of_week: day, time_block: 20)
-#     10_30am = HoursOfOperation(day_of_week: day, time_block: 21)
-#     11_00am = HoursOfOperation(day_of_week: day, time_block: 22)
-#     11_30am = HoursOfOperation(day_of_week: day, time_block: 23)
-#
-#     12_00pm = HoursOfOperation(day_of_week: day, time_block: 24)
-#     12_30pm = HoursOfOperation(day_of_week: day, time_block: 25)
-#     1_00pm = HoursOfOperation(day_of_week: day, time_block: 26)
-#     1_30pm = HoursOfOperation(day_of_week: day, time_block: 27)
-#     2_00pm = HoursOfOperation(day_of_week: day, time_block: 28)
-#     2_30pm = HoursOfOperation(day_of_week: day, time_block: 29)
-#
-#     3_00pm = HoursOfOperation(day_of_week: day, time_block: 30)
-#     3_30pm = HoursOfOperation(day_of_week: day, time_block: 31)
-#     4_00pm = HoursOfOperation(day_of_week: day, time_block: 32)
-#     4_30pm = HoursOfOperation(day_of_week: day, time_block: 33)
-#     5_00pm = HoursOfOperation(day_of_week: day, time_block: 34)
-#     5_30pm = HoursOfOperation(day_of_week: day, time_block: 35)
-#
-#     6_00pm = HoursOfOperation(day_of_week: day, time_block: 36)
-#     6_30pm = HoursOfOperation(day_of_week: day, time_block: 37)
-#     7_00pm = HoursOfOperation(day_of_week: day, time_block: 38)
-#     7_30pm = HoursOfOperation(day_of_week: day, time_block: 39)
-#     8_00pm = HoursOfOperation(day_of_week: day, time_block: 40)
-#     8_30pm = HoursOfOperation(day_of_week: day, time_block: 41)
-#
-#     9_00pm = HoursOfOperation(day_of_week: day, time_block: 42)
-#     9_30pm = HoursOfOperation(day_of_week: day, time_block: 43)
-#     10_00pm = HoursOfOperation(day_of_week: day, time_block: 44)
-#     10_30pm = HoursOfOperation(day_of_week: day, time_block: 45)
-#     11_00pm = HoursOfOperation(day_of_week: day, time_block: 46)
-#     11_30pm = HoursOfOperation(day_of_week: day, time_block: 47)
-# end
+  # day = "Monday"
+  def set_up_day(day)
+    weekday_hash = {}
 
-  # info that is not content ^^^(above)^^^
+    weekday_hash[twelve_am] = HourOfOperation.create!(day_of_week: day, time_block: 0)
+    weekday_hash[twelve_thirty_am] = HourOfOperation.create!(day_of_week: day, time_block: 1)
+    weekday_hash[one_am] = HourOfOperation.create!(day_of_week: day, time_block: 2)
+    weekday_hash[one_thirty_am] = HourOfOperation.create!(day_of_week: day, time_block: 3)
+    weekday_hash[two_am] = HourOfOperation.create!(day_of_week: day, time_block: 4)
+    weekday_hash[two_thirty_am] = HourOfOperation.create!(day_of_week: day, time_block: 5)
+
+    weekday_hash[a] = HoursOfOperation(day_of_week: day, time_block: 6)
+    weekday_hash[b] = HoursOfOperation(day_of_week: day, time_block: 7)
+    weekday_hash[c] = HoursOfOperation(day_of_week: day, time_block: 8)
+    weekday_hash[d] = HoursOfOperation(day_of_week: day, time_block: 9)
+    weekday_hash[e] = HoursOfOperation(day_of_week: day, time_block: 10)
+    weekday_hash[f] = HoursOfOperation(day_of_week: day, time_block: 11)
+
+    weekday_hash[h] = HoursOfOperation(day_of_week: day, time_block: 12)
+    weekday_hash[i] = HoursOfOperation(day_of_week: day, time_block: 13)
+    weekday_hash[j] = HoursOfOperation(day_of_week: day, time_block: 14)
+    weekday_hash[k] = HoursOfOperation(day_of_week: day, time_block: 15)
+    weekday_hash[l] = HoursOfOperation(day_of_week: day, time_block: 16)
+    weekday_hash[m] = HoursOfOperation(day_of_week: day, time_block: 17)
+
+    weekday_hash[n] = HoursOfOperation(day_of_week: day, time_block: 18)
+    weekday_hash[o] = HoursOfOperation(day_of_week: day, time_block: 19)
+    weekday_hash[p_] = HoursOfOperation(day_of_week: day, time_block: 20)
+    weekday_hash[q] = HoursOfOperation(day_of_week: day, time_block: 21)
+    weekday_hash[r] = HoursOfOperation(day_of_week: day, time_block: 22)
+    weekday_hash[s] = HoursOfOperation(day_of_week: day, time_block: 23)
+
+    weekday_hash[t] = HoursOfOperation(day_of_week: day, time_block: 24)
+    weekday_hash[u] = HoursOfOperation(day_of_week: day, time_block: 25)
+    weekday_hash[v] = HoursOfOperation(day_of_week: day, time_block: 26)
+    weekday_hash[w] = HoursOfOperation(day_of_week: day, time_block: 27)
+    weekday_hash[y] = HoursOfOperation(day_of_week: day, time_block: 28)
+    weekday_hash[z] = HoursOfOperation(day_of_week: day, time_block: 29)
+
+    weekday_hash[aa] = HoursOfOperation(day_of_week: day, time_block: 30)
+    weekday_hash[ab] = HoursOfOperation(day_of_week: day, time_block: 31)
+    weekday_hash[ac] = HoursOfOperation(day_of_week: day, time_block: 32)
+    weekday_hash[ad] = HoursOfOperation(day_of_week: day, time_block: 33)
+    weekday_hash[ae] = HoursOfOperation(day_of_week: day, time_block: 34)
+    weekday_hash[af] = HoursOfOperation(day_of_week: day, time_block: 35)
+
+    weekday_hash[ag] = HoursOfOperation(day_of_week: day, time_block: 36)
+    weekday_hash[ah] = HoursOfOperation(day_of_week: day, time_block: 37)
+    weekday_hash[ai] = HoursOfOperation(day_of_week: day, time_block: 38)
+    weekday_hash[aj] = HoursOfOperation(day_of_week: day, time_block: 39)
+    weekday_hash[ak] = HoursOfOperation(day_of_week: day, time_block: 40)
+    weekday_hash[al] = HoursOfOperation(day_of_week: day, time_block: 41)
+
+    weekday_hash[am] = HoursOfOperation(day_of_week: day, time_block: 42)
+    weekday_hash[an] = HoursOfOperation(day_of_week: day, time_block: 43)
+    weekday_hash[ao] = HoursOfOperation(day_of_week: day, time_block: 44)
+    weekday_hash[ap] = HoursOfOperation(day_of_week: day, time_block: 45)
+    weekday_hash[aq] = HoursOfOperation(day_of_week: day, time_block: 46)
+    weekday_hash[as] = HoursOfOperation(day_of_week: day, time_block: 47)
+    weekday_hash
+  end
+
+  mon_hash = set_up_day("Monday")
+  tue_hash = set_up_day("Tuesday")
+  wed_hash = set_up_day("Wednesday")
+  thur_hash = set_up_day("Thursday")
+  fri_hash = set_up_day("Friday")
+  sat_hash = set_up_day("Saturday")
+  sun_hash = set_up_day("Sunday")
 
 
 # info that is content:
@@ -110,9 +120,35 @@ ActiveRecord::Base.transaction do
     physical_address: "123 Some Street, New York, NY"
   )
 
-  RestaurantHourOfOperation.create!(restaurant_id: mintons.id, hour_of_operation_id: twelve_am.id)
-  RestaurantHourOfOperation.create!(restaurant_id: mintons.id, hour_of_operation_id: twelve_thirty_am.id )
-  RestaurantHourOfOperation.create!(restaurant_id: mintons.id, hour_of_operation_id: one_am.id )
+  # RestaurantHourOfOperation.create!(restaurant_id: mintons.id, hour_of_operation_id: twelve_am.id)
+  # RestaurantHourOfOperation.create!(restaurant_id: mintons.id, hour_of_operation_id: twelve_thirty_am.id )
+  # RestaurantHourOfOperation.create!(restaurant_id: mintons.id, hour_of_operation_id: one_am.id )
+
+  RestaurantHourOfOperation.create!(restaurant_id: mintons.id, hour_of_operation_id: mon_hash[n] )
+  RestaurantHourOfOperation.create!(restaurant_id: mintons.id, hour_of_operation_id: mon_hash[o] )
+  RestaurantHourOfOperation.create!(restaurant_id: mintons.id, hour_of_operation_id: mon_hash[p_] )
+  RestaurantHourOfOperation.create!(restaurant_id: mintons.id, hour_of_operation_id: mon_hash[q] )
+  RestaurantHourOfOperation.create!(restaurant_id: mintons.id, hour_of_operation_id: mon_hash[s] )
+  RestaurantHourOfOperation.create!(restaurant_id: mintons.id, hour_of_operation_id: mon_hash[t] )
+  RestaurantHourOfOperation.create!(restaurant_id: mintons.id, hour_of_operation_id: mon_hash[u] )
+  RestaurantHourOfOperation.create!(restaurant_id: mintons.id, hour_of_operation_id: mon_hash[v] )
+  RestaurantHourOfOperation.create!(restaurant_id: mintons.id, hour_of_operation_id: mon_hash[w] )
+  RestaurantHourOfOperation.create!(restaurant_id: mintons.id, hour_of_operation_id: mon_hash[x] )
+  RestaurantHourOfOperation.create!(restaurant_id: mintons.id, hour_of_operation_id: mon_hash[y] )
+  RestaurantHourOfOperation.create!(restaurant_id: mintons.id, hour_of_operation_id: mon_hash[z] )
+  RestaurantHourOfOperation.create!(restaurant_id: mintons.id, hour_of_operation_id: mon_hash[aa] )
+  RestaurantHourOfOperation.create!(restaurant_id: mintons.id, hour_of_operation_id: mon_hash[ab] )
+  RestaurantHourOfOperation.create!(restaurant_id: mintons.id, hour_of_operation_id: mon_hash[ac] )
+  RestaurantHourOfOperation.create!(restaurant_id: mintons.id, hour_of_operation_id: mon_hash[ad] )
+  RestaurantHourOfOperation.create!(restaurant_id: mintons.id, hour_of_operation_id: mon_hash[ae] )
+  RestaurantHourOfOperation.create!(restaurant_id: mintons.id, hour_of_operation_id: mon_hash[af] )
+  RestaurantHourOfOperation.create!(restaurant_id: mintons.id, hour_of_operation_id: mon_hash[ag] )
+  RestaurantHourOfOperation.create!(restaurant_id: mintons.id, hour_of_operation_id: mon_hash[ah] )
+  RestaurantHourOfOperation.create!(restaurant_id: mintons.id, hour_of_operation_id: mon_hash[ai] )
+  RestaurantHourOfOperation.create!(restaurant_id: mintons.id, hour_of_operation_id: mon_hash[aj] )
+  RestaurantHourOfOperation.create!(restaurant_id: mintons.id, hour_of_operation_id: mon_hash[ak] )
+  RestaurantHourOfOperation.create!(restaurant_id: mintons.id, hour_of_operation_id: mon_hash[al] )
+  RestaurantHourOfOperation.create!(restaurant_id: mintons.id, hour_of_operation_id: mon_hash[am] )
 
 
   redrooster = Restaurant.create!(
