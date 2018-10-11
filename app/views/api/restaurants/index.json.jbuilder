@@ -11,7 +11,7 @@ json.photos do
   @restaurants.each do |restaurant|
     json.set! restaurant.thumbnail.id do
       json.extract! restaurant.thumbnail, :id
-      json.photoUrl url_for(restaurant.thumbnail.pic)
+      # json.photoUrl url_for(restaurant.thumbnail.pic)
     end
   end
 end

@@ -45,7 +45,7 @@ class Restaurant < ApplicationRecord
 
   def thumbnail
     # default = Photo.new(user_id: 0, restaurant_id: 0, caption: "be kind", pic: "use default")
-    default = Photo.new
+    default = Photo.new()
     @thumbnail ||= (self.photos.first || default)
     @thumbnail
   end

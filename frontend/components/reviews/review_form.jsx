@@ -25,7 +25,7 @@ class ReviewForm extends React.Component {
 
     handleSubmit(e) {
       e.preventDefault();
-      
+
       const newReview = {
         review_body: this.state.reviewBody,
         restaurant_id: this.state.restaurantId,
@@ -55,7 +55,7 @@ class ReviewForm extends React.Component {
     }
 
     ratingOptions() {
-      return ([2,3,4,5].map((num, idx) => {
+      return ([1,2,3,4,5].map((num, idx) => {
         return (
           <option key={idx} value={num}>{num}</option>
         )
@@ -70,7 +70,7 @@ class ReviewForm extends React.Component {
           <form className="reviews-form" onSubmit={this.handleSubmit}>
 
             <select onChange={this.handleNumericRatingInput}>
-              <option value='1'>1</option>
+              <option>Select your rating</option>
               {this.ratingOptions()}
             </select>
 
