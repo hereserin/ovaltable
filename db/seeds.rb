@@ -392,4 +392,6 @@ ActiveRecord::Base.transaction do
   RestaurantHourOfOperation.create!(restaurant_id: rest5.id, hour_of_operation_id: mon_hash[:ae].id )
   RestaurantHourOfOperation.create!(restaurant_id: rest5.id, hour_of_operation_id: mon_hash[:af].id )
 
+  RestaurantHourOfOperation.create!(restaurant_id: p.id, hour_of_operation_id: mon_hash[:af].id )
+
 end

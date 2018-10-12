@@ -3,7 +3,7 @@ import React from 'react';
   const ReviewIndexItem = (props) => {
 
     const stars = (rating) => {
-      debugger
+
       const one = (
           <div>
             <span className='review-stars-on'>
@@ -93,7 +93,7 @@ import React from 'react';
             starDiv = five;
             break;
         }
-      debugger
+      
       return starDiv;
   }
 
