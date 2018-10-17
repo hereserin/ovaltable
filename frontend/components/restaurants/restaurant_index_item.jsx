@@ -14,13 +14,15 @@ const RestaurantIndexItem = props => {
 
   return (
     <li className="restaurant_index_item">
-      <div
-        className="restaurant_index_item_thumbnail"
-        onClick={() => {
-          props.history.push(`/restaurants/${props.restaurant.id}`);
-        }}
-        style={{ backgroundImage: `url(${thumbnail})` }}
-      />
+      <div className="restaurant-index-item-thumbnail-holder">
+        <div
+          className="restaurant-index-item-thumbnail"
+          onClick={() => {
+            props.history.push(`/restaurants/${props.restaurant.id}`);
+          }}
+          style={{ backgroundImage: `url(${thumbnail})` }}
+        />
+      </div>
       <div>
         <h3
           onClick={() => {

@@ -2,18 +2,31 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.restaurant_index_item_thumbnail {
+.restaurant-index-item-thumbnail {
   width: 190px;
   height: 190px;
   border-radius: 8px;
-  margin: 10px;
+  margin: 0;
   background-position: center center;
   background-size: cover;
   object-fit: fill;
 }
 
+.restaurant-index-item-thumbnail-holder {
+  width: 190px;
+  height: 190px;
+  border-radius: 8px;
+  margin: 10px;
+  background-color: gray;
+  // background-position: center center;
+  // background-size: cover;
+  // object-fit: fill;
+}
+
 .restaurant_index_item {
   display: flex;
+  width: 800px;
+  height: 200px;
   margin: 10px;
   border-bottom-color: #e9e4e4;
   border-bottom-style: solid;
