@@ -1,8 +1,10 @@
 import { merge } from 'lodash';
 import {
+  RECEIVE_REVIEW
+} from './../actions/reviews_actions';
+import {
   RECEIVE_RESTAURANT,
-  RECEIVE_RESTAURANTS,
-  RECEIVE_RESTAURANT_ERRORS
+  RECEIVE_RESTAURANTS
 } from './../actions/restaurant_actions';
 
 const reviewsReducer = (state={}, action) => {
@@ -12,6 +14,8 @@ const reviewsReducer = (state={}, action) => {
       return merge({}, state, action.reviews)
     case RECEIVE_RESTAURANT:
       return merge({}, state, action.reviews)
+    case RECEIVE_REVIEW:
+      return merge({}, state, action.review)
     default:
       return state;
   }

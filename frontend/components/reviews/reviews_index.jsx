@@ -4,39 +4,65 @@ import ReviewForm from './review_form';
 import ReviewIndexItem from './review_index_item';
 import { ProtectedRoute } from './../../util/route_util.jsx';
 
-const ReviewsIndex = (props) => {
-  console.log(props)
-  console.log(props.restaurantReviewIds)
-  let reviewsList = props.restaurantReviewIds.map((indexId, idx) => {
-      return (
-        <ReviewIndexItem key={idx} review={props.reviews[indexId]} />
-      );
-  })
+class ReviewsIndex extends React.Component {
 
+  // const ReviewsIndex = (props) => {
+  //   console.log(props)
+  //   console.log(props.restaurantReviewIds)
+  //
+  //   })
 
-  return (
-    <div className='reviews-list'>
-      <h2>Reviews</h2>
-      <div>
-        {reviewsList}
-      </div>
+    constructor(props) {
+      super(props);
+      this.handleNewReviewAdded = this.handleNewReviewAdded.bind(this);
+      this.state = {
+        restaurantReviewIds: this.props.restaurantReviewIds,
+      }
+    }
 
-      <ProtectedRoute component={() => {
+    handleNewReviewAdded(newId) {
+      this.setState(state, props)({
+        restaurantReviewIds: restaurantReviewIds.push(newId),
+      });
+    }
+
+    render() {
+      let reviewsList = this.state.restaurantReviewIds.map((indexId, idx) => {
           return (
-            <ReviewForm />
+            <ReviewIndexItem key={idx} review={this.props.reviews[indexId]} />
           );
-      }} />
+        })
 
+      return (
+        <div className='reviews-list'>
+          <h2>Reviews</h2>
+          <div>
+            {reviewsList}
+          </div>
 
-    </div>
-  );
-};
+          <ProtectedRoute component={() => {
+              return (
+                <ReviewForm
+                  onNewReviewSubmission={this.handleNewReviewAdded}/>
+              );
+          }} />
+        </div>
+      );
+    }
 
-const mapStatetoProps = (state) => {
-  return ({
-    reviews: state.entities.reviews,
-  })
 }
 
 
-export default ReviewsIndex;
+const mapStateToProps = (state) => ({
+      reviews: state.entities.reviews,
+});
+
+// const mapDispatchToProps = (dispatch) => ({
+//     FetchSomthinggggg: HERrrrreee
+//   });
+
+
+
+// export default ReviewsIndex;
+// export default connect(mapStateToProps, mapDispatchToProps)(ReviewsIndex);
+export default connect(mapStateToProps)(ReviewsIndex);

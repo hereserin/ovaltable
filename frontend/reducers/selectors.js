@@ -21,3 +21,11 @@ export const selectPhotos = ({ photos }) => {
     })
   );
 };
+
+export const selectReviews = ({ reviews }) => {
+  return (
+    Object.keys(reviews).map((id) => {
+      return reviews[id];
+    })
+  );
+};

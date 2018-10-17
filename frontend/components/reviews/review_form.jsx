@@ -14,6 +14,8 @@ class ReviewForm extends React.Component {
     this.handleBodyInput = this.handleBodyInput.bind(this);
     this.ratingOptions = this.ratingOptions.bind(this);
     this.handleNumericRatingInput = this.handleNumericRatingInput.bind(this);
+    this.clearInputFields = this.clearInputFields.bind(this);
+    this.onSuccesfulSubmission = this.onSuccesfulSubmission.bind(this);
 
     this.state = {
       ratingOverall: null,
@@ -25,24 +27,34 @@ class ReviewForm extends React.Component {
 
     handleSubmit(e) {
       e.preventDefault();
-
+      debugger
       const newReview = {
         review_body: this.state.reviewBody,
         restaurant_id: this.state.restaurantId,
         rating_overall: this.state.ratingOverall
       }
       this.props.submitReview(newReview).then(
-          () => {
-            return (this.setState({
-            reviewBody: "",
-          }))
-        },
-        () => {
+        (review) => (
+          this.onSuccesfulSubmission(review)
+        ),
+        (error) => {
             return (this.setState({
             errorInstructions: "Unable to submit this review. Please edit and try again"
           }))
         })
-  }
+    }
+
+    onSuccesfulSubmission(review) {
+      debugger
+      this.clearInputFields();
+      props.onNewReviewSubmission(review.id);
+    }
+
+    clearInputFields() {
+      return this.setState({
+        reviewBody: "",
+      })
+    }
 
     handleBodyInput(e) {
       return this.setState({
@@ -74,6 +86,7 @@ class ReviewForm extends React.Component {
               {this.ratingOptions()}
             </select>
 
+
             <textarea rows="5" cols="45"
               className='photo-form-textarea'
               id="caption"
@@ -100,7 +113,7 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = (dispatch) => {
   return ({
-    submitReview: (review) => dispatch(submitReview(review))
+    submitReview: (review) => dispatch(submitReview(review)),
   });
 };
 

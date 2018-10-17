@@ -17,10 +17,14 @@ class Api::ReviewsController < ApplicationController
     @review = Review.new(reviews_input)
 
     if @review.save
-      render json: {message: "Your review is posted!"}
+      render :show
     else
       render json: @review.errors.full_messages, status: 422
     end
+  end
+
+  def show
+    @review = Review.find(params[:id])
   end
 
   def delete
