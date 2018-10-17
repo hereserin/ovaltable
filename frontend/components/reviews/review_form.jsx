@@ -47,7 +47,6 @@ class ReviewForm extends React.Component {
     onSuccesfulSubmission(review) {
       debugger
       this.clearInputFields();
-      props.onNewReviewSubmission(review.id);
     }
 
     clearInputFields() {

@@ -3,33 +3,13 @@ import { connect } from 'react-redux';
 import ReviewForm from './review_form';
 import ReviewIndexItem from './review_index_item';
 import { ProtectedRoute } from './../../util/route_util.jsx';
+import { withRouter } from 'react-router-dom';
 
-class ReviewsIndex extends React.Component {
+const ReviewsIndex = (props) => {
 
-  // const ReviewsIndex = (props) => {
-  //   console.log(props)
-  //   console.log(props.restaurantReviewIds)
-  //
-  //   })
-
-    constructor(props) {
-      super(props);
-      this.handleNewReviewAdded = this.handleNewReviewAdded.bind(this);
-      this.state = {
-        restaurantReviewIds: this.props.restaurantReviewIds,
-      }
-    }
-
-    handleNewReviewAdded(newId) {
-      this.setState(state, props)({
-        restaurantReviewIds: restaurantReviewIds.push(newId),
-      });
-    }
-
-    render() {
-      let reviewsList = this.state.restaurantReviewIds.map((indexId, idx) => {
+      let reviewsList = props.reviewIds.map((indexId, idx) => {
           return (
-            <ReviewIndexItem key={idx} review={this.props.reviews[indexId]} />
+            <ReviewIndexItem key={idx} review={props.reviews[indexId]} />
           );
         })
 
@@ -42,27 +22,21 @@ class ReviewsIndex extends React.Component {
 
           <ProtectedRoute component={() => {
               return (
-                <ReviewForm
-                  onNewReviewSubmission={this.handleNewReviewAdded}/>
+                <ReviewForm />
               );
           }} />
         </div>
       );
-    }
-
 }
 
 
-const mapStateToProps = (state) => ({
+const mapStateToProps = (state, ownProps) => {
+  const restaurantId = ownProps.location.pathname.split("/")[2];
+  return {
       reviews: state.entities.reviews,
-});
+      reviewIds: state.entities.restaurants[restaurantId].reviews
+  };
+};
+// HOW DO YOU GET A WILDCARD FROM A URL?
 
-// const mapDispatchToProps = (dispatch) => ({
-//     FetchSomthinggggg: HERrrrreee
-//   });
-
-
-
-// export default ReviewsIndex;
-// export default connect(mapStateToProps, mapDispatchToProps)(ReviewsIndex);
-export default connect(mapStateToProps)(ReviewsIndex);
+export default withRouter(connect(mapStateToProps)(ReviewsIndex));
