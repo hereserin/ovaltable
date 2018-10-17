@@ -52,9 +52,10 @@ class Restaurant < ApplicationRecord
 
   def average_overall_rating
     all_ratings = self.reviews.all.map {|review| review.rating_overall }
+    count_of_ratings = all_ratings.count
+    return nil if count_of_ratings <= 0
     sum_ratings = all_ratings.reduce(:+)
-
-    sum_ratings / self.all_ratings.count
+    sum_ratings / count_of_ratings
   end
 
   def hours_of_operations_list

@@ -1,5 +1,6 @@
 import React from "react";
 import { withRouter } from "react-router-dom";
+import ShowStarRating from "./../reviews/show_star_rating";
 
 const RestaurantIndexItem = props => {
   // if(props. == 0) return <div></div>;
@@ -31,6 +32,7 @@ const RestaurantIndexItem = props => {
         >
           {props.restaurant.restaurant_name}
         </h3>
+        <ShowStarRating numberOfStars={props.restaurant.rating} />
         {props.restaurant.restaurant_description}
       </div>
     </li>
