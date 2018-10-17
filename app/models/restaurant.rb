@@ -43,12 +43,6 @@ class Restaurant < ApplicationRecord
   belongs_to :dress_code,
   class_name: :DressCode
 
-  def thumbnail
-    default = Photo.new(user_id: 0, restaurant_id: 0, caption: "be kind", pic: "use default")
-    # default = Photo.new()
-    @thumbnail ||= (self.photos.first || default)
-    @thumbnail
-  end
 
   def show_banner
     # <Photo id: 3, photo_url: nil, restaurant_id: 9, user_id: 5, caption: nil>

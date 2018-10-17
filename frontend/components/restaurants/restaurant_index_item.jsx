@@ -1,19 +1,15 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
 
-class RestaurantIndexItem extends React.Component {
+const RestaurantIndexItem = (props) => {
 
+  // if(props. == 0) return <div></div>;
 
-
-render() {
-
-  // if(this.props. == 0) return <div></div>;
-
-  const thumbId = this.props.restaurant.photos[0];
+  const thumbId = props.restaurant.photos[0];
   let thumbnail = window.staticImages.defaultRestaurant;
 
   if ( thumbId ) {
-    thumbnail = this.props.photos[thumbId].photoUrl;
+    thumbnail = props.photos[thumbId].photoUrl;
   }
 
 
@@ -21,14 +17,14 @@ render() {
       <li className='restaurant_index_item'>
         <img className='restaurant_index_item_thumbnail' src={thumbnail} />
         <div>
-          <h3 onClick={()=>{this.props.history.push(`/restaurants/${this.props.restaurant.id}`)}}>
-            {this.props.restaurant.restaurant_name}
+          <h3 onClick={()=>{props.history.push(`/restaurants/${props.restaurant.id}`)}}>
+            {props.restaurant.restaurant_name}
           </h3>
-            {this.props.restaurant.restaurant_description}
+            {props.restaurant.restaurant_description}
         </div>
       </li>
     );
-  }
+
 
 }
 
