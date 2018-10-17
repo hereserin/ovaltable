@@ -17,9 +17,7 @@ class Api::RestaurantsController < ApplicationController
 
   def index
     @restaurants = Restaurant.all
-    @thumbnails = @restaurants.map do |restaurant|
-      restaurant.thumbnail
-    end 
+
     render 'api/restaurants/index'
   end
 
