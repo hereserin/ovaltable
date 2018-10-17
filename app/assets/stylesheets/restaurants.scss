@@ -2,15 +2,31 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.restaurant_index_item_thumbnail {
-    width: 190px;
-    height: 190px;
-    border-radius: 8px;
-    margin: 10px;
+.restaurant-index-item-thumbnail {
+  width: 190px;
+  height: 190px;
+  border-radius: 8px;
+  margin: 0;
+  background-position: center center;
+  background-size: cover;
+  object-fit: fill;
+}
+
+.restaurant-index-item-thumbnail-holder {
+  width: 190px;
+  height: 190px;
+  border-radius: 8px;
+  margin: 10px;
+  background-color: gray;
+  // background-position: center center;
+  // background-size: cover;
+  // object-fit: fill;
 }
 
 .restaurant_index_item {
   display: flex;
+  width: 800px;
+  height: 200px;
   margin: 10px;
   border-bottom-color: #e9e4e4;
   border-bottom-style: solid;
@@ -21,6 +37,7 @@
 .restaurant_index_item h3 {
   font-size: 20px;
   color: #20849c;
+  margin-bottom: 2px;
 }
 
 .restaurant-info-list {
@@ -32,7 +49,6 @@
   display: flex;
 }
 
-
 .restaurant-description {
   list-style: none;
 }
@@ -41,19 +57,20 @@
   color: #2f292ade;
   font-size: 38px;
   border-bottom-style: solid;
-  border-bottom-width: .5px;
+  border-bottom-width: 0.5px;
   border-bottom-color: #80808059;
   margin-right: 50px;
 }
 
-
-.rest-details-list-1, .rest-details-list-2 {
+.rest-details-list-1,
+.rest-details-list-2 {
   font-size: 12px;
   list-style: none;
   line-height: 1;
 }
 
-.rest-details-list-1 h3, .rest-details-list-2 h3 {
+.rest-details-list-1 h3,
+.rest-details-list-2 h3 {
   font-size: 12px;
   color: inherit;
   font-weight: bold;
@@ -61,7 +78,8 @@
   margin-bottom: 5px;
 }
 
-.rest-details-list-1 li, .rest-details-list-2 li {
+.rest-details-list-1 li,
+.rest-details-list-2 li {
   margin: 30px;
 }
 
@@ -78,7 +96,12 @@
   flex-direction: column;
 }
 
-.main-restaurant-show-page li, h1, h2, h3, p, section {
+.main-restaurant-show-page li,
+h1,
+h2,
+h3,
+p,
+section {
   color: black;
 }
 
@@ -96,8 +119,9 @@
   content: "";
 }
 
-li, ul {
-  font-family: 'Nunito Sans', sans-serif;
+li,
+ul {
+  font-family: "Nunito Sans", sans-serif;
   color: #685e5e;
 }
 
@@ -109,7 +133,7 @@ li, ul {
 
 .restaurant-show-nav-bar ul {
   border-bottom-color: #e9e4e4;
-  border-bottom-width: .5px;
+  border-bottom-width: 0.5px;
   border-bottom-style: solid;
   display: flex;
   justify-content: left;
@@ -125,7 +149,7 @@ li, ul {
 }
 
 .restaurant-show-nav-bar li:hover > a {
-    color: red;
+  color: red;
 }
 
 .restaurant-show-nav-bar li:hover {

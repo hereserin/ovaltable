@@ -18,7 +18,7 @@
   background: #cb1111;
   color: white;
   width: 100%;
-  font-family: 'Nunito Sans', sans-serif;
+  font-family: "Nunito Sans", sans-serif;
   width: 100px;
   align-self: flex-end;
 }
@@ -27,12 +27,22 @@
   color: #cb1111;
 }
 
+.review-stars-on-yellow i {
+  color: #e5ae06;
+}
+
 .review-stars-off i {
   color: gray;
 }
 
 .review-stars-off {
   display: inline;
+}
+
+.no-ratings-yet {
+  color: #c4b0b0;
+  font-style: italic;
+  margin: 1px;
 }
 
 .star-drop-down {
@@ -44,7 +54,7 @@
 
 .review-item {
   border-bottom: solid;
-  border-bottom-width: .05px;
+  border-bottom-width: 0.05px;
   border-bottom-color: #eee7e7;
   padding-bottom: 10px;
 }

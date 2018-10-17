@@ -43,12 +43,6 @@ class Restaurant < ApplicationRecord
   belongs_to :dress_code,
   class_name: :DressCode
 
-  def thumbnail
-    # default = Photo.new(user_id: 0, restaurant_id: 0, caption: "be kind", pic: "use default")
-    default = Photo.new()
-    @thumbnail ||= (self.photos.first || default)
-    @thumbnail
-  end
 
   def show_banner
     # <Photo id: 3, photo_url: nil, restaurant_id: 9, user_id: 5, caption: nil>
@@ -58,9 +52,10 @@ class Restaurant < ApplicationRecord
 
   def average_overall_rating
     all_ratings = self.reviews.all.map {|review| review.rating_overall }
+    count_of_ratings = all_ratings.count
+    return nil if count_of_ratings <= 0
     sum_ratings = all_ratings.reduce(:+)
-
-    sum_ratings / self.all_ratings.count
+    sum_ratings / count_of_ratings
   end
 
   def hours_of_operations_list

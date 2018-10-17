@@ -1,66 +1,65 @@
-import * as ReservationAPIUtil from '../util/reservation_api_util';
+import * as ReservationAPIUtil from "../util/reservation_api_util";
 
-export const RECEIVE_RESERVATION = 'RECEIVE_RESERVATION';
-export const RECEIVE_RESERVATIONS = 'RECEIVE_RESERVATIONS';
-export const RECEIVE_RESERVATION_ERRORS = 'RECEIVE_RESERVATION_ERRORS';
+export const RECEIVE_RESERVATION = "RECEIVE_RESERVATION";
+export const RECEIVE_RESERVATIONS = "RECEIVE_RESERVATIONS";
+export const RECEIVE_RESERVATION_ERRORS = "RECEIVE_RESERVATION_ERRORS";
 
-
-export const submitReservation = (reservation) => {
-  return (dispatch) => {
+export const submitReservation = reservation => {
+  return dispatch => {
     return ReservationAPIUtil.makeReservation(reservation).then(
-      (reservation) => {
-        return dispatch(receiveReservation(reservation))
+      reservation => {
+        return dispatch(receiveReservation(reservation));
       },
-      (error) => {
-        return dispatch(receiveReservationErrors(error))
+      error => {
+        return dispatch(receiveReservationErrors(error));
       }
     );
   };
 };
 
-export const fetchReservation = (id) => {
-  return (dispatch) => {
+export const fetchReservation = id => {
+  return dispatch => {
     return ReservationAPIUtil.fetchReservation(id).then(
-      (reservation) => {
-        return dispatch(receiveReservation(reservation))
+      reservation => {
+        return dispatch(receiveReservation(reservation));
       },
-      (error) => {
-        return dispatch(receiveReservationErrors(error))
+      error => {
+        return dispatch(receiveReservationErrors(error));
       }
     );
   };
 };
 
 export const fetchReservations = () => {
-  return (dispatch) => {
+  return dispatch => {
     return ReservationAPIUtil.fetchReservations().then(
-      (reservations) => {
-        return dispatch(receiveReservation(reservations))
+      reservations => {
+        return dispatch(receiveReservation(reservations));
       },
-      (error) => {
-        return dispatch(receiveReservationErrors(error))
+      error => {
+        return dispatch(receiveReservationErrors(error));
       }
     );
   };
 };
 
-const receiveReservation = (reservation) => {
-  return ({
+const receiveReservation = reservation => {
+  return {
     type: RECEIVE_RESERVATION,
-    reservation: reservation,
-  });
+    reservation: reservation
+  };
 };
 
-const receiveRestaurants = (reservations) => {
-  return ({
+const receiveRestaurants = reservations => {
+  return {
     type: RECEIVE_RESERVATIONS,
-    reservations: reservations,
-  });
+    reservations: reservations
+  };
 };
 
-export const receiveReservationErrors = (errors) => {
-  return ({
+export const receiveReservationErrors = errors => {
+  return {
     type: RECEIVE_RESERVATION_ERRORS,
     errors: errors.responseJSON
-  });
+  };
 };
