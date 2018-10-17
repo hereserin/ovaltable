@@ -70,6 +70,14 @@ const ShowStarRating = props => {
       </div>
     );
 
+    const noRatingsYet = (
+      <div>
+        <span>
+          <p className="no-ratings-yet">No Reviews Yet</p>
+        </span>
+      </div>
+    );
+
     let starDiv;
     switch (rating) {
       case 1:
@@ -86,6 +94,9 @@ const ShowStarRating = props => {
         break;
       case 5:
         starDiv = five;
+        break;
+      case null:
+        starDiv = noRatingsYet;
         break;
       default:
         starDiv = five;
