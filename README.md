@@ -5,5 +5,6 @@ OvalTable is a single-page web application built on Ruby on Rails with React.js.
 
 Click here for the live version: 
 OvalTable
+[OvalTable](https://ovaltable.herokuapp.com/)
 
 
