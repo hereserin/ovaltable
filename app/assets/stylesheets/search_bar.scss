@@ -9,8 +9,9 @@
   background-position: center;
   background-size: cover;
   height: 425px;
-  opacity: .6;
+  opacity: 0.6;
   transition: opacity 500ms ease-in;
+  margin-bottom: 500px;
 }
 
 .home-div-behind-slideshow {
@@ -67,17 +68,18 @@
   border-style: none;
 }
 
-.home-search-box select, button {
+.home-search-box select,
+button {
   padding: 8px;
   border-radius: 3px;
   border-style: none;
-  font-family: 'Nunito Sans', sans-serif;
-
+  font-family: "Nunito Sans", sans-serif;
 }
 
-.time-search, .date-search {
+.time-search,
+.date-search {
   border: none;
-  font-family: 'Nunito Sans', sans-serif;
+  font-family: "Nunito Sans", sans-serif;
   color: #685e5e;
 }
 
@@ -88,5 +90,5 @@
   background: #cb1111;
   color: white;
   width: 100px;
-  font-family: 'Nunito Sans', sans-serif;
+  font-family: "Nunito Sans", sans-serif;
 }
