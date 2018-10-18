@@ -1,0 +1,48 @@
+footer {
+  background-color: #3c4346;
+  height: 250px;
+  width: 100%;
+  padding: 30px;
+  box-sizing: border-box;
+}
+
+footer p {
+  color: #6d7474;
+}
+
+.my-link-icons ul {
+  color: #c1c0d1;
+  padding: 5px;
+  // display: block;
+}
+
+.my-link-icons li {
+  justify-content: center;
+  font-size: 30px;
+  list-style: none;
+  margin: 5px;
+  float: left;
+  display: inline;
+}
+
+.my-link-icons a {
+  color: #c1c0d1;
+}
+
+.my-link-icons a:hover {
+  color: white;
+}
+
+.my-link-icon-holder {
+  margin: 10px;
+  width: 200px;
+  float: right;
+}
+
+.my-link-icon-holder p {
+  font-size: 20px;
+  color: #6d7474;
+  margin-left: 25%;
+  margin-right: 25%;
+  margin-bottom: 2px;
+}
