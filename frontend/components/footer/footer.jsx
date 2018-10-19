@@ -16,25 +16,25 @@ const Footer = props => {
         <ul className="my-link-icons">
           <li>
             <a href="https://github.com/hereserin">
-              <i class="fab fa-github" />
+              <i className="fab fa-github" />
             </a>
           </li>
 
           <li>
             <a href="https://www.linkedin.com/in/erin-e-m/">
-              <i class="fab fa-linkedin-in" />
+              <i className="fab fa-linkedin-in" />
             </a>
           </li>
 
           <li>
             <a href="https://angel.co/erin-marshall-1">
-              <i class="fab fa-angellist" />
+              <i className="fab fa-angellist" />
             </a>
           </li>
 
           <li>
             <a href="http://erin-e-marshall.com/">
-              <i class="fas fa-user-circle" />
+              <i className="fas fa-user-circle" />
             </a>
           </li>
         </ul>
