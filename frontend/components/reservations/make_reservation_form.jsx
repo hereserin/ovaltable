@@ -5,6 +5,7 @@ class MakeReservationForm extends React.Component {
     super(props);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleChange = this.handleChange.bind(this);
+    this.errors = null;
 
     this.state = {
       party_size: 2,
@@ -39,24 +40,33 @@ class MakeReservationForm extends React.Component {
     e.preventDefault();
     const newReservation = Object.assign({}, this.state);
     // this.props.clearErrors();
-    // debugger
-    this.props.submitReservation(newReservation).then(() => {
-      if (this.props.errors.length === 0) {
-        this.props.history.push(
+
+    this.props.submitReservation(newReservation).then(
+      reservation => {
+        this.props.fetchReservations();
+        return this.props.history.push(
           `/user/${[this.props.currentUserId]}/reservations`
         );
-      }
-    });
+      },
+      errors => this.renderErrors(errors)
+    );
 
     // this.props.history.push(`/reservations/${}`)
   }
 
-  errorsList() {
-    const currentErrors = this.props.errors.map((error, idx) => {
-      return <li key={idx}>{error}</li>;
-    });
-    return <ul className="form-errors">{currentErrors}</ul>;
+  renderErrors(errors) {
+    const errorsListItems = errors.map((error, idx) => (
+      <li key={idx}>{error}</li>
+    ));
+
+    this.errors = <ul className="form-errors">{errorsListItems}</ul>;
   }
+  // errorsList() {
+  //   const currentErrors = this.props.errors.map((error, idx) => {
+  //     return <li key={idx}>{error}</li>;
+  //   });
+  //   return <ul className="form-errors">{currentErrors}</ul>;
+  // }
 
   render() {
     // debugger
@@ -91,7 +101,7 @@ class MakeReservationForm extends React.Component {
     return (
       <form className="make-res-form" onSubmit={this.handleSubmit}>
         <h2>Make a reservation </h2>
-        <ul>{this.errorsList()}</ul>
+        <ul>{this.errors}</ul>
         <div className="make-res-form-field-a">
           <h5>Party Size</h5>
           <label>

@@ -1,31 +1,43 @@
-import { connect } from 'react-redux';
-import MakeReservationForm from './make_reservation_form';
-import { submitReservation, receiveReservationErrors } from './../../actions/reservations_actions';
-import { fetchRestaurant } from './../../actions/restaurant_actions';
-import { withRouter } from 'react-router-dom';
+import { connect } from "react-redux";
+import MakeReservationForm from "./make_reservation_form";
+import {
+  submitReservation,
+  receiveReservationErrors,
+  fetchReservations
+} from "./../../actions/reservations_actions";
+import { fetchRestaurant } from "./../../actions/restaurant_actions";
+import { withRouter } from "react-router-dom";
 
 const mapStatetoProps = (state, ownProps) => {
   // debugger
-  return ({
+  return {
     errors: state.errors.reservation,
     restaurant: state.entities.restaurants[ownProps.match.params.restaurantId],
     hoursOfOperation: state.entities.hoursOfOperation,
-    currentUserId: state.session.currentUserId,
-  });
+    currentUserId: state.session.currentUserId
+  };
 };
 
-const mapDispatchToProps = (dispatch) => {
-  return ({
-    submitReservation: (reservation) => {
+const mapDispatchToProps = dispatch => {
+  return {
+    submitReservation: reservation => {
       return dispatch(submitReservation(reservation));
     },
-    fetchRestaurant: (id) => {
-      return dispatch(fetchRestaurant(id))
+    fetchRestaurant: id => {
+      return dispatch(fetchRestaurant(id));
     },
     clearErrors: () => {
-      return dispatch(receiveReservationErrors([]))
+      return dispatch(receiveReservationErrors([]));
+    },
+    fetchReservations: () => {
+      return dispatch(fetchReservations());
     }
-  });
+  };
 };
 
-export default withRouter(connect(mapStatetoProps, mapDispatchToProps)(MakeReservationForm));
+export default withRouter(
+  connect(
+    mapStatetoProps,
+    mapDispatchToProps
+  )(MakeReservationForm)
+);

@@ -31,7 +31,9 @@ class Api::ReservationsController < ApplicationController
   end
 
   def index
-    @reservations = Reservation.find_by(user_id: current_user.id)
+    # @reservations = Reservation.find_by(user_id: current_user.id)
+    @reservations = current_user.reservations.includes(:restaurant)
+
     render 'api/reservations/index'
   end
 

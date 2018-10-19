@@ -13,4 +13,8 @@ class Reservation < ApplicationRecord
   through: :reservation_hour_of_operations,
   source: :hour_of_operation
 
+  # has_many :photos,
+  # through: :restaurant,
+  # source: :photos
+
 end
