@@ -43,6 +43,19 @@ export const fetchReservations = () => {
   };
 };
 
+export const deleteReservation = id => {
+  return dispatch => {
+    return ReservationAPIUtil.cancelReservation(id).then(
+      payload => {
+        return dispatch(receiveReservations(payload));
+      },
+      error => {
+        return dispatch(receiveReservationErrors(error));
+      }
+    );
+  };
+};
+
 const receiveReservation = payload => {
   return {
     type: RECEIVE_RESERVATION,

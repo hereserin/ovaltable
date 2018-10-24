@@ -19,6 +19,7 @@ const ReservationIndex = props => {
         key={idx}
         reservation={reservation}
         thumbnail={thumbnail}
+        cancelReservation={() => props.cancelReservation(reservationId)}
       />
     );
   });

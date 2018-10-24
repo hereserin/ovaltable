@@ -1,7 +1,10 @@
 import { connect } from "react-redux";
 import ReservationIndex from "./reservation_index";
 import { selectReservations } from "./../../reducers/selectors";
-import { fetchReservations } from "./../../actions/reservations_actions";
+import {
+  fetchReservations,
+  deleteReservation
+} from "./../../actions/reservations_actions";
 
 const mapStatetoProps = state => {
   return {
@@ -11,5 +14,9 @@ const mapStatetoProps = state => {
     order: state.order
   };
 };
+
+const mapDispatchToProps = dispatch => ({
+  cancelReservation: id => dispatch(deleteReservation(id))
+});
 
 export default connect(mapStatetoProps)(ReservationIndex);
