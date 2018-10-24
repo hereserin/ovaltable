@@ -3,6 +3,8 @@ json.reservations do
     json.set! reservation.id do
       json.extract! reservation, :id, :restaurant_id, :user_id, :party_size, :date_and_time
       json.photos reservation.restaurant.photos.all.pluck(:id)
+      json.date reservation.display_date
+      json.time reservation.display_time
     end
   end
 end

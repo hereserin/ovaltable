@@ -17,4 +17,12 @@ class Reservation < ApplicationRecord
   # through: :restaurant,
   # source: :photos
 
+  def display_date
+    self.date_and_time.strftime('%A, %B %e, %Y')
+  end
+
+  def display_time
+    self.date_and_time.strftime('%l:%M %p')
+  end
+
 end

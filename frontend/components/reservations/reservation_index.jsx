@@ -6,7 +6,6 @@ const ReservationIndex = props => {
   const reservations = props.reservations.map((reservation, idx) => {
     const restaurant = reservation.restaurant_id;
     // TODO: REFACTOR TO MAKE THIS DRY, Need to add Thumbnail as its own component
-    debugger;
     const thumbId = props.restaurants[reservation.restaurant_id].photos[0];
     let thumbnail = window.staticImages.defaultRestaurant;
 

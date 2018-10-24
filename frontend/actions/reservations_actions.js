@@ -8,7 +8,6 @@ export const submitReservation = reservation => {
   return dispatch => {
     return ReservationAPIUtil.makeReservation(reservation).then(
       reservation => {
-        debugger;
         return dispatch(receiveReservation(reservation));
       },
       error => {
@@ -34,8 +33,8 @@ export const fetchReservation = id => {
 export const fetchReservations = () => {
   return dispatch => {
     return ReservationAPIUtil.fetchReservations().then(
-      reservations => {
-        return dispatch(receiveReservations(reservations));
+      payload => {
+        return dispatch(receiveReservations(payload));
       },
       error => {
         return dispatch(receiveReservationErrors(error));
