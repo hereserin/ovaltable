@@ -43,10 +43,18 @@ class MakeReservationForm extends React.Component {
 
     this.props.submitReservation(newReservation).then(
       reservation => {
-        this.props.fetchReservations();
-        return this.props.history.push(
-          `/user/${[this.props.currentUserId]}/reservations`
-        );
+        this.props
+          .fetchReservations()
+          .then(
+            () =>
+              this.props.history.push(
+                `/user/${[this.props.currentUserId]}/reservations`
+              ),
+            () =>
+              this.props.history.push(
+                `/user/${[this.props.currentUserId]}/reservations`
+              )
+          );
       },
       errors => this.renderErrors(errors)
     );

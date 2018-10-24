@@ -3,11 +3,9 @@ json.reservations do
     json.set! reservation.id do
       json.extract! reservation, :id, :restaurant_id, :user_id, :party_size, :date_and_time
       json.photos reservation.restaurant.photos.all.pluck(:id)
-      json.restaurant_name reservation.restaurant.restaurant_name
-      json.restaurant_loc reservation.restaurant.physical_address
     end
   end
-end 
+end
 
 json.photos do
   @reservations.each do |reservation|
@@ -17,5 +15,12 @@ json.photos do
         json.photoUrl url_for(photo.pic)
       end
     end
+  end
+end
+
+json.restaurants do
+  @reservations.each do |reservation|
+    json.restaurant_name reservation.restaurant.restaurant_name
+    json.restaurant_loc reservation.restaurant.physical_address
   end
 end
