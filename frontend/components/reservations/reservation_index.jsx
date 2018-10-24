@@ -26,7 +26,7 @@ const ReservationIndex = props => {
 
   return (
     <section>
-      <p>Your Reservations:</p>
+      <h1>Your Reservations:</h1>
       <ul>{reservations}</ul>
       <p>{`You have ${numOfReservations} reservation(s)`}</p>
     </section>

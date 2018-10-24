@@ -78,7 +78,7 @@ h5 {
   font-family: "Nunito Sans", sans-serif;
   color: #685e5e;
   background-color: white;
-  font-size: 15px;
+  font-size: 18px;
 }
 
 .reservation_index_item {
@@ -99,8 +99,13 @@ h5 {
 
 .reservation_index_item h3 {
   font-family: "Nunito Sans", sans-serif;
-  color: #685e5e;
-  font-size: 12px;
+  color: #cdcaca;
+  font-size: 15px;
+}
+
+.reservation_index_item p {
+  font-size: 22px;
+  margin-top: 3px;
 }
 
 .reservation_index_item_thumbnail {

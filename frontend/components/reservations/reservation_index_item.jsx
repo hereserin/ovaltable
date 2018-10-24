@@ -2,10 +2,8 @@ import React from "react";
 import { withRouter } from "react-router-dom";
 
 const ReservationIndexItem = props => {
-  // let formatedDate = (string) => {
-  //   let res_time = props.reservation.date_and_time
-  //   debugger
-  // }
+  const peopleOrPerson =
+    props.reservation.party_size > 1 ? " people" : " person";
 
   return (
     <li className="reservation_index_item">
@@ -16,11 +14,11 @@ const ReservationIndexItem = props => {
         />
       </div>
       <div>
-        <h2>
-          Your Upcoming Reservation at {props.reservation.restaurant_name}
-        </h2>
         <h3>GUESTS</h3>
-        {props.reservation.party_size}
+        <p>
+          {props.reservation.party_size}
+          {peopleOrPerson}
+        </p>
       </div>
       <div>
         <h3>DATE</h3>
@@ -32,16 +30,17 @@ const ReservationIndexItem = props => {
       </div>
       <div>
         <h3>RESTAURANT</h3>
-        <div
-          className="reservation_index_item_rest_link"
-          onClick={() => {
-            props.history.push(
-              `/restaurants/${props.reservation.restaurant_id}`
-            );
-          }}
-        >
-          {props.reservation.restaurant_name}
-        </div>
+        <p className="reservation_index_item_rest_link">
+          <div
+            onClick={() => {
+              props.history.push(
+                `/restaurants/${props.reservation.restaurant_id}`
+              );
+            }}
+          >
+            {props.reservation.restaurant_name}
+          </div>
+        </p>
       </div>
     </li>
   );
