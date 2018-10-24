@@ -28,9 +28,9 @@ const ReservationIndexItem = props => {
         <h3>TIME</h3>
         <p>{props.reservation.time}</p>
       </div>
-      <div>
+      <div className="reservation_index_item_rest_link">
         <h3>RESTAURANT</h3>
-        <p className="reservation_index_item_rest_link">
+        <p>
           <div
             onClick={() => {
               props.history.push(

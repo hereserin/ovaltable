@@ -82,7 +82,7 @@ h5 {
 }
 
 .reservation_index_item {
-  box-shadow: 1px 1px 0.8px 0.8px #77777724;
+  box-shadow: 1px 1px 0.8px 0.8px #e2d0d0;
   border-style: none;
   display: flex;
   justify-content: space-between;
@@ -114,6 +114,10 @@ h5 {
   border-radius: 4px;
 }
 
-.reservation_index_item_rest_link {
+.reservation_index_item_rest_link div {
   color: #20849c;
+  font-weight: bold;
+  margin-inline-start: 0px;
+  padding-inline-start: 0px;
+  margin-left: 0px;
 }
