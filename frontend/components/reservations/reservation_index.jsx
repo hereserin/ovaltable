@@ -28,7 +28,7 @@ const ReservationIndex = props => {
     <section>
       <h1>Your Reservations:</h1>
       <ul>{reservations}</ul>
-      <p>{`You have ${numOfReservations} reservation(s)`}</p>
+      <h1>{`You have ${numOfReservations} reservation(s)`}</h1>
     </section>
   );
 };

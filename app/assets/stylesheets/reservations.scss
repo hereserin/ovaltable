@@ -83,11 +83,36 @@ h5 {
 
 .reservation_index_item {
   box-shadow: 1px 1px 0.8px 0.8px #e2d0d0;
+  padding: 20px;
+  margin: 20px;
+  list-style: none;
+}
+
+.reservation_index_item_top {
   border-style: none;
   display: flex;
   justify-content: space-between;
-  padding: 20px;
-  margin: 20px;
+}
+
+.reservation_index_item_bottom {
+  border-top: solid;
+  justify-content: space-between;
+  border-width: thin;
+  border-color: #eae7e7;
+  height: 35px;
+  padding: 10px;
+}
+
+.reservation_index_item_bottom button {
+  padding: 11px;
+  border-style: solid;
+  border-width: thin;
+  border-color: #eae7e7;
+  float: right;
+  margin: 3px;
+  color: #cb1111;
+  font-family: "Nunito Sans", sans-serif;
+  font-size: 15px;
 }
 
 .reservation_index_item div {
