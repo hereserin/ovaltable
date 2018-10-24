@@ -21,11 +21,11 @@ const ReservationIndexItem = props => {
       </div>
       <div>
         <h3>DATE</h3>
-        <p>placeholder: format DATE for this component.</p>
+        <p>{props.reservation.date}</p>
       </div>
       <div>
         <h3>TIME</h3>
-        <p>placeholder: format TIME for this component.</p>
+        <p>{props.reservation.time}</p>
       </div>
       <div>
         <h3>RESTAURANT</h3>

@@ -53,7 +53,8 @@ const receiveReservation = payload => {
 const receiveReservations = payload => {
   return {
     type: RECEIVE_RESERVATIONS,
-    reservations: payload.reservations
+    reservations: payload.reservations,
+    order: payload.order
   };
 };
 

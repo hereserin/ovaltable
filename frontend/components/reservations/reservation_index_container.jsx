@@ -5,9 +5,10 @@ import { fetchReservations } from "./../../actions/reservations_actions";
 
 const mapStatetoProps = state => {
   return {
-    reservations: selectReservations(state.entities),
+    reservations: state.entities.reservations,
     photos: state.entities.photos,
-    restaurants: state.entities.restaurants
+    restaurants: state.entities.restaurants,
+    order: state.order
   };
 };
 

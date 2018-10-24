@@ -3,7 +3,8 @@ import ReservationIndexItem from "./reservation_index_item";
 import { Route } from "react-router-dom";
 
 const ReservationIndex = props => {
-  const reservations = props.reservations.map((reservation, idx) => {
+  const reservations = props.order.map((reservationId, idx) => {
+    const reservation = props.reservations[reservationId];
     const restaurant = reservation.restaurant_id;
     // TODO: REFACTOR TO MAKE THIS DRY, Need to add Thumbnail as its own component
     const thumbId = props.restaurants[reservation.restaurant_id].photos[0];

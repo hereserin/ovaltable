@@ -5,9 +5,13 @@ json.reservations do
       json.photos reservation.restaurant.photos.all.pluck(:id)
       json.date reservation.display_date
       json.time reservation.display_time
+      json.restaurant_name reservation.restaurant.restaurant_name
+      json.restaurant_loc reservation.restaurant.physical_address
     end
   end
 end
+
+json.order @reservations.pluck(:id)
 
 json.photos do
   @reservations.each do |reservation|
