@@ -1,45 +1,52 @@
-import { Link, withRouter } from 'react-router-dom';
-import LogoutButton from './logout_button.jsx';
-import React from 'react';
+import { Link, withRouter } from "react-router-dom";
+import LogoutButton from "./logout_button.jsx";
+import React from "react";
 
-
-const Greeting = (props) => {
+const Greeting = props => {
   let greetingMessage;
 
   const goToReservationsIndex = () => {
-    return (props.history.push(`/user/${[props.currentUser.id]}/reservations`));
+    props.fetchReservations().then(() => {
+      props.history.push(`/user/${[props.currentUser.id]}/reservations`);
+    });
   };
 
-  if ( props.currentUser ) {
+  if (props.currentUser) {
     greetingMessage = (
       <div>
-        <ul className='right-nav-links'>
-          <li><i className="far fa-calendar-alt cal-icon" onClick={goToReservationsIndex}></i></li>
+        <ul className="right-nav-links">
+          <li>
+            <i
+              className="far fa-calendar-alt cal-icon"
+              onClick={goToReservationsIndex}
+            />
+          </li>
           <li>Hi, {props.currentUser.username}</li>
           <LogoutButton logout={props.logout} />
         </ul>
       </div>
     );
   } else {
-
     const openSignUpModal = () => {
-      return props.openModal('signup');
+      return props.openModal("signup");
     };
     const openSignInModal = () => {
-      return props.openModal('login');
+      return props.openModal("login");
     };
-
 
     greetingMessage = (
       <div>
-        <button className="sign-up-nav-link" onClick={openSignUpModal}>Sign Up</button>
-        <button className="login-nav-link" onClick={openSignInModal}>Sign In</button>
+        <button className="sign-up-nav-link" onClick={openSignUpModal}>
+          Sign Up
+        </button>
+        <button className="login-nav-link" onClick={openSignInModal}>
+          Sign In
+        </button>
       </div>
     );
   }
   return greetingMessage;
 };
-
 
 // commented out stuff:
 // <Link to='/signup' className="sign-up-nav-link">Sign Up</Link>

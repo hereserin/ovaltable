@@ -26,7 +26,10 @@ end
 
 json.restaurants do
   @reservations.each do |reservation|
-    json.restaurant_name reservation.restaurant.restaurant_name
-    json.restaurant_loc reservation.restaurant.physical_address
+    json.set! reservation.restaurant_id do
+      json.restaurant_name reservation.restaurant.restaurant_name
+      json.restaurant_loc reservation.restaurant.physical_address
+      json.photos reservation.restaurant.photos.all.pluck(:id)
+    end
   end
 end

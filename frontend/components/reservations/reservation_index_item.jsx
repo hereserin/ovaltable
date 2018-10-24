@@ -16,6 +16,9 @@ const ReservationIndexItem = props => {
         />
       </div>
       <div>
+        <h2>
+          Your Upcoming Reservation at {props.reservation.restaurant_name}
+        </h2>
         <h3>GUESTS</h3>
         {props.reservation.party_size}
       </div>

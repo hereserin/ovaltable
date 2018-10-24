@@ -54,6 +54,8 @@ const receiveReservations = payload => {
   return {
     type: RECEIVE_RESERVATIONS,
     reservations: payload.reservations,
+    restaurants: payload.restaurants,
+    photos: payload.photos,
     order: payload.order
   };
 };
