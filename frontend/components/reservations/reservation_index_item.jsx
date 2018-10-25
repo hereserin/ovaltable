@@ -5,8 +5,6 @@ const ReservationIndexItem = props => {
   const peopleOrPerson =
     props.reservation.party_size > 1 ? " people" : " person";
 
-  // TODO: add confirmation module before deleting a reservation
-
   return (
     <li className="reservation_index_item">
       <section className="reservation_index_item_top">

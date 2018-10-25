@@ -4,12 +4,16 @@ import { connect } from "react-redux";
 import { clearReservation } from "./../../actions/reservation_show_actions";
 import { openModal, closeModal } from "./../../actions/modal_actions";
 
-const ReservationShowPage = props => {
-  const message = props.specialMessage
-    ? props.specialMessage
-    : `Your upcoming reservation at ${props.reservation.restaurant_name}:`;
-  const peopleOrPerson =
-    props.reservation.party_size > 1 ? " people" : " person";
+const ReservationShowPage = ({
+  specialMessage,
+  reservation,
+  clearReservation,
+  closeModal
+}) => {
+  const message = specialMessage
+    ? specialMessage
+    : `Your upcoming reservation at ${reservation.restaurant_name}:`;
+  const peopleOrPerson = reservation.party_size > 1 ? " people" : " person";
 
   return (
     <div>
@@ -17,8 +21,8 @@ const ReservationShowPage = props => {
         <span
           className="photo-show-modal-screen"
           onClick={() => {
-            props.clearReservation();
-            props.closeModal();
+            clearReservation();
+            closeModal();
           }}
         >
           <span
@@ -33,18 +37,22 @@ const ReservationShowPage = props => {
               <div className="reservation-show-modal-info">
                 <h3>GUESTS: </h3>
                 <p>
-                  {props.reservation.party_size}
+                  {reservation.party_size}
                   {peopleOrPerson}
                 </p>
                 <br />
-                <h3>DATE</h3>
-                <p>{props.reservation.date}</p>
+                <h3>DATE:</h3>
+                <p>{reservation.date}</p>
                 <br />
-                <h3>TIME</h3>
-                <p>{props.reservation.time}</p>
+                <h3>TIME:</h3>
+                <p>{reservation.time}</p>
                 <br />
-                <h3>RESTAURANT</h3>
-                <p>{props.reservation.restaurant_name}</p>
+                <h3>RESTAURANT:</h3>
+                <p>{reservation.restaurant_name}</p>
+              </div>
+              <div className="reservation_module_bottom">
+                <button>Nevermind</button>
+                <button>Cancel Reservation</button>
               </div>
             </span>
           </span>
