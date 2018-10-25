@@ -23,7 +23,8 @@ const mapStatetoProps = state => {
 
 const mapDispatchToProps = dispatch => ({
   cancelReservation: id => dispatch(deleteReservation(id)),
-  openModalShowReservation: () => dispatch(openModal("reservation")),
+  openModalShowReservation: () =>
+    dispatch(openModal("reservation-cancel-confirmation")),
   showReservation: clickedReservation =>
     dispatch(showReservation(clickedReservation)),
   clearReservation: () => dispatch(clearReservation())

@@ -8,11 +8,21 @@ const ReservationShowPage = ({
   specialMessage,
   reservation,
   clearReservation,
-  closeModal
+  closeModal,
+  showType
 }) => {
-  const message = specialMessage
-    ? specialMessage
-    : `Your upcoming reservation at ${reservation.restaurant_name}:`;
+  // const message = specialMessage
+  //   ? specialMessage
+  //   : `Your upcoming reservation at ${reservation.restaurant_name}:`;
+
+  let message = `Your upcoming reservation at ${reservation.restaurant_name}:`;
+
+  if (showType === "reservation-cancel-confirmation") {
+    message = `Are you sure you want to cancel your upcoming reservation at ${
+      reservation.restaurant_name
+    }?`;
+  }
+
   const peopleOrPerson = reservation.party_size > 1 ? " people" : " person";
 
   return (
@@ -64,7 +74,8 @@ const ReservationShowPage = ({
 
 const mapStateToProps = state => {
   return {
-    reservation: state.entities.reservations[state.ui.showReservation]
+    reservation: state.entities.reservations[state.ui.showReservation],
+    showType: state.ui.modal
   };
 };
 

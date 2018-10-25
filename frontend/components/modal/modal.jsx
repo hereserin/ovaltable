@@ -30,6 +30,9 @@ function Modal({ modal, closeModal }) {
     case "reservation":
       component = <ReservationShow />;
       break;
+    case "reservation-cancel-confirmation":
+      component = <ReservationShow />;
+      break;
     default:
       return null;
   }
