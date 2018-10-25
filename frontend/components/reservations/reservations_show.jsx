@@ -1,7 +1,7 @@
 import React from "react";
 import { Link, withRouter } from "react-router-dom";
 import { connect } from "react-redux";
-import { clearPhoto } from "./../../actions/photo_show_actions";
+import { clearReservation } from "./../../actions/reservation_show_actions";
 import { openModal, closeModal } from "./../../actions/modal_actions";
 
 const ReservationShowPage = props => {
