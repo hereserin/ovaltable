@@ -33,8 +33,8 @@ const ReservationIndexItem = props => {
         </div>
         <div className="reservation_index_item_rest_link">
           <h3>RESTAURANT</h3>
-          <p>
-            <div
+          <div>
+            <p
               onClick={() => {
                 props.history.push(
                   `/restaurants/${props.reservation.restaurant_id}`
@@ -42,8 +42,8 @@ const ReservationIndexItem = props => {
               }}
             >
               {props.reservation.restaurant_name}
-            </div>
-          </p>
+            </p>
+          </div>
         </div>
       </section>
       <section className="reservation_index_item_bottom">

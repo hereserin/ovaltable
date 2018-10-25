@@ -13,7 +13,7 @@ const ReservationIndex = props => {
     if (thumbId) {
       thumbnail = props.photos[thumbId].photoUrl;
     }
-
+    // debugger;
     return (
       <ReservationIndexItem
         key={idx}

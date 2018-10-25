@@ -19,4 +19,7 @@ const mapDispatchToProps = dispatch => ({
   cancelReservation: id => dispatch(deleteReservation(id))
 });
 
-export default connect(mapStatetoProps)(ReservationIndex);
+export default connect(
+  mapStatetoProps,
+  mapDispatchToProps
+)(ReservationIndex);

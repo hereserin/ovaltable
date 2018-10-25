@@ -47,7 +47,7 @@ export const deleteReservation = id => {
   return dispatch => {
     return ReservationAPIUtil.cancelReservation(id).then(
       payload => {
-        return dispatch(receiveReservations(payload));
+        return dispatch(receiveReservation(payload));
       },
       error => {
         return dispatch(receiveReservationErrors(error));
