@@ -5,7 +5,11 @@ import { clearPhoto } from "./../../actions/photo_show_actions";
 import { openModal, closeModal } from "./../../actions/modal_actions";
 
 const ReservationShowPage = props => {
-  // let listOfReservations = props.reservations.map((resrvatio))
+  const message = `Your upcoming reservation at ${
+    props.reservation.restaurant_name
+  }:`;
+  const peopleOrPerson =
+    props.reservation.party_size > 1 ? " people" : " person";
 
   return (
     <div>
@@ -14,9 +18,7 @@ const ReservationShowPage = props => {
           className="photo-show-modal-screen"
           onClick={() => {
             props.clearReservation();
-            // debugger
             props.closeModal();
-            // props.history.goBack();
           }}
         >
           <span
@@ -26,11 +28,21 @@ const ReservationShowPage = props => {
             }}
           >
             <span className="show-photo-span">
-              <h2>Are you sure you want to cancel your reservation?</h2>
-              <h3>
-                Your reservation at{" "}
-                {props.reservations[props.showReservationId].restaurant_name}
-              </h3>
+              <h2>{message}</h2>
+
+              <div>
+                <h3>GUESTS</h3>
+                <p>
+                  {props.reservation.party_size}
+                  {peopleOrPerson}
+                </p>
+                <h3>DATE</h3>
+                <p>{props.reservation.date}</p>
+                <h3>TIME</h3>
+                <p>{props.reservation.time}</p>
+                <h3>RESTAURANT</h3>
+                <p>{props.reservation.restaurant_name}</p>
+              </div>
             </span>
           </span>
         </span>
@@ -41,8 +53,7 @@ const ReservationShowPage = props => {
 
 const mapStateToProps = state => {
   return {
-    showReservationId: state.ui.showReservation,
-    reservations: state.entities.reservations
+    reservation: state.entities.reservations[state.ui.showReservation]
   };
 };
 
