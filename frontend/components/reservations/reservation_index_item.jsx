@@ -48,10 +48,19 @@ const ReservationIndexItem = props => {
       </section>
       <section className="reservation_index_item_bottom">
         <button>Modify</button>
-        <button onClick={props.cancelReservation}>Cancel</button>
+        <button
+          onClick={() => {
+            props.showReservation(props.reservation.id);
+            props.openModalPhotoForm();
+          }}
+        >
+          Cancel
+        </button>
       </section>
     </li>
   );
 };
 
 export default withRouter(ReservationIndexItem);
+
+// onClick={props.cancelReservation}

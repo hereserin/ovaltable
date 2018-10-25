@@ -5,6 +5,12 @@ import {
   fetchReservations,
   deleteReservation
 } from "./../../actions/reservations_actions";
+import { openModal } from "./../../actions/modal_actions";
+import {
+  showReservation,
+  clearReservation
+} from "./../../actions/reservation_show_actions";
+import { AuthRoute, ProtectedRoute } from "./../../util/route_util.jsx";
 
 const mapStatetoProps = state => {
   return {
@@ -16,7 +22,11 @@ const mapStatetoProps = state => {
 };
 
 const mapDispatchToProps = dispatch => ({
-  cancelReservation: id => dispatch(deleteReservation(id))
+  cancelReservation: id => dispatch(deleteReservation(id)),
+  openModalShowReservation: () => dispatch(openModal("reservation")),
+  showReservation: clickedReservation =>
+    dispatch(showReservation(clickedReservation)),
+  clearReservation: () => dispatch(clearReservation())
 });
 
 export default connect(

@@ -1,55 +1,60 @@
-import React from 'react';
-import { connect } from 'react-redux';
-import  { closeModal } from '../../actions/modal_actions';
-import LoginFormContainer from '../session/login_form_container';
-import SignupFormContainer from '../session/signup_form_container';
-import PhotoShow from '../photos/photo_show';
-import PhotoForm from '../photos/photo_form';
+import React from "react";
+import { connect } from "react-redux";
+import { closeModal } from "../../actions/modal_actions";
+import LoginFormContainer from "../session/login_form_container";
+import SignupFormContainer from "../session/signup_form_container";
+import PhotoShow from "../photos/photo_show";
+import PhotoForm from "../photos/photo_form";
+import ReservationShow from "../reservations/reservations_show";
 // import { logout } from './../../actions/session_actions';
 // import Greeting from './greeting';
 
-function Modal({modal, closeModal}) {
-  if(!modal) {
+function Modal({ modal, closeModal }) {
+  if (!modal) {
     return null;
   }
   let component;
   switch (modal) {
-    case 'login':
+    case "login":
       component = <LoginFormContainer />;
       break;
-    case 'signup':
+    case "signup":
       component = <SignupFormContainer />;
       break;
-    case 'photo':
+    case "photo":
       component = <PhotoShow />;
       break;
-    case 'photo form':
+    case "photo form":
       component = <PhotoForm />;
+      break;
+    case "reservation":
+      component = <ReservationShow />;
       break;
     default:
       return null;
   }
   return (
-    <div className='modal-background' onClick={closeModal}>
-      <div className='modal-child' onClick={e => e.stopPropogation()}>
-        { component }
+    <div className="modal-background" onClick={closeModal}>
+      <div className="modal-child" onClick={e => e.stopPropogation()}>
+        {component}
       </div>
     </div>
   );
 }
 
-const mapStateToProps = (state) => {
-  return (
-    {
-      modal: state.ui.modal
-    }
-  );
+const mapStateToProps = state => {
+  return {
+    modal: state.ui.modal
+  };
 };
 
-const mapDispatchToProps = (dispatch) => {
-  return ({
+const mapDispatchToProps = dispatch => {
+  return {
     closeModal: () => dispatch(closeModal())
-  });
+  };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Modal);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Modal);

@@ -20,6 +20,8 @@ const ReservationIndex = props => {
         reservation={reservation}
         thumbnail={thumbnail}
         cancelReservation={() => props.cancelReservation(reservationId)}
+        openModalPhotoForm={() => props.openModalShowReservation(reservationId)}
+        showReservation={() => props.showReservation(reservationId)}
       />
     );
   });
