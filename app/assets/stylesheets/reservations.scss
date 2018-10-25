@@ -155,5 +155,24 @@ h5 {
   left: 50%;
   transform: translateX(-50%);
   width: 700px;
-  padding: 25px;
+  padding: 50px;
+}
+
+.reservation-show-modal-info {
+  margin-left: 30px;
+  box-shadow: 1px 1px 0.8px 0.8px #b7aaaa;
+  padding: 30px;
+}
+
+.reservation-show-modal-info p {
+  text-shadow: none;
+  color: gray;
+  display: inline;
+}
+
+.reservation-show-modal-info h3 {
+  text-shadow: none;
+  color: gray;
+  display: inline;
+  margin-top: 1px;
 }
