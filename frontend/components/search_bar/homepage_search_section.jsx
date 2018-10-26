@@ -1,9 +1,8 @@
 // search bar
-import React from 'react';
-import { Link, withRouter } from 'react-router-dom';
-import SearchBar from './search_bar';
+import React from "react";
+import { Link, withRouter } from "react-router-dom";
+import SearchBar from "./search_bar";
 // import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
-
 
 class HomepageSearchSection extends React.Component {
   constructor(props) {
@@ -24,9 +23,11 @@ class HomepageSearchSection extends React.Component {
   componentDidMount() {
     this.state.setSlideShowTimeout = setInterval(() => {
       const newBannerIterator = (this.state.bannerImageIterator + 1) % 4;
-      this.setState({bannerImage: this.state.imagesArray[newBannerIterator],
-                bannerImageIterator: newBannerIterator})
-    }, 5000)
+      this.setState({
+        bannerImage: this.state.imagesArray[newBannerIterator],
+        bannerImageIterator: newBannerIterator
+      });
+    }, 5000);
   }
 
   // componentWillMount() {
@@ -39,29 +40,27 @@ class HomepageSearchSection extends React.Component {
     clearInterval(this.state.setSlideShowTimeout);
   }
 
-
-
   render() {
-
     let backgroundPhoto = `url(${this.state.bannerImage})`;
     return (
-      <div className='home-div-behind-slideshow'>
+      <section>
+        <div className="home-div-behind-slideshow">
+          <h2 className="home-search-message">
+            Find your table for any occasion
+          </h2>
+          <SearchBar />
+        </div>
 
-            <fieldset className='home-search-box' style={{backgroundImage: backgroundPhoto}}>
-              <h2 className='home-search-message'>
-                Find your table for any occasion
-              </h2>
-              <SearchBar />
-            </fieldset>
-      </div>
+        <fieldset
+          className="home-search-box"
+          style={{ backgroundImage: backgroundPhoto }}
+        />
+      </section>
     );
   }
-
-};
-
+}
 
 export default HomepageSearchSection;
-
 
 //
 // <ReactCSSTransitionGroup
