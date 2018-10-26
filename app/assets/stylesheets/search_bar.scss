@@ -1,17 +1,17 @@
 .home-search-box {
   border: 0px;
   padding: 100px;
-  padding-left: 300px;
+  // padding-left: 300px;
   width: 100%;
   background: beige;
   // background-image: url(rest_search_back_pic01.jpg);
   box-sizing: border-box;
   background-position: center;
   background-size: cover;
-  height: 425px;
+  height: 625px;
   opacity: 0.6;
   transition: opacity 500ms ease-in;
-  margin-bottom: 500px;
+  margin-bottom: 0px;
 }
 
 .home-div-behind-slideshow {
@@ -43,12 +43,15 @@
   padding-left: 5px;
   width: 100%;
   background: transparent;
+  opacity: 1;
 }
 
 .home-search-message {
   color: white;
-  font-size: 35px;
+  font-size: 50px;
   margin: 10px;
+  text-shadow: 1.05px 2.05px 0.05px #000000;
+  opacity: 1;
 }
 
 .search-bar-text {
