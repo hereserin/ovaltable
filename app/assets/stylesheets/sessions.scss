@@ -2,14 +2,18 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-h1, h2, h3, link, p, a {
-  font-family: 'Nunito Sans', sans-serif;
+h1,
+h2,
+h3,
+link,
+p,
+a {
+  font-family: "Nunito Sans", sans-serif;
   color: #685e5e;
 }
 
 .session-form-modal {
   border: 10px;
-
 }
 
 .session-form-modal-screen {
@@ -19,7 +23,7 @@ h1, h2, h3, link, p, a {
   left: 0;
   right: 0;
   z-index: 10;
-  background: rgba(0,0,0,0.4);
+  background: rgba(0, 0, 0, 0.4);
 }
 
 .session-form-modal-box {
@@ -33,55 +37,59 @@ h1, h2, h3, link, p, a {
 }
 
 .session-form-modal-box-input {
-    padding: 10px;
-    margin: 3px;
-    border-radius: 3px;
-    border-width: thin;
-    border-style: solid;
-    border-color: #cfcccc;
-    width: 370px;
-    font-family: 'Nunito Sans', sans-serif;
+  padding: 10px;
+  margin: 3px;
+  border-radius: 3px;
+  border-width: thin;
+  border-style: solid;
+  border-color: #cfcccc;
+  width: 370px;
+  font-family: "Nunito Sans", sans-serif;
 }
 
 .session-form-modal-box-input-with-errors {
-    padding: 10px;
-    margin: 3px;
-    border-radius: 3px;
-    border-width: thin;
-    border-style: solid;
-    border-color: #ae3232;
-    width: 370px;
-    color: #ae3232;
-    font-family: 'Nunito Sans', sans-serif;
+  padding: 10px;
+  margin: 3px;
+  border-radius: 3px;
+  border-width: thin;
+  border-style: solid;
+  border-color: #ae3232;
+  width: 370px;
+  color: #ae3232;
+  font-family: "Nunito Sans", sans-serif;
 }
 
 .session-form-modal-box-button {
-    padding: 10px;
-    margin: 3px;
-    border-radius: 3px;
-    border-style: none;
-    background: #cb1111;
-    color: white;
-    width: 392px;
-    font-family: 'Nunito Sans', sans-serif;
+  padding: 10px;
+  margin: 3px;
+  border-radius: 3px;
+  border-style: none;
+  background: #cb1111;
+  color: white;
+  width: 392px;
+  font-family: "Nunito Sans", sans-serif;
 }
 
 .session-form-modal-box-button-demo {
-    padding: 10px;
-    margin: 3px;
-    border-radius: 3px;
-    border-style: none;
-    background: #aca4a4;
-    color: white;
-    width: 392px;
-    font-family: 'Nunito Sans', sans-serif;
+  padding: 10px;
+  margin: 3px;
+  border-radius: 3px;
+  border-style: none;
+  background: #aca4a4;
+  color: white;
+  width: 392px;
+  font-family: "Nunito Sans", sans-serif;
 }
 
 .session-form {
-
 }
 
 .form-errors li {
   color: #ae3232;
   list-style: none;
+}
+
+.clickable-text {
+  color: #348084;
+  font-weight: bold;
 }

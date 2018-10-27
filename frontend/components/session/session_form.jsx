@@ -58,7 +58,8 @@ class SessionForm extends React.Component {
             this.props.openModal("signup");
           }}
         >
-          Sign Up
+          New to OvalTable?{" "}
+          <span class="clickable-text">Create an Account</span>
         </p>
       );
     }
@@ -68,7 +69,7 @@ class SessionForm extends React.Component {
           this.props.openModal("login");
         }}
       >
-        Login
+        <span class="clickable-text">Login</span>
       </p>
     );
   }
