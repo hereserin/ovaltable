@@ -52,9 +52,25 @@ class SessionForm extends React.Component {
 
   notThisFormLink() {
     if (this.props.formType === "login") {
-      return <Link to="/signup">Sign Up</Link>;
+      return (
+        <p
+          onClick={() => {
+            this.props.openModal("signup");
+          }}
+        >
+          Sign Up
+        </p>
+      );
     }
-    return <Link to="/login">Login</Link>;
+    return (
+      <p
+        onClick={() => {
+          this.props.openModal("login");
+        }}
+      >
+        Login
+      </p>
+    );
   }
 
   render() {

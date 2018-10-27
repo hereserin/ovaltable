@@ -1,29 +1,31 @@
-import { connect } from 'react-redux';
-import { signup, loginDefault } from './../../actions/session_actions';
-import { closeModal } from './../../actions/modal_actions';
-import SessionForm from './session_form';
+import { connect } from "react-redux";
+import { signup, loginDefault } from "./../../actions/session_actions";
+import { closeModal, openModal } from "./../../actions/modal_actions";
+import SessionForm from "./session_form";
 
-const mapStateToProps = (state) => {
-
-  return ({
+const mapStateToProps = state => {
+  return {
     errors: state.errors.session,
     currentUserId: state.session.currentUserId,
-    formType: 'signup',
-    formTitle: 'Welcome to OvalTable!'
-  });
+    formType: "signup",
+    formTitle: "Welcome to OvalTable!"
+  };
 };
 
-const mapDispatchToProps = (dispatch) => {
-  return ({
-    processForm: (user) => {
+const mapDispatchToProps = dispatch => {
+  return {
+    processForm: user => {
       dispatch(signup(user));
     },
-    processDemo: (user) => {
+    processDemo: user => {
       dispatch(loginDefault());
     },
-    closeModal: modal => dispatch(closeModal())
-  });
+    closeModal: modal => dispatch(closeModal()),
+    openModal: type => dispatch(openModal(type))
+  };
 };
 
-
-export default connect(mapStateToProps, mapDispatchToProps)(SessionForm);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(SessionForm);
