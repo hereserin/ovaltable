@@ -66,7 +66,14 @@ const ReservationShowPage = ({
                 <p>{reservation.restaurant_name}</p>
               </div>
               <div className="reservation_module_bottom">
-                <button>Nevermind</button>
+                <button
+                  className="nevermind-button"
+                  onClick={() => {
+                    closeModal();
+                  }}
+                >
+                  Nevermind
+                </button>
                 <button
                   onClick={() => {
                     cancelReservation(reservation.id).then(() => {
