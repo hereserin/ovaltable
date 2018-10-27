@@ -60,5 +60,3 @@ const ReservationIndexItem = props => {
 };
 
 export default withRouter(ReservationIndexItem);
-
-// onClick={props.cancelReservation}

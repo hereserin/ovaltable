@@ -2,19 +2,24 @@ import React from "react";
 import { Link, withRouter } from "react-router-dom";
 import { connect } from "react-redux";
 import { clearReservation } from "./../../actions/reservation_show_actions";
+import {
+  fetchReservations,
+  deleteReservation
+} from "./../../actions/reservations_actions";
 import { openModal, closeModal } from "./../../actions/modal_actions";
 
 const ReservationShowPage = ({
   specialMessage,
   reservation,
   clearReservation,
+  cancelReservation,
   closeModal,
-  showType
+  showType,
+  fetchReservations
 }) => {
   // const message = specialMessage
   //   ? specialMessage
   //   : `Your upcoming reservation at ${reservation.restaurant_name}:`;
-
   let message = `Your upcoming reservation at ${reservation.restaurant_name}:`;
 
   if (showType === "reservation-cancel-confirmation") {
@@ -62,7 +67,17 @@ const ReservationShowPage = ({
               </div>
               <div className="reservation_module_bottom">
                 <button>Nevermind</button>
-                <button>Cancel Reservation</button>
+                <button
+                  onClick={() => {
+                    cancelReservation(reservation.id).then(() => {
+                      fetchReservations();
+                      closeModal();
+                      clearReservation();
+                    });
+                  }}
+                >
+                  Cancel Reservation
+                </button>
               </div>
             </span>
           </span>
@@ -81,7 +96,9 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
+    cancelReservation: id => dispatch(deleteReservation(id)),
     clearReservation: () => dispatch(clearReservation()),
+    fetchReservations: () => dispatch(fetchReservations()),
     closeModal: () => dispatch(closeModal())
   };
 };
