@@ -1,6 +1,7 @@
 body {
   margin: 0;
   border-color: #f0f0f0;
+  background-color: #f0f0f0;
 }
 
 button:hover {
@@ -10,4 +11,12 @@ button:hover {
 .main-component {
   margin-left: 200px;
   margin-right: 200px;
+}
+
+.page-container {
+  max-width: 100rem;
+  // width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: white;
 }

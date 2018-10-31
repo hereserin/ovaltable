@@ -19,33 +19,39 @@ const App = () => {
   return (
     <div>
       <Modal />
-      <header>
-        <NavBar />
-        <Switch>
+      <section className="page-container">
+        <header>
+          <NavBar />
+          <Switch>
+            <Route
+              exact
+              path="/restaurants"
+              component={RestaurantIndexSearchSection}
+            />
+          </Switch>
+          <Route exact path="/" component={HomepageSearchSection} />
+        </header>
+        <main className="main-component">
           <Route
             exact
             path="/restaurants"
-            component={RestaurantIndexSearchSection}
+            component={RestaurantIndexContainer}
           />
-        </Switch>
-        <Route exact path="/" component={HomepageSearchSection} />
-      </header>
-      <main className="main-component">
-        <Route exact path="/restaurants" component={RestaurantIndexContainer} />
 
-        <Route
-          path="/restaurants/:restaurantId"
-          component={RestaurantShowPageContainer}
-        />
+          <Route
+            path="/restaurants/:restaurantId"
+            component={RestaurantShowPageContainer}
+          />
 
-        <Route path="/reservations" component={ReservationShowPage} />
+          <Route path="/reservations" component={ReservationShowPage} />
 
-        <Route
-          path="/user/:userId/reservations"
-          component={ReservationIndexContainer}
-        />
-      </main>
-      <Footer />
+          <Route
+            path="/user/:userId/reservations"
+            component={ReservationIndexContainer}
+          />
+        </main>
+        <Footer />
+      </section>
     </div>
   );
 };
