@@ -6,7 +6,7 @@ import Greeting from "./greeting";
 
 const mapStateToProps = ({ session, entities }) => {
   return {
-    currentUser: entities.users[session.currentUserId]
+    currentUser: entities.users[session.id]
   };
 };
 

@@ -5,6 +5,14 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
+    <% if logged_in? %>
+      <script type="text/javascript">
+          window.currentUser =
+            <%= render("api/users/user.json.jbuilder", user: current_user).html_safe %>
+            
+      </script>
+    <% end %>
+
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
     <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:300i,400,700,800i" rel="stylesheet">
