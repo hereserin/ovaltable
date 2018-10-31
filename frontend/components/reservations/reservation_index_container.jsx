@@ -27,7 +27,8 @@ const mapDispatchToProps = dispatch => ({
     dispatch(openModal("reservation-cancel-confirmation")),
   showReservation: clickedReservation =>
     dispatch(showReservation(clickedReservation)),
-  clearReservation: () => dispatch(clearReservation())
+  clearReservation: () => dispatch(clearReservation()),
+  fetchReservations: () => dispatch(fetchReservations())
 });
 
 export default connect(
