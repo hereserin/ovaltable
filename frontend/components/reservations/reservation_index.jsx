@@ -24,11 +24,9 @@ class ReservationIndex extends React.Component {
       const thumbId = this.props.restaurants[reservation.restaurant_id]
         .photos[0];
       let thumbnail = window.staticImages.defaultRestaurant;
-
       if (thumbId) {
         thumbnail = this.props.photos[thumbId].photoUrl;
       }
-      // debugger;
       return (
         <ReservationIndexItem
           key={idx}

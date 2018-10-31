@@ -149,7 +149,7 @@ class MakeReservationForm extends React.Component {
           </div>
         </div>
 
-        <button className="reservation-submit-button">Find a Table</button>
+        <button className="reservation-submit-button">Reserve a Table</button>
       </form>
     );
   }
