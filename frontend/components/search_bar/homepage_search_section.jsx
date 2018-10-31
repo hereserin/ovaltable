@@ -27,7 +27,7 @@ class HomepageSearchSection extends React.Component {
         bannerImage: this.state.imagesArray[newBannerIterator],
         bannerImageIterator: newBannerIterator
       });
-    }, 5000);
+    }, 6500);
   }
 
   // componentWillMount() {
