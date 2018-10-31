@@ -53,6 +53,10 @@
   list-style: none;
 }
 
+.restaurant-description p {
+  font-size: 18px;
+}
+
 .restaurant-description h1 {
   color: #2f292ade;
   font-size: 38px;
@@ -64,14 +68,14 @@
 
 .rest-details-list-1,
 .rest-details-list-2 {
-  font-size: 12px;
+  font-size: 16px;
   list-style: none;
   line-height: 1;
 }
 
 .rest-details-list-1 h3,
 .rest-details-list-2 h3 {
-  font-size: 12px;
+  font-size: 16px;
   color: inherit;
   font-weight: bold;
   list-style: none;
