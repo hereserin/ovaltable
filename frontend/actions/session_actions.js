@@ -32,15 +32,12 @@ export const logout = () => {
 };
 
 export const login = user => {
-  // debugger
   return dispatch => {
     return SessionAPIUtil.login(user).then(
       user => {
-        // debugger
         return dispatch(receiveCurrentUser(user));
       },
       errors => {
-        // debugger
         return dispatch(receiveSessionsErrors(errors));
       }
     );
@@ -48,7 +45,6 @@ export const login = user => {
 };
 
 export const loginDefault = () => {
-  // debugger
   return dispatch => {
     return SessionAPIUtil.login({
       username: "Demo User",
@@ -78,7 +74,6 @@ const logoutCurrentUser = () => {
 };
 
 const receiveSessionsErrors = errors => {
-  // debugger
   return {
     type: RECEIVE_SESSION_ERRORS,
     errors: errors.responseJSON

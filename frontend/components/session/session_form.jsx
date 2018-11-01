@@ -5,7 +5,6 @@ class SessionForm extends React.Component {
   constructor(props) {
     super(props);
     this.handleSubmit = this.handleSubmit.bind(this);
-
     this.notThisFormLink = this.notThisFormLink.bind(this);
     this.handleChange = this.handleChange.bind(this);
 
@@ -25,10 +24,8 @@ class SessionForm extends React.Component {
     return e => {
       // debugger
       e.preventDefault();
-      if (this.props.currentUserId) {
-        //redirect to
-      }
-      // debugger
+      // if (this.props.currentUserId) {
+      // }
       const user = Object.assign({}, this.state);
 
       if (inputType === "demo") {
@@ -37,10 +34,19 @@ class SessionForm extends React.Component {
         this.props.processForm(user);
       }
       this.setState({ password: "" });
-      if (Object.keys(this.props.errors).length === 0) {
+    };
+  }
+
+  handleSessionSubmissionResponse() {
+    if (this.props.errors.length === 0) {
+      if (this.props.currentUserId !== null) {
         this.props.closeModal();
       }
-    };
+    }
+  }
+
+  componentDidMount() {
+    this.handleSessionSubmissionResponse();
   }
 
   errorsList() {
