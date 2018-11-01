@@ -1,112 +1,18 @@
-import React from 'react';
+import React from "react";
+import ShowStarRating from "./show_star_rating";
 
-  const ReviewIndexItem = (props) => {
-
-    const stars = (rating) => {
-
-      const one = (
-          <div>
-            <span className='review-stars-on'>
-              <i className="fa fa-star" aria-hidden="true"></i>
-            </span>
-            <span className='review-stars-off'>
-              <i className="fa fa-star" aria-hidden="true"></i>
-              <i className="fa fa-star" aria-hidden="true"></i>
-              <i className="fa fa-star" aria-hidden="true"></i>
-              <i className="fa fa-star" aria-hidden="true"></i>
-            </span>
-          </div>
-        );
-
-      const two = (
-          <div>
-            <span className='review-stars-on'>
-              <i className="fa fa-star" aria-hidden="true"></i>
-              <i className="fa fa-star" aria-hidden="true"></i>
-            </span>
-            <span className='review-stars-off'>
-              <i className="fa fa-star" aria-hidden="true"></i>
-              <i className="fa fa-star" aria-hidden="true"></i>
-              <i className="fa fa-star" aria-hidden="true"></i>
-            </span>
-          </div>
-        );
-
-      const three = (
-          <div>
-            <span className='review-stars-on'>
-              <i className="fa fa-star" aria-hidden="true"></i>
-              <i className="fa fa-star" aria-hidden="true"></i>
-              <i className="fa fa-star" aria-hidden="true"></i>
-            </span>
-            <span className='review-stars-off'>
-              <i className="fa fa-star" aria-hidden="true"></i>
-              <i className="fa fa-star" aria-hidden="true"></i>
-            </span>
-          </div>
-        );
-
-      const four = (
-          <div>
-            <span className='review-stars-on'>
-              <i className="fa fa-star" aria-hidden="true"></i>
-              <i className="fa fa-star" aria-hidden="true"></i>
-              <i className="fa fa-star" aria-hidden="true"></i>
-              <i className="fa fa-star" aria-hidden="true"></i>
-            </span>
-            <span className='review-stars-off'>
-              <i className="fa fa-star" aria-hidden="true"></i>
-            </span>
-          </div>
-        );
-
-      const five = (
-          <div>
-            <span className='review-stars-on'>
-              <i className="fa fa-star" aria-hidden="true"></i>
-              <i className="fa fa-star" aria-hidden="true"></i>
-              <i className="fa fa-star" aria-hidden="true"></i>
-              <i className="fa fa-star" aria-hidden="true"></i>
-              <i className="fa fa-star" aria-hidden="true"></i>
-            </span>
-          </div>
-        );
-
-        let starDiv;
-        switch (rating) {
-          case 1:
-            starDiv = one;
-            break;
-          case 2:
-            starDiv = two;
-            break;
-          case 3:
-            starDiv = three;
-            break;
-          case 4:
-            starDiv = four;
-            break;
-          case 5:
-            starDiv = five;
-            break;
-          default:
-            starDiv = five;
-            break;
-        }
-      
-      return starDiv;
-  }
-
+const ReviewIndexItem = props => {
   return (
     <div>
-      <div className='review-item'>
-        {stars(props.review.rating_overall)}
+      <div className="review-item">
+        <ShowStarRating
+          numberOfStars={props.review.rating_overall}
+          colorInRed={true}
+        />
         <p>{props.review.review_body}</p>
       </div>
     </div>
-
   );
-}
-
+};
 
 export default ReviewIndexItem;

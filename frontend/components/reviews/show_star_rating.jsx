@@ -1,10 +1,15 @@
 import React from "react";
 
 const ShowStarRating = props => {
+  let starClass = "review-stars-on-yellow";
+  if (props.colorInRed) {
+    starClass = "review-stars-on";
+  }
+
   const stars = rating => {
     const one = (
       <div>
-        <span className="review-stars-on-yellow">
+        <span className={starClass}>
           <i className="fa fa-star" aria-hidden="true" />
         </span>
         <span className="review-stars-off">
@@ -18,7 +23,7 @@ const ShowStarRating = props => {
 
     const two = (
       <div>
-        <span className="review-stars-on-yellow">
+        <span className={starClass}>
           <i className="fa fa-star" aria-hidden="true" />
           <i className="fa fa-star" aria-hidden="true" />
         </span>
@@ -32,7 +37,7 @@ const ShowStarRating = props => {
 
     const three = (
       <div>
-        <span className="review-stars-on-yellow">
+        <span className={starClass}>
           <i className="fa fa-star" aria-hidden="true" />
           <i className="fa fa-star" aria-hidden="true" />
           <i className="fa fa-star" aria-hidden="true" />
@@ -46,7 +51,7 @@ const ShowStarRating = props => {
 
     const four = (
       <div>
-        <span className="review-stars-on-yellow">
+        <span className={starClass}>
           <i className="fa fa-star" aria-hidden="true" />
           <i className="fa fa-star" aria-hidden="true" />
           <i className="fa fa-star" aria-hidden="true" />
@@ -60,7 +65,7 @@ const ShowStarRating = props => {
 
     const five = (
       <div>
-        <span className="review-stars-on-yellow">
+        <span className={starClass}>
           <i className="fa fa-star" aria-hidden="true" />
           <i className="fa fa-star" aria-hidden="true" />
           <i className="fa fa-star" aria-hidden="true" />
