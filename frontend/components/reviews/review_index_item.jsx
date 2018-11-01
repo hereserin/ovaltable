@@ -5,7 +5,9 @@ import { connect } from "react-redux";
 const ReviewIndexItem = props => {
   const userInitials = props.reviewAuthor.username
     .split(" ")
-    .map(word => word[0]);
+    .map(word => word[0])
+    .join("")
+    .toUpperCase();
   return (
     <div>
       <div className="review-item">

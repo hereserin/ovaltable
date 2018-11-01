@@ -79,16 +79,19 @@
 }
 
 .user-initials {
-  z-index: 5;
   position: absolute;
   top: 1px;
-  left: 18px;
+  padding-left: 5%;
+  padding-right: 5%;
   color: white;
   font-size: 20px;
+  width: 65px;
+  box-sizing: border-box;
+  text-align: center;
 }
 
 .user-initials-container {
   height: 70px;
-  width: 70px;
+  width: 65px;
   position: relative;
 }
