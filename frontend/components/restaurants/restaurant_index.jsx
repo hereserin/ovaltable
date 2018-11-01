@@ -1,6 +1,6 @@
-import React from 'react';
-import RestaurantIndexItem from './restaurant_index_item';
-import { Route } from 'react-router-dom';
+import React from "react";
+import RestaurantIndexItem from "./restaurant_index_item";
+import { Route } from "react-router-dom";
 
 class RestaurantIndex extends React.Component {
   constructor(props) {
@@ -13,34 +13,36 @@ class RestaurantIndex extends React.Component {
 
   componentDidMount() {
     this.props.fetchRestaurants().then(({ restaurants, photos }) => {
-      this.setState({restaurants: restaurants, photos: photos})
+      this.setState({ restaurants: restaurants, photos: photos });
     });
   }
 
   render() {
-    if(!this.state.restaurants) return <div></div>;
+    if (!this.state.restaurants) return <div />;
 
     const restaurants = this.props.restaurants.map((restaurant, idx) => {
-    //
-    //   const thumbId = restaurant.photos[0];
-    //
-    //   let thumbnail = null;
-    //   if (thumbId) {
-    //     const thumbnail = this.props.photos[thumbId].photoUrl
-    //   }
+      //
+      //   const thumbId = restaurant.photos[0];
+      //
+      //   let thumbnail = null;
+      //   if (thumbId) {
+      //     const thumbnail = this.props.photos[thumbId].photoUrl
+      //   }
 
       return (
-        <RestaurantIndexItem key={idx} restaurant={restaurant} photos={this.props.photos} />
-        );
+        <RestaurantIndexItem
+          key={idx}
+          restaurant={restaurant}
+          photos={this.props.photos}
+        />
+      );
     });
 
     return (
-        <section>
-          <p>Results:</p>
-          <ul>
-            {restaurants}
-          </ul>
-        </section>
+      <section>
+        <p>Results:</p>
+        <ul>{restaurants}</ul>
+      </section>
     );
   }
 }

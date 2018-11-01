@@ -3,13 +3,20 @@ import ShowStarRating from "./show_star_rating";
 import { connect } from "react-redux";
 
 const ReviewIndexItem = props => {
+  const userInitials = props.reviewAuthor.username
+    .split(" ")
+    .map(word => word[0]);
   return (
     <div>
       <div className="review-item">
         <span className="review-user-info">
-          <p>{props.reviewAuthor.id}</p>
+          <div className="user-initials-container">
+            <i className="fas fa-circle" />
+            <p className="user-initials">{userInitials}</p>
+          </div>
+          <p>{props.reviewAuthor.username}</p>
         </span>
-        <span>
+        <span className="review-item-content">
           <ShowStarRating
             numberOfStars={props.review.rating_overall}
             colorInRed={true}
