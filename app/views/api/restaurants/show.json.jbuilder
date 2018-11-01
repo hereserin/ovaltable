@@ -33,3 +33,11 @@ json.reviews do
     end
   end
 end
+
+json.users do
+  @restaurant.reviewers.each do |reviewer|
+    json.set! reviewer.id do
+      json.extract! reviewer, :id, :username
+    end
+  end
+end

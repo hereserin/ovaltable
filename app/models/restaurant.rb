@@ -34,6 +34,10 @@ class Restaurant < ApplicationRecord
   has_many :reviews,
   class_name: :Review
 
+  has_many :reviewers,
+  through: :reviews,
+  source: :user
+
   belongs_to :dining_style,
   class_name: :DiningStyle
 

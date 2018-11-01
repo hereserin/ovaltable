@@ -3,6 +3,7 @@ class Api::RestaurantsController < ApplicationController
   def show
 
     @restaurant = Restaurant.find(params[:id])
+    # @reviews = @restaurant.reviews
     render 'api/restaurants/show'
   end
 
