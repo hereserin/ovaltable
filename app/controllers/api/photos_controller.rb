@@ -20,6 +20,7 @@ class Api::PhotosController < ApplicationController
   end
 
   def show
+    debugger 
     @photo = Photo.find(params[:photo][:id])
   end
 
