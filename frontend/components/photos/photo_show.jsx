@@ -6,8 +6,8 @@ import { openModal, closeModal } from "./../../actions/modal_actions";
 
 const PhotoShow = props => {
   let caption = "My very favorite picture.";
-  if (props.showPhoto.caption) {
-    caption = props.showPhoto.caption;
+  if (props.caption) {
+    caption = props.caption;
   }
 
   return (
@@ -27,8 +27,11 @@ const PhotoShow = props => {
             }}
           >
             <span className="show-photo-span">
-              <img className="show-photo" src={props.showPhoto.photoUrl} />
-              <p>{caption}</p>
+              <img className="show-photo" src={props.showPhotoUrl} />
+              <p className="show-photo-caption">{caption}</p>
+              <div className="show-photo-user">
+                <p>Photo by {props.author}</p>
+              </div>
             </span>
           </span>
         </span>
@@ -37,9 +40,11 @@ const PhotoShow = props => {
   );
 };
 
-const mapStateToProps = ({ ui }) => {
+const mapStateToProps = ({ ui, entities }) => {
   return {
-    showPhoto: ui.showPhoto
+    showPhotoUrl: entities.photos[ui.showPhoto.photo].photoUrl,
+    caption: entities.photos[ui.showPhoto.photo].caption,
+    author: entities.users[ui.showPhoto.author].username
   };
 };
 
