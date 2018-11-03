@@ -45,7 +45,7 @@ class ReservationIndex extends React.Component {
     return (
       <section>
         <h1>Your Reservations:</h1>
-        <ul>{reservations}</ul>
+        <ul className="reservation-index-list">{reservations}</ul>
         <h1>{`You have ${numOfReservations} reservation(s)`}</h1>
       </section>
     );

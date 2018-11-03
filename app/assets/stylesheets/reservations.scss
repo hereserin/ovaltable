@@ -81,11 +81,19 @@ h5 {
   font-size: 18px;
 }
 
+.reservation-index-list {
+  padding: 15px 40px 10px 40px;
+  background-color: #f0f0f0;
+  border-width: 1px;
+  border-style: inset;
+}
+
 .reservation_index_item {
   box-shadow: 1px 1px 0.8px 0.8px #e2d0d0;
   padding: 20px;
   margin: 20px;
   list-style: none;
+  background-color: white;
 }
 
 .reservation_index_item_top {
