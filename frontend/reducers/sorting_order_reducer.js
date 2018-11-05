@@ -12,7 +12,6 @@ const sortingOrderReducer = (state = initialState, action) => {
   Object.freeze(state);
   switch (action.type) {
     case RECEIVE_RESERVATIONS:
-    case RECEIVE_CURRENT_USER:
       return action.order;
     case CLEAR_ORDER:
     case LOGOUT_CURRENT_USER:

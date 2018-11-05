@@ -18,3 +18,5 @@ json.photos do
     end
   end
 end
+
+# TODO: eager loading (restaurant.includes(photo))

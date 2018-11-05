@@ -1,31 +1,15 @@
 export const selectRestaurants = ({ restaurants }) => {
-  return (
-    Object.keys(restaurants).map((id) => {
-      return restaurants[id];
-    })
-  );
+  return Object.values(restaurants);
 };
 
 export const selectReservations = ({ reservations }) => {
-  return (
-    Object.keys(reservations).map((id) => {
-      return reservations[id];
-    })
-  );
+  return Object.values(reservations);
 };
 
 export const selectPhotos = ({ photos }) => {
-  return (
-    Object.keys(photos).map((id) => {
-      return photos[id];
-    })
-  );
+  return Object.values(photos);
 };
 
 export const selectReviews = ({ reviews }) => {
-  return (
-    Object.keys(reviews).map((id) => {
-      return reviews[id];
-    })
-  );
+  return Object.values(reviews);
 };

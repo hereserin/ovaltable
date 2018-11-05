@@ -17,7 +17,7 @@ class Api::RestaurantsController < ApplicationController
   end
 
   def index
-    @restaurants = Restaurant.all
+    @restaurants = Restaurant.includes(:photos).all
 
     render 'api/restaurants/index'
   end

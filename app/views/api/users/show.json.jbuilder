@@ -2,4 +2,4 @@
 
 
 json.extract! @user, :id, :username
-json.current_user_reservations @user.reservations.pluck(:id)
+json.reservations @user.reservations.pluck(:id)
