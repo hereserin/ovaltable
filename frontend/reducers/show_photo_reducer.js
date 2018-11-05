@@ -1,7 +1,9 @@
 import { merge } from "lodash";
 import { SHOW_PHOTO, CLEAR_PHOTO } from "./../actions/photo_show_actions";
 
-const showPhotoReducer = (state = {}, action) => {
+const initialState = {};
+
+const showPhotoReducer = (state = initialState, action) => {
   Object.freeze(state);
 
   switch (action.type) {

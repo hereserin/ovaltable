@@ -6,7 +6,9 @@ import {
   LOGOUT_CURRENT_USER
 } from "./../actions/session_actions";
 
-const sortingOrderReducer = (state = [], action) => {
+const initialState = [];
+
+const sortingOrderReducer = (state = initialState, action) => {
   Object.freeze(state);
   switch (action.type) {
     case RECEIVE_RESERVATIONS:
@@ -14,7 +16,7 @@ const sortingOrderReducer = (state = [], action) => {
       return action.order;
     case CLEAR_ORDER:
     case LOGOUT_CURRENT_USER:
-      return [];
+      return initialState;
     default:
       return state;
   }

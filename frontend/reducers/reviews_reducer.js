@@ -5,7 +5,9 @@ import {
   RECEIVE_RESTAURANTS
 } from "./../actions/restaurant_actions";
 
-const reviewsReducer = (state = {}, action) => {
+const initialState = {};
+
+const reviewsReducer = (state = initialState, action) => {
   Object.freeze(state);
   switch (action.type) {
     case RECEIVE_RESTAURANTS:

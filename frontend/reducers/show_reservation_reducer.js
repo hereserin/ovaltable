@@ -3,7 +3,9 @@ import {
   CLEAR_RESERVATION
 } from "./../actions/reservation_show_actions";
 
-const showReservationReducer = (state = {}, action) => {
+const initialState = {};
+
+const showReservationReducer = (state = initialState, action) => {
   Object.freeze(state);
   switch (action.type) {
     case SHOW_RESERVATION:

@@ -7,7 +7,9 @@ import {
 import { RECEIVE_REVIEW } from "./../actions/reviews_actions";
 import { RECEIVE_RESERVATIONS } from "./../actions/reservations_actions";
 
-const restaurantsReducer = (state = {}, action) => {
+const initialState = {};
+
+const restaurantsReducer = (state = initialState, action) => {
   Object.freeze(state);
   switch (action.type) {
     case RECEIVE_RESTAURANTS:

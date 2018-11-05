@@ -9,7 +9,9 @@ import {
   LOGOUT_CURRENT_USER
 } from "./../actions/session_actions";
 
-const reservationsReducer = (state = {}, action) => {
+const initialState = {};
+
+const reservationsReducer = (state = initialState, action) => {
   Object.freeze(state);
   switch (action.type) {
     case RECEIVE_RESERVATIONS:

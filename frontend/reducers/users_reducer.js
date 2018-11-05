@@ -6,7 +6,9 @@ import {
 import { RECEIVE_RESTAURANT } from "./../actions/restaurant_actions";
 import { SHOW_PHOTO } from "./../actions/photo_show_actions";
 
-const usersReducer = (state = {}, action) => {
+const initialState = {};
+
+const usersReducer = (state = initialState, action) => {
   Object.freeze(state);
   switch (action.type) {
     case RECEIVE_CURRENT_USER:
@@ -15,7 +17,7 @@ const usersReducer = (state = {}, action) => {
     case SHOW_PHOTO:
       return merge({}, state, action.users);
     case LOGOUT_CURRENT_USER:
-      return {};
+      return initialState;
     default:
       return state;
   }
