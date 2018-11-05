@@ -13,6 +13,7 @@ import {
 import { AuthRoute, ProtectedRoute } from "./../../util/route_util.jsx";
 
 const mapStatetoProps = state => {
+  // const {r, p} =
   return {
     reservations: state.entities.reservations,
     photos: state.entities.photos,

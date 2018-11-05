@@ -11,7 +11,6 @@ const restaurantsReducer = (state = {}, action) => {
   Object.freeze(state);
   switch (action.type) {
     case RECEIVE_RESTAURANTS:
-      return merge({}, state, action.restaurants);
     case RECEIVE_RESERVATIONS:
       return merge({}, state, action.restaurants);
     case RECEIVE_RESTAURANT:
@@ -20,7 +19,6 @@ const restaurantsReducer = (state = {}, action) => {
       const restId = Object.values(action.review)[0].restaurant_id;
       let newListOfReviews = state[restId].reviews;
       newListOfReviews.push(parseInt(Object.keys(action.review)[0]));
-      debugger;
       return merge({}, state, { reviews: newListOfReviews });
     default:
       return state;

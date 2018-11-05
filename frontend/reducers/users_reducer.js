@@ -12,7 +12,6 @@ const usersReducer = (state = {}, action) => {
     case RECEIVE_CURRENT_USER:
       return merge({}, state, { [action.user.id]: action.user });
     case RECEIVE_RESTAURANT:
-      return merge({}, state, action.users);
     case SHOW_PHOTO:
       return merge({}, state, action.users);
     case LOGOUT_CURRENT_USER:

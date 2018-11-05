@@ -13,30 +13,20 @@ class RestaurantIndex extends React.Component {
 
   componentDidMount() {
     this.props.fetchRestaurants().then(({ restaurants, photos }) => {
-      this.setState({ restaurants: restaurants, photos: photos });
+      this.setState({ restaurants, photos });
     });
   }
 
   render() {
-    if (!this.state.restaurants) return <div />;
+    if (!this.state.restaurants) return null;
 
-    const restaurants = this.props.restaurants.map((restaurant, idx) => {
-      //
-      //   const thumbId = restaurant.photos[0];
-      //
-      //   let thumbnail = null;
-      //   if (thumbId) {
-      //     const thumbnail = this.props.photos[thumbId].photoUrl
-      //   }
-
-      return (
-        <RestaurantIndexItem
-          key={idx}
-          restaurant={restaurant}
-          photos={this.props.photos}
-        />
-      );
-    });
+    const restaurants = this.props.restaurants.map(restaurant => (
+      <RestaurantIndexItem
+        key={restaurant.id}
+        restaurant={restaurant}
+        photos={this.props.photos}
+      />
+    ));
 
     return (
       <section>
