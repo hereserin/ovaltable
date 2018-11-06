@@ -11,7 +11,7 @@ const ReviewIndexItem = props => {
     .toUpperCase();
 
   let deleteReviewButton;
-  if (props.currentUser) {
+  if (props.currentUserId === props.reviewAuthor.id) {
     deleteReviewButton = (
       <span
         className="delete-review-button"
@@ -48,7 +48,7 @@ const ReviewIndexItem = props => {
 
 const mapStateToProps = ({ entities, session }, ownProps) => ({
   reviewAuthor: entities.users[ownProps.review.user_id],
-  currentUser: entities.users[session.id]
+  currentUserId: session.id
 });
 
 const mapDispatchToProps = dispatch => ({
