@@ -9,6 +9,20 @@ const ReviewIndexItem = props => {
     .map(word => word[0])
     .join("")
     .toUpperCase();
+
+  let deleteReviewButton;
+  if (props.currentUser) {
+    deleteReviewButton = (
+      <span
+        className="delete-review-button"
+        onClick={() => {
+          props.deleteReview(props.review.id, props.review.restaurant_id);
+        }}
+      >
+        Delete
+      </span>
+    );
+  }
   return (
     <div className="review-item-holder">
       <div className="review-item">
@@ -27,20 +41,14 @@ const ReviewIndexItem = props => {
           <p>{props.review.review_body}</p>
         </span>
       </div>
-      <span
-        className="delete-review-button"
-        onClick={() => {
-          props.deleteReview(props.review.id, props.review.restaurant_id);
-        }}
-      >
-        Delete
-      </span>
+      {deleteReviewButton}
     </div>
   );
 };
 
-const mapStateToProps = ({ entities }, ownProps) => ({
-  reviewAuthor: entities.users[ownProps.review.user_id]
+const mapStateToProps = ({ entities, session }, ownProps) => ({
+  reviewAuthor: entities.users[ownProps.review.user_id],
+  currentUser: entities.users[session.id]
 });
 
 const mapDispatchToProps = dispatch => ({
