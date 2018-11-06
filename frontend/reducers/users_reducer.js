@@ -17,7 +17,7 @@ const usersReducer = (state = initialState, action) => {
     case SHOW_PHOTO:
       return merge({}, state, action.users);
     case LOGOUT_CURRENT_USER:
-      return initialState;
+      return state;
     default:
       return state;
   }
