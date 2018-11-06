@@ -38,6 +38,18 @@ const mapStateToProps = (state, ownProps) => {
     users: state.entities.users
   };
 };
-// HOW DO YOU GET A WILDCARD FROM A URL?
 
-export default withRouter(connect(mapStateToProps)(ReviewsIndex));
+const mapDispatchToProps = dispatch => {
+  return {
+    fetchReservations: () => {
+      return dispatch(fetchReservations());
+    }
+  };
+};
+
+export default withRouter(
+  connect(
+    mapStateToProps,
+    mapDispatchToProps
+  )(ReviewsIndex)
+);
