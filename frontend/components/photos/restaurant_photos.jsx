@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import { openModal } from "./../../actions/modal_actions";
 import { showPhoto, clearPhoto } from "./../../actions/photo_show_actions";
 import { AuthRoute, ProtectedRoute } from "./../../util/route_util.jsx";
+import { withRouter } from "react-router-dom";
 
 const RestaurantPhotos = props => {
   const picItems = props.restaurantPicIds.map((photoId, idx) => {
@@ -39,6 +40,14 @@ const RestaurantPhotos = props => {
   );
 };
 
+const mapStateToProps = (state, ownProps) => {
+  const restaurantId = parseInt(ownProps.location.pathname.split("/")[2]);
+  return {
+    restaurantPicIds: state.entities.restaurants[restaurantId].photos,
+    photos: state.entities.photos
+  };
+};
+
 const mapDispatchToProps = dispatch => {
   return {
     openModalShowPic: () => dispatch(openModal("photo")),
@@ -48,7 +57,9 @@ const mapDispatchToProps = dispatch => {
   };
 };
 
-export default connect(
-  null,
-  mapDispatchToProps
-)(RestaurantPhotos);
+export default withRouter(
+  connect(
+    mapStateToProps,
+    mapDispatchToProps
+  )(RestaurantPhotos)
+);

@@ -13,14 +13,15 @@ class Api::PhotosController < ApplicationController
     @photo.pic.attach(params[:photo][:pic])
 
     if @photo.save
-      render json: {message: "Your photo is posted!"}
+      # render json: {message: "Your photo is posted!"}
+      render :show
     else
       render json: @photo.errors.full_messages, status: 422
     end
   end
 
   def show
-    debugger 
+    
     @photo = Photo.find(params[:photo][:id])
   end
 

@@ -5,12 +5,12 @@ import { clearPhoto } from "./../../actions/photo_show_actions";
 import { submitPhoto } from "./../../actions/photos_actions";
 import { withRouter } from "react-router-dom";
 import { closeModal } from "./../../actions/modal_actions";
+import { fetchPhotos } from "./../../actions/photos_actions";
 
 class PhotoForm extends React.Component {
   constructor(props) {
     super(props);
     this.handleSubmit = this.handleSubmit.bind(this);
-    // this.handleChange = this.handleChange.bind(this);
     this.handleFile = this.handleFile.bind(this);
     this.handleInput = this.handleInput.bind(this);
 
@@ -60,6 +60,7 @@ class PhotoForm extends React.Component {
     this.props.submitPhoto(formData).then(
       response => {
         this.setState({ loadSuccess: true });
+        this.props.fetchPhotos();
         this.setState({
           instructions:
             "Image has been posted! You may choose another file to upload",
@@ -149,7 +150,8 @@ const mapDispatchToProps = dispatch => {
   return {
     // clearPhoto: () => dispatch(clearPhoto()),
     submitPhoto: photo => dispatch(submitPhoto(photo)),
-    closeModal: modal => dispatch(closeModal())
+    closeModal: modal => dispatch(closeModal()),
+    fetchPhotos: () => dispatch(fetchPhotos())
   };
 };
 

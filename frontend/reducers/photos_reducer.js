@@ -1,8 +1,5 @@
 import { merge } from "lodash";
-// import {
-//   RECEIVE_PHOTO,
-//   RECEIVE_PHOTOS,
-// } from './../actions/photos_actions';
+import { RECEIVE_PHOTO, RECEIVE_PHOTOS } from "./../actions/photos_actions";
 import {
   RECEIVE_RESTAURANT,
   RECEIVE_RESTAURANTS,
@@ -18,6 +15,7 @@ const photosReducer = (state = initialState, action) => {
     case RECEIVE_RESTAURANTS:
     case RECEIVE_RESTAURANT:
     case RECEIVE_RESERVATIONS:
+    case RECEIVE_PHOTO:
       return merge({}, state, action.photos);
     default:
       return state;
