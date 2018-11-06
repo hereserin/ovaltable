@@ -3,11 +3,12 @@ import { withRouter } from "react-router-dom";
 import ShowStarRating from "./../reviews/show_star_rating";
 
 const RestaurantIndexItem = props => {
-  const thumbId = props.restaurant.photos[0];
-  let thumbnail = window.staticImages.defaultRestaurant;
-
-  if (thumbId) {
+  let thumbnail;
+  if (props.restaurant.photos && props.restaurant.photos.length > 0) {
+    const thumbId = props.restaurant.photos[0];
     thumbnail = props.photos[thumbId].photoUrl;
+  } else {
+    thumbnail = window.staticImages.defaultRestaurant;
   }
 
   return (
