@@ -1,5 +1,6 @@
 import React from "react";
 import ShowStarRating from "./show_star_rating";
+import { deleteReview } from "./../../actions/reviews_actions";
 import { connect } from "react-redux";
 
 const ReviewIndexItem = props => {
@@ -9,7 +10,7 @@ const ReviewIndexItem = props => {
     .join("")
     .toUpperCase();
   return (
-    <div>
+    <div className="review-item-holder">
       <div className="review-item">
         <span className="review-user-info">
           <div className="user-initials-container">
@@ -26,6 +27,7 @@ const ReviewIndexItem = props => {
           <p>{props.review.review_body}</p>
         </span>
       </div>
+      <span className="delete-review-button">Delete</span>
     </div>
   );
 };
@@ -34,4 +36,11 @@ const mapStateToProps = ({ entities }, ownProps) => ({
   reviewAuthor: entities.users[ownProps.review.user_id]
 });
 
-export default connect(mapStateToProps)(ReviewIndexItem);
+const mapDispatchToProps = dispatch => ({
+  deleteReview: id => dispatch(deleteReview(id))
+});
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(ReviewIndexItem);
