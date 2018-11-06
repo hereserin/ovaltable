@@ -6,7 +6,7 @@ export const makeReview = review => {
   });
 };
 
-export const cancelReview = id => {
+export const deleteReview = id => {
   return $.ajax({
     method: "DELETE",
     url: `/api/reviews/${id}`

@@ -27,8 +27,18 @@ class Api::ReviewsController < ApplicationController
     @review = Review.find(params[:id])
   end
 
-  def delete
+  def destroy
+    @review = Review.find(params[:id])
+    @review.destroy
+    render 'api/reviews/show'
+
+    # @restaurant = Restaurant.find(params[:id])
+    # if @restaurant.update(restaurant_params)
+    #   render 'api/restaurants/show'
+    # else
   end
+
+
 
   private
   def reviews_params

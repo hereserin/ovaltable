@@ -27,7 +27,14 @@ const ReviewIndexItem = props => {
           <p>{props.review.review_body}</p>
         </span>
       </div>
-      <span className="delete-review-button">Delete</span>
+      <span
+        className="delete-review-button"
+        onClick={() => {
+          props.deleteReview(props.review.id, props.review.restaurant_id);
+        }}
+      >
+        Delete
+      </span>
     </div>
   );
 };
@@ -37,7 +44,7 @@ const mapStateToProps = ({ entities }, ownProps) => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  deleteReview: id => dispatch(deleteReview(id))
+  deleteReview: (id, restId) => dispatch(deleteReview(id, restId))
 });
 
 export default connect(

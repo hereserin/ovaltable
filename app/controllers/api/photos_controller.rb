@@ -21,11 +21,14 @@ class Api::PhotosController < ApplicationController
   end
 
   def show
-    
+
     @photo = Photo.find(params[:photo][:id])
   end
 
-  def delete
+  def destroy
+    @photo = Photo.find(params[:id])
+    @photo.destroy
+    # render 'api/photos/show'
   end
 
   private
