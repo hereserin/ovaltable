@@ -32,10 +32,6 @@ class Api::ReviewsController < ApplicationController
     @review.destroy
     render 'api/reviews/show'
 
-    # @restaurant = Restaurant.find(params[:id])
-    # if @restaurant.update(restaurant_params)
-    #   render 'api/restaurants/show'
-    # else
   end
 
 
