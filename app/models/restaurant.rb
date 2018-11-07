@@ -31,6 +31,10 @@ class Restaurant < ApplicationRecord
   has_many :photos,
   class_name: :Photo
 
+  has_many :photo_posters,
+  through: :photos,
+  source: :user
+
   has_many :reviews,
   class_name: :Review
 

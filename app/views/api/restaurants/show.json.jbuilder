@@ -40,4 +40,9 @@ json.users do
       json.extract! reviewer, :id, :username
     end
   end
+  @restaurant.photo_posters.each do |poster|
+    json.set! poster.id do
+      json.extract! poster, :id, :username
+    end
+  end
 end
