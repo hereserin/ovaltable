@@ -32,7 +32,12 @@ const restaurantsReducer = (state = initialState, action) => {
       );
       newState[action.restId].reviews = newReviewsArray;
       return newState;
-    // case RECEIVE_PHOTO:
+    case RECEIVE_PHOTO:
+      // let newState = merge({}, state);
+      const restId2 = action.photo.restaurant_id;
+      let newListOfPhotos = state[restId2].photos;
+      newListOfPhotos.push(action.photo.id);
+      return merge({}, state, { photos: newListOfPhotos });
     default:
       return state;
   }

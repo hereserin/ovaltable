@@ -45,7 +45,7 @@ export const fetchPhotos = () => {
 const receivePhoto = ({ photo, user }) => {
   return {
     type: RECEIVE_PHOTO,
-    photos: photo,
+    photo: photo,
     users: user
   };
 };

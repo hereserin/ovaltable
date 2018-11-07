@@ -1,7 +1,7 @@
 
 
 json.photo do
-  json.extract! @photo, :id, :caption, :user_id
+  json.extract! @photo, :id, :caption, :user_id, :restaurant_id
   json.photoUrl url_for(@photo.pic)
 end
 

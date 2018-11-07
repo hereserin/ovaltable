@@ -15,8 +15,9 @@ const photosReducer = (state = initialState, action) => {
     case RECEIVE_RESTAURANTS:
     case RECEIVE_RESTAURANT:
     case RECEIVE_RESERVATIONS:
-    case RECEIVE_PHOTO:
       return merge({}, state, action.photos);
+    case RECEIVE_PHOTO:
+      return merge({}, state, { [action.photo.id]: action.photo });
     default:
       return state;
   }
