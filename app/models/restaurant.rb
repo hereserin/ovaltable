@@ -59,6 +59,7 @@ class Restaurant < ApplicationRecord
   end
 
   def average_overall_rating
+    debugger 
     all_ratings = self.reviews.all.map {|review| review.rating_overall }
     count_of_ratings = all_ratings.count
     return nil if count_of_ratings <= 0

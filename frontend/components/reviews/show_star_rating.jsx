@@ -7,6 +7,18 @@ const ShowStarRating = props => {
   }
 
   const stars = rating => {
+    const zero = (
+      <div>
+        <span className="review-stars-off">
+          <i className="fa fa-star" aria-hidden="true" />
+          <i className="fa fa-star" aria-hidden="true" />
+          <i className="fa fa-star" aria-hidden="true" />
+          <i className="fa fa-star" aria-hidden="true" />
+          <i className="fa fa-star" aria-hidden="true" />
+        </span>
+      </div>
+    );
+
     const one = (
       <div>
         <span className={starClass}>
@@ -85,6 +97,9 @@ const ShowStarRating = props => {
 
     let starDiv;
     switch (rating) {
+      case 0:
+        starDiv = zero;
+        break;
       case 1:
         starDiv = one;
         break;
