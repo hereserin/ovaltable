@@ -2,7 +2,7 @@
 class Review < ApplicationRecord
 
   validates :user_id, :restaurant_id, :review_body, presence: true
-
+  validates :rating_overall, numericality: { greater_than: 0 }
 
   belongs_to :restaurant,
   class_name: :Restaurant

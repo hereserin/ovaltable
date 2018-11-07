@@ -7,7 +7,6 @@ import { withRouter } from "react-router-dom";
 class ReviewForm extends React.Component {
   constructor(props) {
     super(props);
-    // debugger
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleBodyInput = this.handleBodyInput.bind(this);
     this.ratingOptions = this.ratingOptions.bind(this);
@@ -76,6 +75,7 @@ class ReviewForm extends React.Component {
     return (
       <div>
         <h3>Add a review</h3>
+        <p className="error">{this.props.errors[0]}</p>
         <form className="reviews-form" onSubmit={this.handleSubmit}>
           <select
             className="star-drop-down"
@@ -103,9 +103,9 @@ class ReviewForm extends React.Component {
 }
 
 const mapStateToProps = (state, ownProps) => {
-  // debugger
   return {
-    restaurant: ownProps.location.pathname.split("/")[2]
+    restaurant: ownProps.location.pathname.split("/")[2],
+    errors: state.errors.reviews
   };
 };
 
