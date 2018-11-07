@@ -2,12 +2,29 @@ import React from "react";
 import { Link, withRouter } from "react-router-dom";
 import { connect } from "react-redux";
 import { clearPhoto } from "./../../actions/photo_show_actions";
+import { deletePhoto } from "./../../actions/photos_actions";
 import { openModal, closeModal } from "./../../actions/modal_actions";
 
 const PhotoShow = props => {
   let caption = "My very favorite picture.";
   if (props.caption) {
     caption = props.caption;
+  }
+
+  let deletePhotoButton;
+  if (props.currentUserId === props.authorId) {
+    deletePhotoButton = (
+      <span
+        className="delete-photo-button"
+        onClick={() => {
+          props.deletePhoto(props.photoId, props.restaurantId);
+          // props.clearPhoto();
+          props.closeModal();
+        }}
+      >
+        Delete
+      </span>
+    );
   }
 
   return (
@@ -30,7 +47,11 @@ const PhotoShow = props => {
               <img className="show-photo" src={props.showPhotoUrl} />
               <p className="show-photo-caption">{caption}</p>
               <div className="show-photo-user">
-                <p>Photo by {props.author}</p>
+                <p>
+                  Photo by {props.author}
+                  <br />
+                  {deletePhotoButton}
+                </p>
               </div>
             </span>
           </span>
@@ -40,18 +61,24 @@ const PhotoShow = props => {
   );
 };
 
-const mapStateToProps = ({ ui, entities }) => {
+const mapStateToProps = ({ ui, entities, session }) => {
   return {
     showPhotoUrl: entities.photos[ui.showPhoto.photo].photoUrl,
     caption: entities.photos[ui.showPhoto.photo].caption,
-    author: entities.users[ui.showPhoto.author].username
+    author: entities.users[ui.showPhoto.author].username,
+    authorId: ui.showPhoto.author,
+    currentUserId: session.id,
+    photoId: ui.showPhoto.photo,
+    restaurantId: entities.photos[ui.showPhoto.photo].restaurant_id
   };
 };
 
 const mapDispatchToProps = dispatch => {
+  // debugger;
   return {
     clearPhoto: () => dispatch(clearPhoto()),
-    closeModal: () => dispatch(closeModal())
+    closeModal: () => dispatch(closeModal()),
+    deletePhoto: (id, restId) => dispatch(deletePhoto(id, restId))
   };
 };
 

@@ -5,7 +5,7 @@ import {
   RECEIVE_RESTAURANT_ERRORS
 } from "./../actions/restaurant_actions";
 import { RECEIVE_REVIEW, DELETE_REVIEW } from "./../actions/reviews_actions";
-import { RECEIVE_PHOTO } from "./../actions/photos_actions";
+import { RECEIVE_PHOTO, DELETE_PHOTO } from "./../actions/photos_actions";
 import { RECEIVE_RESERVATIONS } from "./../actions/reservations_actions";
 
 const initialState = {};
@@ -32,8 +32,16 @@ const restaurantsReducer = (state = initialState, action) => {
       );
       newState[action.restId].reviews = newReviewsArray;
       return newState;
+    case DELETE_PHOTO:
+      let newState2 = merge({}, state);
+      const newPhotosArray = newState2[action.restId].photos.filter(
+        photoLookUpId => {
+          return photoLookUpId !== action.photoId;
+        }
+      );
+      newState2[action.restId].photos = newPhotosArray;
+      return newState2;
     case RECEIVE_PHOTO:
-      // let newState = merge({}, state);
       const restId2 = action.photo.restaurant_id;
       let newListOfPhotos = state[restId2].photos;
       newListOfPhotos.push(action.photo.id);
