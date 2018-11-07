@@ -6,7 +6,10 @@ const RestaurantInfo = ({ restaurant, hours }) => {
     if (restaurantInfoItem) {
       return (
         <li>
-          <h3>{itemTitleString}</h3>
+          <h3>
+            <i class="far fa-clock" />
+            {itemTitleString}
+          </h3>
           {restaurantInfoItem}
         </li>
       );
@@ -21,29 +24,39 @@ const RestaurantInfo = ({ restaurant, hours }) => {
           <li>
             <ul className="rest-details-list-1">
               <li>
-                <h3>Location</h3>
+                <h3>
+                  <i class="fas fa-map-marker-alt" /> Location
+                </h3>
                 {restaurant.physical_address}
               </li>
               <li>
-                <h3>Dining Style</h3>
+                <h3>
+                  <i class="fas fa-utensils" /> Dining Style
+                </h3>
                 {restaurant.dining_style}
               </li>
 
               {renderIfExists(
                 restaurant.hours_of_operation_string,
-                "Hours Of Operation"
+                " Hours Of Operation"
               )}
 
               <li>
-                <h3>Phone Number</h3>
+                <h3>
+                  <i class="fas fa-phone" /> Phone Number
+                </h3>
                 {restaurant.phone}
               </li>
               <li>
-                <h3>Website</h3>
+                <h3>
+                  <i class="fas fa-external-link-alt" /> Website
+                </h3>
                 {restaurant.website_url}
               </li>
               <li>
-                <h3>Dress Code</h3>
+                <h3>
+                  <i class="fas fa-tshirt" /> Dress Code
+                </h3>
                 {restaurant.dress_code}
               </li>
             </ul>
