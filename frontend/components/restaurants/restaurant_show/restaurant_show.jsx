@@ -12,20 +12,16 @@ class RestaurantShowPage extends React.Component {
     super(props);
     this.state = {
       restaurant: null,
-      // hoursOfOperation: this.props.hoursOfOperation,
       photos: null,
       reviews: null
     };
   }
   componentDidMount() {
     let i = 1;
-    // console.log(`mounted: mount number ${i}`);
     i = i + 1;
     this.props
       .fetchRestaurant(this.props.match.params.restaurantId)
       .then(payload => {
-        // console.log("data came back")
-
         this.setState({
           photos: payload.photos,
           reviews: payload.reviews,
@@ -35,14 +31,12 @@ class RestaurantShowPage extends React.Component {
   }
 
   render() {
-    // debugger
     if (
       this.state.restaurant == undefined ||
       this.state.restaurant.photos == undefined
-    )
+    ) {
       return <div />;
-    // this.state.restaurant == undefined || this.state.restaurant.photos == undefined ||
-    // if (this.props.restaurant.reviews == undefined) return <div></div>;
+    }
 
     return (
       <div>
@@ -52,10 +46,14 @@ class RestaurantShowPage extends React.Component {
           <section className="restaurant-show-section-holder">
             <RestaurantShowBar />
             <div id="Overview">
-              <RestaurantInfo
-                restaurant={this.props.restaurant}
-                hours={this.props.hoursOfOperation}
-              />
+              <ul className="restaurant-description">
+                <li>
+                  <h1>{this.props.restaurant.restaurant_name}</h1>
+                </li>
+                <li>
+                  <p>{this.props.restaurant.restaurant_description}</p>
+                </li>
+              </ul>
             </div>
 
             <div id="Photos">
@@ -75,6 +73,10 @@ class RestaurantShowPage extends React.Component {
 
           <aside>
             <MakeReservationFormContainer />
+            <RestaurantInfo
+              restaurant={this.props.restaurant}
+              hours={this.props.hoursOfOperation}
+            />
           </aside>
         </main>
       </div>
@@ -83,7 +85,3 @@ class RestaurantShowPage extends React.Component {
 }
 
 export default withRouter(RestaurantShowPage);
-
-// <div id="Reviews">
-//   <ReviewIndex reviews={this.props.reviews} restaurantReviewIds={this.props.restaurant.reviews} />
-// </div>
