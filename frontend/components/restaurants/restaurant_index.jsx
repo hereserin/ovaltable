@@ -1,6 +1,7 @@
 import React from "react";
 import RestaurantIndexItem from "./restaurant_index_item";
 import { Route } from "react-router-dom";
+import Spinner from "../spinner/spinner.jsx";
 
 class RestaurantIndex extends React.Component {
   constructor(props) {
@@ -18,7 +19,10 @@ class RestaurantIndex extends React.Component {
   }
 
   render() {
-    if (!this.state.restaurants) return null;
+    if (this.props.loading) {
+      return <Spinner />;
+    }
+    // if (!this.state.restaurants) return null;
 
     const restaurants = this.props.restaurants.map(restaurant => (
       <RestaurantIndexItem

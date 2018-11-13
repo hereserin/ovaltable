@@ -4,12 +4,10 @@ import { selectRestaurants } from "./../../reducers/selectors";
 import { fetchRestaurants } from "./../../actions/restaurant_actions";
 
 const mapStatetoProps = state => {
-  // debugger
-
   return {
     restaurants: selectRestaurants(state.entities),
     photos: state.entities.photos,
-
+    loading: state.ui.loading,
     state
   };
 };

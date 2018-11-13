@@ -3,9 +3,12 @@ import * as RestaurantAPIUtil from "../util/restaurant_api_util";
 export const RECEIVE_RESTAURANT = "RECEIVE_RESTAURANT";
 export const RECEIVE_RESTAURANTS = "RECEIVE_RESTAURANTS";
 export const RECEIVE_RESTAURANT_ERRORS = "RECEIVE_RESTAURANT_ERRORS";
+export const START_LOADING_RESTAURANTS = "START_LOADING_RESTAURANTS";
+export const START_LOADING_RESTAURANT = "START_LOADING_RESTAURANT";
 
 export const fetchRestaurant = id => {
   return dispatch => {
+    dispatch(startLoadingRestaurant());
     return RestaurantAPIUtil.fetchRestaurant(id).then(
       payload => {
         return dispatch(receiveRestaurant(payload));
@@ -19,6 +22,7 @@ export const fetchRestaurant = id => {
 
 export const fetchRestaurants = () => {
   return dispatch => {
+    dispatch(startLoadingRestaurants());
     return RestaurantAPIUtil.fetchRestaurants().then(
       payload => {
         return dispatch(receiveRestaurants(payload));
@@ -61,3 +65,11 @@ const receiveRestaurantErrors = error => {
     restaurantError: error
   };
 };
+
+export const startLoadingRestaurants = () => ({
+  type: START_LOADING_RESTAURANTS
+});
+
+export const startLoadingRestaurant = () => ({
+  type: START_LOADING_RESTAURANTS
+});

@@ -3,6 +3,7 @@ import * as ReservationAPIUtil from "../util/reservation_api_util";
 export const RECEIVE_RESERVATION = "RECEIVE_RESERVATION";
 export const RECEIVE_RESERVATIONS = "RECEIVE_RESERVATIONS";
 export const RECEIVE_RESERVATION_ERRORS = "RECEIVE_RESERVATION_ERRORS";
+export const START_LOADING_RESERVATIONS = "START_LOADING_RESERVATIONS";
 
 export const submitReservation = reservation => {
   return dispatch => {
@@ -32,6 +33,7 @@ export const fetchReservation = id => {
 
 export const fetchReservations = () => {
   return dispatch => {
+    dispatch(startLoadingReservations());
     return ReservationAPIUtil.fetchReservations().then(
       payload => {
         return dispatch(receiveReservations(payload));
@@ -79,3 +81,7 @@ export const receiveReservationErrors = errors => {
     errors: errors.responseJSON
   };
 };
+
+export const startLoadingReservations = () => ({
+  type: START_LOADING_RESERVATIONS
+});
