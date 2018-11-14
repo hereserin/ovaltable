@@ -22,7 +22,6 @@ class RestaurantIndex extends React.Component {
     if (this.props.loading) {
       return <Spinner />;
     }
-    // if (!this.state.restaurants) return null;
 
     const restaurants = this.props.restaurants.map(restaurant => (
       <RestaurantIndexItem
