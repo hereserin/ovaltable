@@ -45,7 +45,6 @@ const ReservationIndexItem = ({
         </div>
       </section>
       <section className="reservation_index_item_bottom">
-        <button>Modify</button>
         <button
           onClick={() => {
             showReservation(reservation.id);
