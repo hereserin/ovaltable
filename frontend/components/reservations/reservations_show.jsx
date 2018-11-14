@@ -15,11 +15,9 @@ const ReservationShowPage = ({
   cancelReservation,
   closeModal,
   showType,
-  fetchReservations
+  fetchReservations,
+  loading
 }) => {
-  // const message = specialMessage
-  //   ? specialMessage
-  //   : `Your upcoming reservation at ${reservation.restaurant_name}:`;
   let message = `Your upcoming reservation at ${reservation.restaurant_name}:`;
 
   if (showType === "reservation-cancel-confirmation") {

@@ -7,7 +7,7 @@ const RestaurantInfo = ({ restaurant, hours }) => {
       return (
         <li>
           <h3>
-            <i class="far fa-clock" />
+            <i className="far fa-clock" />
             {itemTitleString}
           </h3>
           {restaurantInfoItem}
@@ -16,7 +16,6 @@ const RestaurantInfo = ({ restaurant, hours }) => {
     }
   };
 
-  // debugger
   return (
     <section>
       <section className="restaurant-info-section">
@@ -25,13 +24,13 @@ const RestaurantInfo = ({ restaurant, hours }) => {
             <ul className="rest-details-list-1">
               <li>
                 <h3>
-                  <i class="fas fa-map-marker-alt" /> Location
+                  <i className="fas fa-map-marker-alt" /> Location
                 </h3>
                 {restaurant.physical_address}
               </li>
               <li>
                 <h3>
-                  <i class="fas fa-utensils" /> Dining Style
+                  <i className="fas fa-utensils" /> Dining Style
                 </h3>
                 {restaurant.dining_style}
               </li>
@@ -43,19 +42,19 @@ const RestaurantInfo = ({ restaurant, hours }) => {
 
               <li>
                 <h3>
-                  <i class="fas fa-phone" /> Phone Number
+                  <i className="fas fa-phone" /> Phone Number
                 </h3>
                 {restaurant.phone}
               </li>
               <li>
                 <h3>
-                  <i class="fas fa-external-link-alt" /> Website
+                  <i className="fas fa-external-link-alt" /> Website
                 </h3>
                 {restaurant.website_url}
               </li>
               <li>
                 <h3>
-                  <i class="fas fa-tshirt" /> Dress Code
+                  <i className="fas fa-tshirt" /> Dress Code
                 </h3>
                 {restaurant.dress_code}
               </li>

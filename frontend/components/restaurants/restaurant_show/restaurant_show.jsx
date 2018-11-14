@@ -6,6 +6,7 @@ import MakeReservationFormContainer from "./../../reservations/make_reservation_
 import RestaurantShowBanner from "./restaurant_show_banner";
 import RestaurantShowBar from "./restaurant_show_bar";
 import { withRouter } from "react-router-dom";
+import Spinner from "../../spinner/spinner.jsx";
 
 class RestaurantShowPage extends React.Component {
   constructor(props) {
@@ -17,8 +18,6 @@ class RestaurantShowPage extends React.Component {
     };
   }
   componentDidMount() {
-    let i = 1;
-    i = i + 1;
     this.props
       .fetchRestaurant(this.props.match.params.restaurantId)
       .then(payload => {
@@ -31,11 +30,15 @@ class RestaurantShowPage extends React.Component {
   }
 
   render() {
+    if (this.props.loading) {
+      return <Spinner />;
+    }
+
     if (
       this.state.restaurant == undefined ||
       this.state.restaurant.photos == undefined
     ) {
-      return <div />;
+      return <Spinner />;
     }
 
     return (
@@ -58,8 +61,8 @@ class RestaurantShowPage extends React.Component {
 
             <div id="Photos">
               <RestaurantPhotos
-                photos={this.state.photos}
-                restaurantPicIds={this.state.restaurant.photos}
+                photos={this.props.photos}
+                restaurantPicIds={this.props.restaurant.photos}
               />
             </div>
 

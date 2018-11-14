@@ -13,14 +13,14 @@ import {
 
 const initialState = {
   index: false,
-  item: false
+  showItem: false
 };
 
 const loadingReducer = (state = initialState, action) => {
   Object.freeze(state);
   switch (action.type) {
     case START_LOADING_RESTAURANT:
-      return Object.assign({}, state, { item: true });
+      return Object.assign({}, state, { showItem: true });
     case START_LOADING_RESTAURANTS:
     case START_LOADING_RESERVATIONS:
       return Object.assign({}, state, { index: true });
