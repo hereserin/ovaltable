@@ -27,6 +27,8 @@ const loadingReducer = (state = initialState, action) => {
     case RECEIVE_RESTAURANT:
     case RECEIVE_RESTAURANTS:
     case RECEIVE_RESTAURANT_ERRORS:
+    case RECEIVE_RESERVATIONS:
+    case RECEIVE_RESERVATION_ERRORS:
       return initialState;
     default:
       return state;

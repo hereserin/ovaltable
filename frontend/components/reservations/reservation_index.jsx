@@ -1,6 +1,7 @@
 import React from "react";
 import ReservationIndexItem from "./reservation_index_item";
 import { Route } from "react-router-dom";
+import Spinner from "../spinner/spinner.jsx";
 
 class ReservationIndex extends React.Component {
   constructor(props) {
@@ -24,7 +25,6 @@ class ReservationIndex extends React.Component {
     const reservations = this.props.order.map((reservationId, idx) => {
       const reservation = this.props.reservations[reservationId];
       const restaurant = reservation.restaurant_id;
-      // TODO: REFACTOR TO MAKE THIS DRY, Need to add Thumbnail as its own component
       const thumbId = this.props.restaurants[reservation.restaurant_id]
         .photos[0];
       let thumbnail = window.staticImages.defaultRestaurant;
