@@ -18,7 +18,8 @@ const mapStatetoProps = state => {
     reservations: state.entities.reservations,
     photos: state.entities.photos,
     restaurants: state.entities.restaurants,
-    order: state.order
+    order: state.order,
+    loading: state.ui.loading.index
   };
 };
 

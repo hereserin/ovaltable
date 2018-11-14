@@ -17,6 +17,10 @@ class ReservationIndex extends React.Component {
   }
 
   render() {
+    if (this.props.loading) {
+      return <Spinner />;
+    }
+
     const reservations = this.props.order.map((reservationId, idx) => {
       const reservation = this.props.reservations[reservationId];
       const restaurant = reservation.restaurant_id;
