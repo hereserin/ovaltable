@@ -7,7 +7,7 @@ const mapStatetoProps = state => {
   return {
     restaurants: selectRestaurants(state.entities),
     photos: state.entities.photos,
-    loading: state.ui.loading,
+    loading: state.ui.loading.index,
     state
   };
 };
