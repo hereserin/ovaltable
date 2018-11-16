@@ -28,6 +28,7 @@ const App = () => {
               component={RestaurantIndexSearchSection}
             />
             <Route
+              exact
               path="/restaurants"
               component={RestaurantIndexSearchSection}
             />
