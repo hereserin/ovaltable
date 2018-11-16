@@ -19,4 +19,7 @@ json.photos do
   end
 end
 
+json.order @restaurants.pluck(:id)
+
+
 # TODO: eager loading (restaurant.includes(photo))

@@ -65,11 +65,12 @@ const receiveRestaurant = ({
   };
 };
 
-const receiveRestaurants = ({ restaurants, photos }) => {
+const receiveRestaurants = ({ restaurants, photos, order }) => {
   return {
     type: RECEIVE_RESTAURANTS,
     restaurants: restaurants,
-    photos: photos
+    photos: photos,
+    order: order
   };
 };
 

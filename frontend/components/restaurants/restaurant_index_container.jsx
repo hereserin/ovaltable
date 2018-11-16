@@ -1,11 +1,12 @@
 import { connect } from "react-redux";
 import RestaurantIndex from "./restaurant_index";
-import { selectRestaurants } from "./../../reducers/selectors";
+import { selectRestaurantsFromOrder } from "./../../reducers/selectors";
 import { fetchRestaurants } from "./../../actions/restaurant_actions";
 
 const mapStatetoProps = state => {
   return {
-    restaurants: selectRestaurants(state.entities),
+    restaurants: selectRestaurantsFromOrder(state.entities, state.order),
+    restaurantOrder: state.order,
     photos: state.entities.photos,
     loading: state.ui.loading.index,
     state
