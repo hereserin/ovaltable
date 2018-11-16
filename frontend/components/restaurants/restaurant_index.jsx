@@ -2,6 +2,7 @@ import React from "react";
 import RestaurantIndexItem from "./restaurant_index_item";
 import { Route } from "react-router-dom";
 import Spinner from "../spinner/spinner.jsx";
+import * as QueryParsers from "../search_bar/search_query_parsers";
 
 class RestaurantIndex extends React.Component {
   constructor(props) {
@@ -14,7 +15,8 @@ class RestaurantIndex extends React.Component {
   }
 
   getQueryFromUrl() {
-    return this.props.match.params.query;
+    const queryFromUrl = this.props.match.params.query;
+    return QueryParsers.parseUrlToUserInput(queryFromUrl);
   }
 
   render() {

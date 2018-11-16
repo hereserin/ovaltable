@@ -25,7 +25,8 @@ class SearchBar extends React.Component {
 
   handleSubmit() {
     this.props.searchRestaurants({ query: "anything" });
-    this.props.history.push(`/search/${"this+is+my+search"}`);
+    // this.props.history.push(`/search/${"this+is+my+search"}`);
+    this.props.history.push(`/search/${parseUserInputToUrl()}`);
 
     // this.props.fetchRestaurants().then(({ restaurants, photos }) => {
     //   this.setState({ restaurants, photos });
@@ -44,8 +45,8 @@ class SearchBar extends React.Component {
     return urlQuery.replace(/[^A-Za-z0-9]/g, " ");
   }
 
-  parseUserInputToUrl(userInputQuery) {
-    return userInputQuery.replace(/[^A-Za-z0-9]/g, "+");
+  parseUserInputToUrl() {
+    return this.state.searchTextInput.replace(/[^A-Za-z0-9]/g, "+");
   }
 
   handleSearchTextInput(e) {
