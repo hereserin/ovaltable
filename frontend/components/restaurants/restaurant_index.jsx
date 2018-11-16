@@ -12,17 +12,10 @@ class RestaurantIndex extends React.Component {
     };
   }
 
-  componentDidMount() {
-    this.props.fetchRestaurants().then(({ restaurants, photos }) => {
-      this.setState({ restaurants, photos });
-    });
-  }
-
   render() {
     if (this.props.loading) {
       return <Spinner />;
     }
-
     const restaurants = this.props.restaurants.map(restaurant => (
       <RestaurantIndexItem
         key={restaurant.id}

@@ -1,49 +1,96 @@
-// search bar
-import React from 'react';
-import { Link, withRouter } from 'react-router-dom';
-
+import React from "react";
+import { Link, withRouter } from "react-router-dom";
+import { connect } from "react-redux";
+import {
+  fetchRestaurants,
+  searchRestaurants
+} from "./../../actions/restaurant_actions";
 
 class SearchBar extends React.Component {
-
-  render() {
-    // debugger
-      let classStyle = 'results-search-box';
-      if (['/'].includes(this.props.location.pathname)) {
-        classStyle = 'just-search-box-home';
-      }
-
-
-      // debugger
-
-      return (
-          <fieldset className={classStyle}>
-
-            <span className='date-time-person-holder'>
-              <input type='date' className="date-search" />
-
-              <select className='time-search'>
-                <option value='11:00'>11:00 AM</option>
-                <option value='11:30'>11:30 AM</option>
-                <option value='12:00'>12:00 PM</option>
-                <option value='12:30'>12:30 PM</option>
-                <option value='13:00'>1:00 PM</option>
-                <option value='13:30'>1:30 PM</option>
-              </select>
-
-              <select className='people-search'>
-                <option value='1'>1 person</option>
-                <option value='2'>2 people</option>
-                <option value='3'>3 people</option>
-              </select>
-            </span>
-            <input type='text' placeholder='Search Restaurants' className='search-bar-text'></input>
-
-            <button className='search-submit-button' onClick={()=>{this.props.history.push('/restaurants')}}>Let's go</button>
-          </fieldset>
-      );
-
+  constructor() {
+    super();
+    this.handleSearchTextInput = this.handleSearchTextInput.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+    this.state = {
+      searchTextInput: ""
     };
-
   }
 
-export default withRouter(SearchBar);
+  componentDidMount() {
+    // TODO: make ajax request once the searchBar mounts, grab info from url
+  }
+
+  handleSubmit() {
+    this.props.searchRestaurants({ query: "anything" });
+    this.props.history.push(`/search/${"thisismysearch"}`);
+
+    // this.props.fetchRestaurants().then(({ restaurants, photos }) => {
+    //   this.setState({ restaurants, photos });
+    // });
+  }
+
+  handleSearchTextInput(e) {
+    return this.setState({
+      searchTextInput: e.currentTarget.value
+    });
+  }
+
+  render() {
+    let classStyle = "results-search-box";
+    if (["/"].includes(this.props.location.pathname)) {
+      classStyle = "just-search-box-home";
+    }
+
+    return (
+      <fieldset className={classStyle}>
+        <span className="date-time-person-holder">
+          <input type="date" className="date-search" />
+
+          <select className="time-search">
+            <option value="11:00">11:00 AM</option>
+            <option value="11:30">11:30 AM</option>
+            <option value="12:00">12:00 PM</option>
+            <option value="12:30">12:30 PM</option>
+            <option value="13:00">1:00 PM</option>
+            <option value="13:30">1:30 PM</option>
+          </select>
+
+          <select className="people-search">
+            <option value="1">1 person</option>
+            <option value="2">2 people</option>
+            <option value="3">3 people</option>
+          </select>
+        </span>
+        <input
+          type="text"
+          placeholder="Search Restaurants"
+          className="search-bar-text"
+          value={this.state.searchTextInput}
+          onChange={this.handleSearchTextInput}
+        />
+
+        <button className="search-submit-button" onClick={this.handleSubmit}>
+          Let's go
+        </button>
+      </fieldset>
+    );
+  }
+}
+
+const mapDispatchToProps = dispatch => {
+  return {
+    fetchRestaurants: () => {
+      return dispatch(fetchRestaurants());
+    },
+    searchRestaurants: query => {
+      return dispatch(searchRestaurants(query));
+    }
+  };
+};
+
+export default withRouter(
+  connect(
+    null,
+    mapDispatchToProps
+  )(SearchBar)
+);

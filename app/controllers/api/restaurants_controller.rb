@@ -1,7 +1,7 @@
 class Api::RestaurantsController < ApplicationController
 
   def show
-
+    # debugger
     @restaurant = Restaurant.find(params[:id])
     # @reviews = @restaurant.reviews
     render 'api/restaurants/show'
@@ -17,14 +17,20 @@ class Api::RestaurantsController < ApplicationController
   end
 
   def index
-    @restaurants = Restaurant.includes(:photos).all
+    # debugger
+    puts "#{params[:search_user_input]}"
+    if params[:search_user_input]
+      @restaurants = [Restaurant.includes(:photos).first]
+    else
+      @restaurants = Restaurant.includes(:photos).all
+    end
 
     render 'api/restaurants/index'
   end
 
   private
   def restaurant_params
-    params.require(:restaurant).permit(:restaurant_name, :dining_style_id, :dress_code_id, :regional_key_id)
+    params.require(:restaurant).permit(:restaurant_name, :dining_style_id, :dress_code_id, :regional_key_id, :search_user_input)
   end
 
 

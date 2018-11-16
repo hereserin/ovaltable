@@ -24,7 +24,10 @@ const App = () => {
           <NavBar />
           <Switch>
             <Route
-              exact
+              path="/search/:query"
+              component={RestaurantIndexSearchSection}
+            />
+            <Route
               path="/restaurants"
               component={RestaurantIndexSearchSection}
             />
@@ -37,6 +40,7 @@ const App = () => {
             path="/restaurants"
             component={RestaurantIndexContainer}
           />
+          <Route path="/search/:query" component={RestaurantIndexContainer} />
 
           <Route
             path="/restaurants/:restaurantId"

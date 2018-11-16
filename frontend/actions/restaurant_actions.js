@@ -20,10 +20,24 @@ export const fetchRestaurant = id => {
   };
 };
 
-export const fetchRestaurants = () => {
+export const fetchRestaurants = search => {
   return dispatch => {
     dispatch(startLoadingRestaurants());
-    return RestaurantAPIUtil.fetchRestaurants().then(
+    return RestaurantAPIUtil.fetchRestaurants(search).then(
+      payload => {
+        return dispatch(receiveRestaurants(payload));
+      },
+      error => {
+        return dispatch(receiveRestaurantErrors(error));
+      }
+    );
+  };
+};
+
+export const searchRestaurants = search => {
+  return dispatch => {
+    dispatch(startLoadingRestaurants());
+    return RestaurantAPIUtil.searchRestaurants(search).then(
       payload => {
         return dispatch(receiveRestaurants(payload));
       },

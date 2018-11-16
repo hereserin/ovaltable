@@ -30,12 +30,6 @@ class HomepageSearchSection extends React.Component {
     }, 6500);
   }
 
-  // componentWillMount() {
-  //   if (this.state.setSlideShowTimeout) {
-  //     console.log(this.state.setSlideShowTimeout());
-  //   }
-  // }
-
   componentWillUnmount() {
     clearInterval(this.state.setSlideShowTimeout);
   }
