@@ -11,6 +11,9 @@ class SearchBar extends React.Component {
     super();
     this.handleSearchTextInput = this.handleSearchTextInput.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.decidePlaceholder = this.decidePlaceholder.bind(this);
+    this.parseUrlToUserInput = this.parseUrlToUserInput.bind(this);
+
     this.state = {
       searchTextInput: ""
     };
@@ -22,11 +25,27 @@ class SearchBar extends React.Component {
 
   handleSubmit() {
     this.props.searchRestaurants({ query: "anything" });
-    this.props.history.push(`/search/${"thisismysearch"}`);
+    this.props.history.push(`/search/${"this+is+my+search"}`);
 
     // this.props.fetchRestaurants().then(({ restaurants, photos }) => {
     //   this.setState({ restaurants, photos });
     // });
+  }
+
+  decidePlaceholder() {
+    const placeholder = this.props.match.params.query
+      ? this.parseUrlToUserInput()
+      : "Search Restaurants";
+    return placeholder;
+  }
+
+  parseUrlToUserInput() {
+    const urlQuery = this.props.match.params.query;
+    return urlQuery.replace(/[^A-Za-z0-9]/g, " ");
+  }
+
+  parseUserInputToUrl(userInputQuery) {
+    return userInputQuery.replace(/[^A-Za-z0-9]/g, "+");
   }
 
   handleSearchTextInput(e) {
@@ -63,7 +82,7 @@ class SearchBar extends React.Component {
         </span>
         <input
           type="text"
-          placeholder="Search Restaurants"
+          placeholder={this.decidePlaceholder()}
           className="search-bar-text"
           value={this.state.searchTextInput}
           onChange={this.handleSearchTextInput}

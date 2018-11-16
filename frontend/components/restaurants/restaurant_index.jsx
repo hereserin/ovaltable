@@ -6,10 +6,15 @@ import Spinner from "../spinner/spinner.jsx";
 class RestaurantIndex extends React.Component {
   constructor(props) {
     super(props);
+    this.getQueryFromUrl = this.getQueryFromUrl.bind(this);
     this.state = {
       restaurants: null,
       photos: null
     };
+  }
+
+  getQueryFromUrl() {
+    return this.props.match.params.query;
   }
 
   render() {
@@ -23,10 +28,9 @@ class RestaurantIndex extends React.Component {
         photos={this.props.photos}
       />
     ));
-
     return (
       <section>
-        <p>Results:</p>
+        <p>Search results for: {this.getQueryFromUrl()}</p>
         <ul>{restaurants}</ul>
       </section>
     );
