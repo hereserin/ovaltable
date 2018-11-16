@@ -1,6 +1,7 @@
 class Api::SearchController < ApplicationController
 
   def index
+    
     puts "#{params[:query]}"
     if params[:query]
       @restaurants = [Restaurant.includes(:photos).first]

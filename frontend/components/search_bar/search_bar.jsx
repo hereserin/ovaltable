@@ -25,7 +25,7 @@ class SearchBar extends React.Component {
   }
 
   handleSubmit() {
-    this.props.searchRestaurants({ query: "anything" });
+    this.props.searchRestaurants({ query: this.state.searchTextInput });
     this.props.history.push(`/search/=${this.parseUserInputToUrl()}`);
   }
 
