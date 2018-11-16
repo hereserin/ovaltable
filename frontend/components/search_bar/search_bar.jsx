@@ -26,12 +26,7 @@ class SearchBar extends React.Component {
 
   handleSubmit() {
     this.props.searchRestaurants({ query: "anything" });
-    // this.props.history.push(`/search/${"this+is+my+search"}`);
-    this.props.history.push(`/search/${this.parseUserInputToUrl()}`);
-
-    // this.props.fetchRestaurants().then(({ restaurants, photos }) => {
-    //   this.setState({ restaurants, photos });
-    // });
+    this.props.history.push(`/search/=${this.parseUserInputToUrl()}`);
   }
 
   decidePlaceholder() {
