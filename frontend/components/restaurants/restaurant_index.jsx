@@ -16,7 +16,12 @@ class RestaurantIndex extends React.Component {
 
   getQueryFromUrl() {
     const queryFromUrl = this.props.match.params.query;
-    return QueryParsers.parseUrlToUserInput(queryFromUrl);
+    const queryText = QueryParsers.parseUrlToUserInput(queryFromUrl);
+    if (queryText.length === 1) {
+      // equal to 1 b/c the equal sign will leave 1 blank (space) char
+      return "(blank)";
+    }
+    return queryText;
   }
 
   render() {
