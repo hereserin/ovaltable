@@ -1,13 +1,12 @@
 class Api::SearchController < ApplicationController
 
   def index
-    
+
     puts "#{params[:query]}"
-    if params[:query]
-      @restaurants = [Restaurant.includes(:photos).first]
+    if params[:query].empty?
+      @restaurants = Restaurant.includes(:photos).all
     else
       @restaurants = [Restaurant.includes(:photos).first]
-      # @restaurants = Restaurant.includes(:photos).all
     end
 
     render 'api/restaurants/index'
