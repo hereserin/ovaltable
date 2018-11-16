@@ -32,7 +32,9 @@ class RestaurantIndex extends React.Component {
     ));
     return (
       <section>
-        <p>Search results for: {this.getQueryFromUrl()}</p>
+        <p>
+          Search results for: <strong>{this.getQueryFromUrl()}</strong>
+        </p>
         <ul>{restaurants}</ul>
       </section>
     );

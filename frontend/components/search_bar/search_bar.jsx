@@ -5,6 +5,7 @@ import {
   fetchRestaurants,
   searchRestaurants
 } from "./../../actions/restaurant_actions";
+import * as QueryParsers from "./search_query_parsers";
 
 class SearchBar extends React.Component {
   constructor() {
@@ -26,7 +27,7 @@ class SearchBar extends React.Component {
   handleSubmit() {
     this.props.searchRestaurants({ query: "anything" });
     // this.props.history.push(`/search/${"this+is+my+search"}`);
-    this.props.history.push(`/search/${parseUserInputToUrl()}`);
+    this.props.history.push(`/search/${this.parseUserInputToUrl()}`);
 
     // this.props.fetchRestaurants().then(({ restaurants, photos }) => {
     //   this.setState({ restaurants, photos });
@@ -46,7 +47,9 @@ class SearchBar extends React.Component {
   }
 
   parseUserInputToUrl() {
-    return this.state.searchTextInput.replace(/[^A-Za-z0-9]/g, "+");
+    // return this.state.searchTextInput.replace(/[^A-Za-z0-9]/g, "+");
+    const userQueryInput = this.state.searchTextInput;
+    return QueryParsers.parseUserInputToUrl(userQueryInput);
   }
 
   handleSearchTextInput(e) {
