@@ -6,9 +6,8 @@ const Greeting = props => {
   let greetingMessage;
 
   const goToReservationsIndex = () => {
-    props.fetchReservations().then(() => {
-      props.history.push(`/user/${[props.currentUser.id]}/reservations`);
-    });
+    props.history.push(`/user/${[props.currentUser.id]}/reservations`);
+    props.fetchReservations();
   };
 
   if (props.currentUser) {
