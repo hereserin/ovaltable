@@ -53,7 +53,6 @@ class Restaurant < ApplicationRecord
 
 
   def show_banner
-    # <Photo id: 3, photo_url: nil, restaurant_id: 9, user_id: 5, caption: nil>
     @show_banner ||= (self.photos.first || nil )
     @show_banner
   end
@@ -86,7 +85,34 @@ class Restaurant < ApplicationRecord
     self.dress_code.dress_code
   end
 
-  # def average_ratings
+  def self.search(q_arr)
+
+    if q_arr.length == 1
+      return Restaurant
+      .includes(:photos)
+      .where("restaurant_name LIKE ? OR restaurant_description LIKE ?",
+        "%#{q_arr[0]}%",
+        "%#{q_arr[0]}%")
+    end
+
+    Restaurant
+    .includes(:photos)
+    .where("restaurant_name LIKE ? OR restaurant_description LIKE ?",
+      "%#{q_arr[-1]}%",
+      "%#{q_arr[-1]}%")
+      .or(Restaurant.search(q_arr[0..-2]))
+
+  end
+
+  # def search_match_score
+  #   @search_match_score || 0
   # end
+  #
+  # def search_match_score=(score)
+  #   @search_match_score = score
+  # end
+  #
+  # # def average_ratings
+  # # end
 
 end
