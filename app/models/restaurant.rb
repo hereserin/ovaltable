@@ -90,16 +90,16 @@ class Restaurant < ApplicationRecord
     if q_arr.length == 1
       return Restaurant
       .includes(:photos)
-      .where("restaurant_name LIKE ? OR restaurant_description LIKE ?",
-        "%#{q_arr[0]}%",
-        "%#{q_arr[0]}%")
+      .where("lower(restaurant_name) LIKE ? OR lower(restaurant_description) LIKE ?",
+        "%#{q_arr[0].downcase}%",
+        "%#{q_arr[0].downcase}%")
     end
 
     Restaurant
     .includes(:photos)
-    .where("restaurant_name LIKE ? OR restaurant_description LIKE ?",
-      "%#{q_arr[-1]}%",
-      "%#{q_arr[-1]}%")
+    .where("lower(restaurant_name) LIKE ? OR lower(restaurant_description) LIKE ?",
+      "%#{q_arr[-1].downcase}%",
+      "%#{q_arr[-1].downcase}%")
       .or(Restaurant.search(q_arr[0..-2]))
 
   end
