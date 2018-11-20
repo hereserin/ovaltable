@@ -11,6 +11,12 @@ const RestaurantIndexItem = props => {
     thumbnail = window.staticImages.defaultRestaurant;
   }
 
+  let restDescription = props.restaurant.restaurant_description;
+  debugger;
+  if (restDescription.length > 300) {
+    restDescription = restDescription.slice(0, 300) + "...";
+  }
+
   return (
     <li className="restaurant_index_item">
       <div className="restaurant-index-item-thumbnail-holder">
@@ -31,7 +37,7 @@ const RestaurantIndexItem = props => {
           {props.restaurant.restaurant_name}
         </h3>
         <ShowStarRating numberOfStars={props.restaurant.rating} />
-        {props.restaurant.restaurant_description}
+        {restDescription}
       </div>
     </li>
   );
