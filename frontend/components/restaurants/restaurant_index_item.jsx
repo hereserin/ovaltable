@@ -12,7 +12,6 @@ const RestaurantIndexItem = props => {
   }
 
   let restDescription = props.restaurant.restaurant_description;
-  debugger;
   if (restDescription.length > 300) {
     restDescription = restDescription.slice(0, 300) + "...";
   }

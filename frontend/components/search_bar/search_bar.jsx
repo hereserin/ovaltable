@@ -13,6 +13,7 @@ class SearchBar extends React.Component {
     this.handleSearchTextInput = this.handleSearchTextInput.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.decidePlaceholder = this.decidePlaceholder.bind(this);
+    this.decideTextValue = this.decideTextValue.bind(this);
     this.parseUrlToUserInput = this.parseUrlToUserInput.bind(this);
 
     this.state = {
@@ -31,9 +32,16 @@ class SearchBar extends React.Component {
 
   decidePlaceholder() {
     const placeholder = this.props.match.params.query
-      ? this.parseUrlToUserInput()
+      ? ""
       : "Search Restaurants";
     return placeholder;
+  }
+
+  decideTextValue() {
+    const textValue = this.props.match.params.query
+      ? this.parseUrlToUserInput()
+      : "";
+    return textValue;
   }
 
   parseUrlToUserInput() {
