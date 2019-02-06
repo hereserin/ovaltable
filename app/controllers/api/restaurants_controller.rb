@@ -1,7 +1,7 @@
 class Api::RestaurantsController < ApplicationController
 
   def show
-    # debugger
+
     @restaurant = Restaurant.find(params[:id])
     # @reviews = @restaurant.reviews
     render 'api/restaurants/show'
@@ -17,7 +17,7 @@ class Api::RestaurantsController < ApplicationController
   end
 
   def index
-    # debugger
+    
     puts "#{params[:search_user_input]}"
     if params[:search_user_input]
       @restaurants = [Restaurant.includes(:photos).first]
