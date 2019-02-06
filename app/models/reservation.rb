@@ -1,4 +1,5 @@
 class Reservation < ApplicationRecord
+  validates :date_and_time, presence: true 
 
   belongs_to :user,
   class_name: :User
