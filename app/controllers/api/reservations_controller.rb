@@ -15,7 +15,8 @@ class Api::ReservationsController < ApplicationController
     }
 
     @reservation = Reservation.new(res_params)
- 
+    
+
     if @reservation.save
       render 'api/reservations/show'
     else
@@ -54,14 +55,14 @@ class Api::ReservationsController < ApplicationController
   end
 
   def time_to_military(time)
-
     t = time.split("")
     ampm = t.pop(2)
     t2 = t.join("").split(":")
     h = t2[0].to_i
     m = t2[1]
 
-    h = h + 12 if ampm == "PM" && h != 12
+
+    h = h + 12 if ampm == ["P","M"] && h != 12
 
     h = h.to_s
     h = "0" + h if h.length == 1
