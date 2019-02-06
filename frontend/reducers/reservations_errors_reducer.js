@@ -15,7 +15,7 @@ const reservationsErrorsReducer = (state = initialState, action) => {
     case RECEIVE_RESERVATIONS:
       return initialState;
     default:
-      return state;
+      return initialState;
   }
 };
 
