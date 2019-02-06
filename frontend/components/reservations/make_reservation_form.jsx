@@ -97,7 +97,7 @@ class MakeReservationForm extends React.Component {
     return (
       <form className="make-res-form" onSubmit={this.handleSubmit}>
         <h2>Make a reservation </h2>
-        <ul>{this.renderErrors()}</ul>
+        {this.renderErrors()}
         <div className="make-res-form-field-a">
           <h5>Party Size</h5>
           <label>
