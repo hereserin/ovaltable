@@ -5,7 +5,8 @@ class MakeReservationForm extends React.Component {
     super(props);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleChange = this.handleChange.bind(this);
-    this.errors = null;
+    this.renderErrors = this.renderErrors.bind(this);
+    // this.errors = null;
 
     this.state = {
       party_size: 2,
@@ -55,36 +56,28 @@ class MakeReservationForm extends React.Component {
                 `/user/${[this.props.currentUserId]}/reservations`
               )
           );
-      },
-      errors => this.renderErrors(errors)
+      }
+      // errors => this.renderErrors(errors)
     );
 
     // this.props.history.push(`/reservations/${}`)
   }
 
-  renderErrors(errors) {
-    const errorsListItems = errors.map((error, idx) => (
+  renderErrors() {
+    const errorsListItems = this.props.errors.map((error, idx) => (
       <li key={idx}>{error}</li>
     ));
 
-    this.errors = <ul className="form-errors">{errorsListItems}</ul>;
+    return <ul className="form-errors">{errorsListItems}</ul>;
   }
-  // errorsList() {
-  //   const currentErrors = this.props.errors.map((error, idx) => {
-  //     return <li key={idx}>{error}</li>;
-  //   });
-  //   return <ul className="form-errors">{currentErrors}</ul>;
-  // }
 
   render() {
-    // debugger
     if (!this.props.restaurant.hours_of_operation_ids) return <div />;
 
     let party_size_arr = [];
     for (var i = 2; i < 21; i++) {
       party_size_arr.push(i);
     }
-    // debugger
 
     let party_size_options = party_size_arr.map((num, idx) => (
       <option key={idx} value={num}>
@@ -109,7 +102,7 @@ class MakeReservationForm extends React.Component {
     return (
       <form className="make-res-form" onSubmit={this.handleSubmit}>
         <h2>Make a reservation </h2>
-        <ul>{this.errors}</ul>
+        <ul>{this.renderErrors()}</ul>
         <div className="make-res-form-field-a">
           <h5>Party Size</h5>
           <label>
