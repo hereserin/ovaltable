@@ -15,6 +15,7 @@ class Api::ReservationsController < ApplicationController
     }
 
     @reservation = Reservation.new(res_params)
+ 
     if @reservation.save
       render 'api/reservations/show'
     else
@@ -45,7 +46,9 @@ class Api::ReservationsController < ApplicationController
   end
 
   def params_to_datetime_object(date_string, time_string)
-
+    if date_string == nil || time_string == nil
+      return nil
+    end
     datetime_string = date_string + "T" + time_to_military(time_string)
     DateTime.iso8601(datetime_string)
   end
